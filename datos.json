@@ -1,0 +1,282 @@
+{
+  "proyectos": [
+    {
+      "id": "galpon-suite",
+      "nombre": "Galpón Suite",
+      "lugar": "Casa nómade · Prototipo",
+      "datos": "73,6 m²",
+      "tag": "Proyecto",
+      "foto": "fotos/galpon-suite/galpon-suite-01.jpg",
+      "fotos": [
+        "fotos/galpon-suite/galpon-suite-01.jpg",
+        "fotos/galpon-suite/galpon-suite-02.jpg",
+        "fotos/galpon-suite/galpon-suite-03.jpg",
+        "fotos/galpon-suite/galpon-suite-04.jpg"
+      ],
+      "descripcion": "El Galpón Suite es una vivienda prefabricada en CLT diseñada especialmente para las condiciones climáticas y topográficas del sur de Chile. Su propuesta rescata la esencia de la vida sureña ofreciendo una experiencia auténtica y funcional en un volumen flexible de dos niveles, combinando la tradición constructiva en madera con la innovación tecnológica.\n\nLa estructura, sólida y de fácil ensamblaje, permite una construcción rápida y duradera que absorbe carbono atmosférico. Revestida con materiales naturales, destaca por su eficiencia energética y confort térmico superior.\n\nDiseñado como prototipo replicable, el Galpón Suite puede ensamblarse en cualquier lugar y en cualquier momento, adaptándose a distintas geografías y contextos del sur de Chile sin perder su identidad ni su rendimiento.",
+      "ficha": {
+        "año": "",
+        "superficie": "73,6 m²",
+        "ubicacion": "Prototipo",
+        "programa": "Refugio · 1 dorm · 1 baño · cocina-comedor · estar · oficina"
+      }
+    }
+  ],
+  "obras": [
+    {
+      "id": "casa-palenque",
+      "nombre": "Casa Palenque",
+      "lugar": "Isla San Francisco, Valdivia",
+      "datos": "2024 · 138 m²",
+      "tag": "Obra terminada",
+      "foto": "fotos/casa-palenque/casa-palenque-01.jpg",
+      "fotos": [
+        "fotos/casa-palenque/casa-palenque-01.jpg",
+        "fotos/casa-palenque/casa-palenque-02.jpg",
+        "fotos/casa-palenque/casa-palenque-03.jpg",
+        "fotos/casa-palenque/casa-palenque-04.jpg",
+        "fotos/casa-palenque/casa-palenque-05.jpg",
+        "fotos/casa-palenque/casa-palenque-06.jpg",
+        "fotos/casa-palenque/casa-palenque-07.jpg"
+      ],
+      "descripcion": "Casa Palenque propone una nueva forma de habitar en diálogo con la naturaleza protegida de la Isla San Francisco. Su dualidad arquitectónica es su sello: al oriente, una fachada de madera evoca la memoria constructiva local; al poniente, un invernadero de vidrio se abre al paisaje, actuando como acceso, espacio flexible y sistema solar pasivo que aporta luz, confort térmico y refugio frente a las lluvias.\n\nLa estructura de pino radiata y madera laminada incorpora tecnología robótica de precisión. La fachada ventilada en pino marítimo refuerza la durabilidad, mientras los acabados interiores con aceite de linaza y pigmentos minerales garantizan espacios saludables. Cada encuentro constructivo elimina puentes térmicos y asegura continuidad de la aislación.\n\nLa cocina a leña abastece calefacción y agua caliente mediante termosifón, complementada con termo eléctrico en verano. El diseño flexible permite a los habitantes transformar los espacios según sus necesidades.",
+      "ficha": {
+        "año": "2024",
+        "superficie": "138 m²",
+        "ubicacion": "Isla San Francisco, Valdivia",
+        "programa": "Vivienda unifamiliar · 3 hab · 2 baños · living · comedor · cocina · estar · invernadero"
+      }
+    },
+    {
+      "id": "la-regalona",
+      "nombre": "La Regalona",
+      "lugar": "Río San Pedro, Valdivia",
+      "datos": "2024 · 58 m²",
+      "tag": "Obra terminada",
+      "foto": "fotos/la-regalona/la-regalona-01.jpg",
+      "fotos": [
+        "fotos/la-regalona/la-regalona-01.jpg",
+        "fotos/la-regalona/la-regalona-02.jpg",
+        "fotos/la-regalona/la-regalona-03.jpg",
+        "fotos/la-regalona/la-regalona-04.jpg",
+        "fotos/la-regalona/la-regalona-05.jpg",
+        "fotos/la-regalona/la-regalona-06.jpg",
+        "fotos/la-regalona/la-regalona-07.jpg"
+      ],
+      "descripcion": "La Regalona es una vivienda enraizada en el paisaje fluvial y la cultura constructiva del sur de Chile. Su diseño dialoga con la tipología rural tradicional —cubierta a dos aguas y chiflonera— reinterpretada con una estética contemporánea marcada por el uso del shou sugi ban, técnica japonesa de carbonización de madera que integra la casa en su entorno y la distingue de las construcciones convencionales.\n\nEn 58 m² repartidos entre planta baja y altillo, el espacio se organiza con precisión: un amplio ventanal norte inunda de luz la zona estar-comedor-cocina en doble altura, mientras los aleros y la disposición de los vanos optimizan las ganancias solares y mitigan el sobrecalentamiento en verano.\n\nEl resultado es una vivienda de escala humana, sustentable y eficiente, con aislación térmica superior a la norma chilena, que equilibra patrimonio e identidad local con las necesidades del habitar contemporáneo.",
+      "ficha": {
+        "año": "2024",
+        "superficie": "58 m²",
+        "ubicacion": "Río San Pedro, Valdivia",
+        "programa": "Vivienda unifamiliar · 1 hab · 1 baño · living · comedor · cocina · altillo"
+      }
+    },
+    {
+      "id": "monte-chico",
+      "nombre": "Monte Chico",
+      "lugar": "Fundo La Leona, Futrono",
+      "datos": "2022 · 114 m²",
+      "tag": "Obra terminada",
+      "foto": "fotos/monte-chico/monte-chico-01.jpg",
+      "fotos": [
+        "fotos/monte-chico/monte-chico-01.jpg",
+        "fotos/monte-chico/monte-chico-02.jpg",
+        "fotos/monte-chico/monte-chico-03.jpg",
+        "fotos/monte-chico/monte-chico-04.jpg",
+        "fotos/monte-chico/monte-chico-05.jpg",
+        "fotos/monte-chico/monte-chico-06.jpg",
+        "fotos/monte-chico/monte-chico-07.jpg",
+        "fotos/monte-chico/monte-chico-08.jpg",
+        "fotos/monte-chico/monte-chico-09.jpg"
+      ],
+      "descripcion": "Vivienda inspirada en el bosque nativo y la tradición constructiva del sur de Chile. La presencia del paisaje orientó la elección de la madera como material protagonista, y el diseño interior invita a la convivencia y al encuentro, abriendo los espacios hacia las múltiples vistas que ofrece el entorno.\n\nLa construcción se organiza en capas: en el centro, una estufa a leña y un puente metálico actúan como corazón térmico y estructural, sosteniendo los tijerales del techo y manteniendo seco el revestimiento interior de ciprés. Sobre este esqueleto, la casa se reviste con paneles SIP de 200 mm, terminados exteriormente con una piel ventilada de tejas de alerce recicladas.\n\nEl volumen compacto, coronado por un techo a dos aguas, evoca la tipología del galpón tradicional sureño. Las puertas y ventanas se disponen estratégicamente en relación con las corrientes de aire, el recorrido solar y las lluvias dominantes. El diseño supera la normativa térmica vigente mediante termopaneles, vidrios laminados y aislación de alto estándar.",
+      "ficha": {
+        "año": "2022",
+        "superficie": "114 m²",
+        "ubicacion": "Fundo La Leona, Futrono",
+        "programa": "Vivienda unifamiliar · 3 hab · 2 baños · living · comedor · cocina · altillo"
+      }
+    },
+    {
+      "id": "la-leneria",
+      "nombre": "La Leñería",
+      "lugar": "Isla San Francisco, Valdivia",
+      "datos": "2025 · 281 m²",
+      "tag": "En construcción",
+      "foto": "fotos/la-leneria/la-leneria-01.jpg",
+      "fotos": [
+        "fotos/la-leneria/la-leneria-01.jpg",
+        "fotos/la-leneria/la-leneria-02.jpg",
+        "fotos/la-leneria/la-leneria-03.jpg",
+        "fotos/la-leneria/la-leneria-04.jpg",
+        "fotos/la-leneria/la-leneria-05.jpg"
+      ],
+      "descripcion": "La Casa Leñería se concibe como una vivienda en madera en armonía con el paisaje del río Valdivia. Su diseño integra arquitectura y paisajismo, incorporando un humedal depurador y orientando las vistas hacia los humedales de la Isla San Francisco. La distribución longitudinal organiza la vida familiar en torno a un espacio central, reservando un ala para uso permanente de sus propietarios.\n\nLa modelización detallada permite un uso eficiente de los materiales con pérdidas mínimas y mayor rapidez de montaje. Los ensambles tradicionales son modelados digitalmente y ejecutados en taller mediante tecnología robótica, para luego ser ensamblados en obra con precisión milimétrica.\n\nEl proyecto busca una integración total con el territorio natural protegido, privilegiando la relación con el entorno por sobre cualquier otro criterio de diseño.",
+      "ficha": {
+        "año": "2025 · En construcción",
+        "superficie": "281 m²",
+        "ubicacion": "Isla San Francisco, Valdivia",
+        "programa": "Vivienda unifamiliar · 3 hab · 3 baños · living · comedor · cocina · galería · quincho · sala multiuso"
+      }
+    }
+  ],
+  "publicaciones": [
+    {
+      "medio": "AMBIENTES",
+      "tipo": "Revista de arquitectura",
+      "titulo": "Casa Vivero por la firma chilena Azimut 180°",
+      "año": "",
+      "link": "https://ambientesdigital.com/casa-vivero-azimut-180/",
+      "foto": ""
+    },
+    {
+      "medio": "ArchDaily en Español",
+      "tipo": "Revista de arquitectura",
+      "titulo": "Casa Palenque / Azimut 180°",
+      "año": "",
+      "link": "https://www.archdaily.cl/cl/1032225/casa-palenque-azimut-180-degrees",
+      "foto": ""
+    },
+    {
+      "medio": "Experiencia Rúa salón",
+      "tipo": "Prensa general",
+      "titulo": "Azimut 180: Madera. Identidad. Sostenibilidad.",
+      "año": "",
+      "link": "https://ruasalon.cl/azimut-180-madera-identidad-sostenibilidad/",
+      "foto": ""
+    },
+    {
+      "medio": "ArchDaily en Español",
+      "tipo": "Revista de arquitectura",
+      "titulo": "Casa La Regalona / Azimut 180°",
+      "año": "",
+      "link": "https://www.archdaily.cl/cl/1026075/casa-la-regalona-azimut-180-degrees",
+      "foto": ""
+    },
+    {
+      "medio": "WoodArch",
+      "tipo": "Instagram",
+      "titulo": "Casa Palenque",
+      "año": "",
+      "link": "https://www.instagram.com/p/DFnOmfXxEIY/",
+      "foto": ""
+    },
+    {
+      "medio": "Revista Casa Abierta",
+      "tipo": "Instagram",
+      "titulo": "Casa Palenque",
+      "año": "",
+      "link": "https://www.instagram.com/p/DM0Ks8OR_Vh/",
+      "foto": ""
+    },
+    {
+      "medio": "Top Cabins",
+      "tipo": "Instagram",
+      "titulo": "La Regalona House by Azimut 180°",
+      "año": "",
+      "link": "https://www.instagram.com/p/DVD5rRHjMPz/",
+      "foto": ""
+    },
+    {
+      "medio": "Micro Homes",
+      "tipo": "Instagram",
+      "titulo": "La Regalona House by Azimut 180°",
+      "año": "",
+      "link": "https://www.instagram.com/p/DU_Mx54ghVf/",
+      "foto": ""
+    },
+    {
+      "medio": "Tierra Fertil - Isla San Francisco",
+      "tipo": "Instagram",
+      "titulo": "Casa Palenque",
+      "año": "",
+      "link": "https://www.instagram.com/p/DSLOSuMkQNN/",
+      "foto": ""
+    },
+    {
+      "medio": "Wood Arch",
+      "tipo": "Instagram",
+      "titulo": "Los 10 proyectos más populares del 2025 / 2. Casa Palenque",
+      "año": "",
+      "link": "https://www.instagram.com/p/DS2p276iBLf/",
+      "foto": ""
+    },
+    {
+      "medio": "Jidipi",
+      "tipo": "Revista de arquitectura",
+      "titulo": "La Regalona House",
+      "año": "2026",
+      "link": "https://architectures.jidipi.com/j00110416/en/la-regalona-house",
+      "foto": ""
+    }
+  ],
+  "equipo": [
+    {
+      "nombre": "Matthias Niehaus del Solar",
+      "rol": "Fundador · Jefe de Proyectos",
+      "formacion": "Arquitecto UDD · Mg. Entornos Sostenibles UACh",
+      "email": "matniehaus@az180.cl"
+    },
+    {
+      "nombre": "Josefina Quezada Ortega",
+      "rol": "Desarrollo Anteproyectos",
+      "formacion": "Arquitecta UChile",
+      "email": "josefinaq@az180.cl"
+    },
+    {
+      "nombre": "Silvana Soto Chávez",
+      "rol": "Desarrollo Proyectos",
+      "formacion": "Arquitecta UACh",
+      "email": "silvanasoto@az180.cl"
+    },
+    {
+      "nombre": "Sebastián Baez Pérez",
+      "rol": "Desarrollo Proyectos",
+      "formacion": "Arquitecto UACh · Diplomado Eficiencia Energética UACH",
+      "email": "sebastian.baez@az180.cl"
+    },
+    {
+      "nombre": "Beatriz Urzúa Cruzat",
+      "rol": "Desarrollo Anteproyectos",
+      "formacion": "Arquitecta UVM · Diplomado Arquitectura Sustentable UC",
+      "email": "beatrizurzua@az180.cl"
+    },
+    {
+      "nombre": "Santiago Loeser Edwards",
+      "rol": "Operación y Logística en Construcción",
+      "formacion": "Ing. Civil Estructural PUC",
+      "email": "santiago.l@az180.cl"
+    },
+    {
+      "nombre": "Gonzalo Ramoneda Figueroa",
+      "rol": "Administración y Finanzas",
+      "formacion": "",
+      "email": "administracion@az180.cl"
+    }
+  ],
+  "contacto": {
+    "personas": [
+      {
+        "nombre": "Matthias Niehaus del Solar",
+        "rol": "Proyectos y diseño",
+        "telefono": "+56 9 9998 2581",
+        "email": "matniehaus@az180.cl"
+      },
+      {
+        "nombre": "Beatriz Urzúa Cruzat",
+        "rol": "Proyectos y diseño",
+        "telefono": "+56 9 9485 7823",
+        "email": "beatrizurzua@az180.cl"
+      },
+      {
+        "nombre": "Gonzalo Ramoneda Figueroa",
+        "rol": "Administración y finanzas",
+        "telefono": "+56 9 7409 5031",
+        "email": "administracion@az180.cl"
+      }
+    ],
+    "direccion": "Av. Ramón Picarte 780, Oficina 303\nValdivia, Región de Los Ríos",
+    "instagram": "https://www.instagram.com/az180.cl/",
+    "instagram_handle": "@az180.cl"
+  }
+}

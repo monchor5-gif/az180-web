@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azimut 180° — Deja tu CV</title>
+  <meta name="description" content="Deja tu CV en Azimut 180°, estudio de arquitectura y dirección de obras en Valdivia." />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GB6KCJKECS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GB6KCJKECS');
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Azimut 180° — Deja tu CV" />
+  <meta property="og:description" content="Deja tu CV en Azimut 180°, en Valdivia." />
+  <meta property="og:image" content="https://az180.cl/fotos/casa-palenque/casa-palenque-01.jpg" />
+  <meta property="og:url" content="https://az180.cl/cv.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CL" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --font: 'Segoe UI', Segoe, Tahoma, Geneva, sans-serif;
+      --bg: rgb(245, 241, 229);
+      --negro: #111;
+      --gris: #55534c;          /* texto secundario: contraste ~7:1 */
+      --gris-suave: #6b675c;    /* texto terciario / placeholders */
+      --t-micro: 0.72rem;
+      --t-small: 0.85rem;
+      --t-body: 0.95rem;
+      --gris-claro: #d8d4c8;
+      --borde: #dedad0;
+      --sidebar: 340px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 18px; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--negro);
+      min-height: 100vh;
+    }
+
+    /* ══ SIDEBAR ══ */
+    aside {
+      position: fixed;
+      top: 0; left: 0;
+      width: var(--sidebar);
+      height: 100vh;
+      padding: 44px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .logo-wrap { margin-bottom: 52px; text-align: center; width: 100%; }
+    .logo-link { display: inline-block; transition: opacity 0.2s; }
+    .logo-link:hover { opacity: 0.6; }
+    .logo-wrap svg { width: 140px; height: 146px; display: block; margin: 0 auto; }
+    .logo-sub {
+      margin-top: 2px;
+      font-size: 0.64rem;
+      letter-spacing: 0.12em;
+      color: var(--gris);
+      text-transform: uppercase;
+      font-weight: 400;
+      line-height: 1.9;
+      text-align: center;
+    }
+
+    nav { display: flex; flex-direction: column; gap: 4px; flex: 1; align-items: center; width: 100%; }
+
+    nav a {
+      font-size: var(--t-body);
+      font-weight: 400;
+      color: var(--gris);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      padding: 4px 0;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 2px;
+      width: 0; height: 1px;
+      background: var(--negro);
+      transition: width 0.25s;
+    }
+
+    nav a:hover, nav a.active { color: var(--negro); }
+    nav a.active::after, nav a:hover::after { width: 100%; }
+
+    .sociales {
+      display: flex;
+      gap: 16px;
+      padding-top: 28px;
+      border-top: 1px solid var(--gris-claro);
+    }
+
+    .sociales a {
+      color: var(--gris);
+      text-decoration: none;
+      font-size: var(--t-micro);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sociales a:hover { color: var(--negro); }
+
+    /* ══ MAIN ══ */
+    main { margin-left: var(--sidebar); padding: 0 calc(var(--sidebar) / 2) 100px 48px; }
+
+    section { padding-top: 80px; padding-bottom: 40px; }
+
+    .section-label {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      color: var(--negro);
+      margin-bottom: 20px;
+      font-weight: 300;
+      width: 38.2%;
+      text-align: right;
+      padding-right: 32px;
+    }
+
+    /* ══ INTRO ══ */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 38.2% 61.8%;
+      gap: 0;
+      margin-bottom: 24px;
+      align-items: start;
+    }
+
+    .intro-titulo {
+      font-size: 1.5rem;
+      font-weight: 300;
+      line-height: 1.4;
+      color: var(--negro);
+      letter-spacing: -0.01em;
+      text-align: right;
+      padding-right: 32px;
+    }
+
+    .intro-texto p {
+      font-size: var(--t-body);
+      font-weight: 400;
+      color: var(--gris);
+      line-height: 1.85;
+    }
+
+    .intro-texto p + p { margin-top: 14px; }
+
+    .intro-carreras {
+      margin-top: 20px;
+      font-size: 0.95rem;
+      color: var(--gris);
+      line-height: 1.7;
+    }
+    .intro-carreras strong { color: var(--negro); font-weight: 500; }
+
+    /* ══ FORMULARIO ══ */
+    .form-sub {
+      font-size: var(--t-micro);
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: #333;
+      font-weight: 600;
+      margin: 48px 0 4px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--borde);
+    }
+    .form-sub:first-of-type { margin-top: 8px; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 32px;
+    }
+
+    .campo {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--borde);
+    }
+
+    .campo.full { grid-column: 1 / -1; }
+
+    .campo label {
+      font-size: var(--t-micro);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #2a2a2a;
+      font-weight: 600;
+    }
+    .campo label .req { color: var(--negro); }
+
+    .campo input,
+    .campo textarea,
+    .campo select {
+      background: transparent;
+      border: none;
+      border-bottom: 1.5px solid #c7c2b4;
+      padding: 10px 0;
+      font-family: var(--font);
+      font-size: var(--t-body);
+      color: var(--negro);
+      font-weight: 400;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: none;
+      width: 100%;
+    }
+
+    .campo select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23767676' stroke-width='1.2' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 2px center;
+      padding-right: 20px;
+      cursor: pointer;
+    }
+    .campo select:invalid { color: var(--gris-suave); }
+
+    .campo input::placeholder,
+    .campo textarea::placeholder { color: var(--gris-suave); }
+
+    .campo input:focus,
+    .campo textarea:focus,
+    .campo select:focus { border-bottom-color: var(--negro); }
+
+    .campo .ayuda {
+      font-size: var(--t-small);
+      color: var(--gris);
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .contador {
+      font-size: var(--t-micro);
+      color: var(--gris);
+      text-align: right;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+    }
+
+    .form-boton { padding-top: 28px; }
+
+    .form-boton button {
+      background: none;
+      border: 1px solid var(--borde);
+      padding: 12px 40px;
+      font-family: var(--font);
+      font-size: var(--t-micro);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--negro);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .form-boton button:hover { background: var(--negro); color: var(--bg); }
+    .form-boton button:disabled { opacity: 0.4; cursor: default; }
+
+    /* ══ ESTADO ÉXITO / ERROR ══ */
+    .form-msg {
+      display: none;
+      padding: 48px 0;
+      border-top: 1px solid var(--borde);
+      border-bottom: 1px solid var(--borde);
+      margin-top: 8px;
+    }
+    .form-msg.visible { display: block; }
+    .form-msg h3 {
+      font-size: 1.4rem;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+    .form-msg p { font-size: var(--t-body); color: var(--gris); font-weight: 400; line-height: 1.8; }
+    .form-error { font-size: var(--t-small); color: #a33; font-weight: 400; margin-top: 16px; display: none; }
+    .form-error.visible { display: block; }
+
+    /* ══ FADE ══ */
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ══ FOOTER ══ */
+    footer {
+      margin-left: var(--sidebar);
+      padding: 28px 64px 28px 48px;
+      border-top: 1px solid var(--borde);
+      display: flex;
+    }
+    .footer-contenido { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+    .footer-izq, .footer-der { display: flex; flex-direction: column; gap: 4px; }
+    .footer-der { text-align: right; }
+    footer p, footer a { font-size: var(--t-micro); color: var(--gris); font-weight: 400; letter-spacing: 0.04em; text-decoration: none; }
+    footer a:hover { color: var(--negro); }
+
+    /* ══ HAMBURGER ══ */
+    nav a.nav-cta { margin-top: 22px; color: var(--negro); font-weight: 600; letter-spacing: 0.02em; }
+    nav a.nav-cta::after { width: 100%; }
+    .nav-mobile a.nav-cta { font-weight: 500; margin-top: 8px; }
+    .formulario-autoriza { display: flex; gap: 10px; align-items: flex-start; padding-top: 24px; font-size: 0.85rem; color: var(--gris); line-height: 1.5; cursor: pointer; }
+    .formulario-autoriza input { margin-top: 3px; accent-color: var(--negro); flex: none; width: 15px; height: 15px; }
+    .nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 110; }
+    .nav-toggle span { display: block; width: 22px; height: 1px; background: var(--negro); transition: transform 0.3s, opacity 0.3s; }
+    .nav-toggle.abierto span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-toggle.abierto span:nth-child(2) { opacity: 0; }
+    .nav-toggle.abierto span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    .nav-mobile {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+      background: var(--bg); z-index: 105; flex-direction: column; align-items: center;
+      justify-content: flex-start; padding-top: 80px; gap: 24px; opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .nav-mobile.abierto { opacity: 1; pointer-events: all; }
+    .nav-mobile a { font-size: 1.6rem; font-weight: 300; color: var(--negro); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-mobile a:hover { color: var(--gris); }
+    .nav-mobile-cerrar { position: absolute; top: 28px; right: 20px; background: none; border: none; cursor: pointer; color: var(--gris); padding: 4px; transition: color 0.2s; }
+    .nav-mobile-cerrar:hover { color: var(--negro); }
+
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 900px) {
+      aside {
+        position: fixed; top: 0; left: 0; width: 100%; height: 120px; padding: 0 20px;
+        flex-direction: row; align-items: center; justify-content: center;
+        border-bottom: 1px solid var(--gris-claro); background: var(--bg); z-index: 100;
+      }
+      .logo-wrap { margin-bottom: 0; display: flex; align-items: center; gap: 10px; position: absolute; left: 50%; transform: translateX(-50%); margin-left: 6px; }
+      .logo-wrap svg { width: 88px; height: 92px; }
+      .logo-sub { display: none; }
+      nav { display: none; }
+      .sociales { display: none; }
+      .nav-toggle { display: flex; position: absolute; right: 20px; }
+      .nav-mobile { display: flex; }
+
+      main { margin-left: 0; margin-top: 120px; padding: 0 20px 60px; }
+      section { padding-top: 24px; }
+
+      .section-label { width: 100%; text-align: left; padding-right: 0; font-size: 0.65rem; letter-spacing: 0.18em; margin-bottom: 24px; }
+
+      .intro-grid { grid-template-columns: 1fr; gap: 20px; }
+      .intro-titulo { width: 100%; text-align: left; padding-right: 0; font-size: 1.2rem; }
+
+      .form-grid { grid-template-columns: 1fr; }
+
+      footer { margin-left: 0; padding: 24px 20px; }
+      .footer-contenido { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .footer-der { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ SIDEBAR ══ -->
+<aside>
+  <div class="logo-wrap">
+    <a href="index.html" class="logo-link" aria-label="Ir al inicio del sitio" title="Inicio">
+    <svg viewBox="0 0 100 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="36" stroke="#111" stroke-width="1.6"/>
+      <line x1="50" y1="14" x2="50" y2="52" stroke="#111" stroke-width="1.1"/>
+      <line x1="50" y1="52" x2="50" y2="86" stroke="#111" stroke-width="1" stroke-dasharray="2.5 2.5"/>
+      <path d="M 16 52 A 34 10 0 0 1 84 52" stroke="#111" stroke-width="1" stroke-dasharray="2.5 2.5" fill="none"/>
+      <path d="M 16 52 A 34 10 0 0 0 79.44 57" stroke="#111" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <line x1="79.44" y1="57" x2="74.46" y2="54.68" stroke="#111" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="79.44" y1="57" x2="76.29" y2="61.51" stroke="#111" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="46.5" y1="48" x2="53.5" y2="55" stroke="#111" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="53.5" y1="48" x2="46.5" y2="55" stroke="#111" stroke-width="1.2" stroke-linecap="round"/>
+      <text x="50" y="100" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="400" letter-spacing="3" fill="#111">AZIMUT · 180°</text>
+    </svg>
+    </a>
+    <div><p class="logo-sub">Arquitectura y Construcción<br>Valdivia</p></div>
+  </div>
+
+  <nav>
+    <a href="index.html#obras">obras</a>
+    <a href="index.html#proyectos">proyectos</a>
+    <a href="index.html#publicaciones">publicaciones</a>
+    <a href="index.html#nosotros">equipo</a>
+    <a href="practicas.html" class="active">prácticas</a>
+    <a href="conversemos/" class="nav-cta">Conversemos</a>
+  </nav>
+
+  <div class="sociales">
+    <a href="https://www.instagram.com/az180.cl/" target="_blank" rel="noopener noreferrer">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4.5"/>
+        <circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"/>
+      </svg>
+      @az180.cl
+    </a>
+  </div>
+
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+</aside>
+
+<!-- ══ NAV MÓVIL ══ -->
+<nav class="nav-mobile" id="nav-mobile">
+  <button class="nav-mobile-cerrar" id="nav-mobile-cerrar" aria-label="Cerrar menú">
+    <svg width="16" height="16" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="1" y1="1" x2="11" y2="11"/><line x1="11" y1="1" x2="1" y2="11"/></svg>
+  </button>
+  <a href="index.html#obras">obras</a>
+  <a href="index.html#proyectos">proyectos</a>
+  <a href="index.html#publicaciones">publicaciones</a>
+  <a href="index.html#nosotros">equipo</a>
+  <a href="practicas.html">prácticas</a>
+  <a href="conversemos/" class="nav-cta">Conversemos</a>
+</nav>
+
+<!-- ══ MAIN ══ -->
+<main>
+  <section>
+    <p class="section-label">Trabaja con nosotros</p>
+
+    <div class="intro-grid fade-in">
+      <h2 class="intro-titulo">Deja tu CV</h2>
+      <div class="intro-texto">
+        <p>Gracias por pasar por nuestro stand en la feria. Por ahora no tenemos vacantes abiertas, pero guardamos tu CV y te escribimos si surge algo que calce con tu perfil.</p>
+        <p>Si eres estudiante y buscas hacer tu práctica, el formulario es otro: <a href="practicas.html" style="color:var(--negro);border-bottom:1px solid var(--negro);text-decoration:none;">postula a una práctica</a>.</p>
+      </div>
+    </div>
+
+    <form id="form-practica" class="fade-in" action="https://formspree.io/f/mojrboqj" method="POST">
+      <input type="hidden" name="_subject" value="Nuevo CV · Feria UACh">
+      <input type="hidden" name="_tipo" value="Banco de CV (sin vacante)">
+
+      <p class="form-sub">Tus datos</p>
+      <div class="form-grid">
+        <div class="campo">
+          <label>Nombre completo <span class="req">*</span></label>
+          <input type="text" name="Nombre" required placeholder="Tu nombre">
+        </div>
+        <div class="campo">
+          <label>Correo <span class="req">*</span></label>
+          <input type="email" name="Correo" required placeholder="tucorreo@ejemplo.cl">
+        </div>
+        <div class="campo">
+          <label>Teléfono / WhatsApp <span class="req">*</span></label>
+          <input type="tel" name="Teléfono" required placeholder="+56 9 ...">
+        </div>
+        <div class="campo">
+          <label>Profesión o carrera <span class="req">*</span></label>
+          <input type="text" name="Profesión" required placeholder="Ej: Arquitecta, Ingeniero Civil, Abogado…">
+        </div>
+        <div class="campo">
+          <label>Área en la que te gustaría trabajar <span class="req">*</span></label>
+          <select name="Área de interés" required>
+            <option value="" disabled selected>Selecciona…</option>
+            <option>Arquitectura y diseño</option>
+            <option>Construcción y obra</option>
+            <option>Trámites y permisos</option>
+            <option>Administración y finanzas</option>
+            <option>Informática, datos y automatización</option>
+            <option>Comunicación y diseño gráfico</option>
+            <option>Otra</option>
+          </select>
+        </div>
+        <div class="campo full">
+          <label>Link a tu CV y/o portafolio <span class="req">*</span></label>
+          <span class="ayuda">Un enlace que podamos abrir: Google Drive, Dropbox, Behance, Issuu, GitHub, LinkedIn…</span>
+          <input type="text" inputmode="url" autocapitalize="off" autocorrect="off" spellcheck="false" name="CV / Portafolio" required placeholder="drive.google.com/... o https://...">
+        </div>
+      </div>
+
+      <label class="formulario-autoriza">
+        <input type="checkbox" name="Autoriza datos" value="Sí" required>
+        <span>Autorizo a Azimut 180° a usar mis datos y mi CV para considerarme en futuras oportunidades.</span>
+      </label>
+
+      <div class="form-boton">
+        <button type="submit" id="btn-enviar">Enviar CV</button>
+      </div>
+      <p class="form-error" id="form-error">Hubo un problema al enviar. Revisa tu conexión e inténtalo de nuevo, o escríbenos a administracion@az180.cl.</p>
+    </form>
+
+    <!-- Estado de éxito -->
+    <div class="form-msg" id="form-exito">
+      <h3>¡Listo, recibimos tu CV!</h3>
+      <p>Gracias por escribirnos. Por ahora no tenemos vacantes abiertas, pero guardamos tu CV y te contactamos si surge algo. Mientras tanto, date una vuelta por <a href="index.html#obras" style="color:var(--negro);border-bottom:1px solid var(--negro);text-decoration:none;">nuestras obras</a>.</p>
+    </div>
+  </section>
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-contenido">
+    <div class="footer-izq">
+      <p>Av. Ramón Picarte 780, Oficina 303 · Valdivia, Región de Los Ríos</p>
+      <a href="https://www.instagram.com/az180.cl/" target="_blank" rel="noopener noreferrer">@az180.cl</a>
+    </div>
+    <div class="footer-der">
+      <p>© 2026 Azimut 180° · Todos los derechos reservados</p>
+      <p>Arquitectura y Construcción · Valdivia, Chile</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Menú hamburguesa ──
+  const navToggle = document.getElementById('nav-toggle');
+  const navMobile = document.getElementById('nav-mobile');
+  const navCerrar = document.getElementById('nav-mobile-cerrar');
+  function cerrarNav() { navToggle.classList.remove('abierto'); navMobile.classList.remove('abierto'); document.body.style.overflow = ''; }
+  navToggle.addEventListener('click', () => {
+    const abierto = navToggle.classList.toggle('abierto');
+    navMobile.classList.toggle('abierto', abierto);
+    document.body.style.overflow = abierto ? 'hidden' : '';
+  });
+  navCerrar.addEventListener('click', cerrarNav);
+  navMobile.querySelectorAll('a').forEach(a => a.addEventListener('click', cerrarNav));
+
+  // ── Contadores de caracteres ──
+  document.querySelectorAll('.contador').forEach(c => {
+    const ta = document.querySelector(`textarea[name="${c.dataset.for}"]`);
+    if (!ta) return;
+    const max = ta.getAttribute('maxlength');
+    const upd = () => { c.textContent = `${ta.value.length} / ${max}`; };
+    ta.addEventListener('input', upd); upd();
+  });
+
+  // ── Envío AJAX a Formspree (sin salir de la página) ──
+  const form = document.getElementById('form-practica');
+  const btn = document.getElementById('btn-enviar');
+  const exito = document.getElementById('form-exito');
+  const errorMsg = document.getElementById('form-error');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorMsg.classList.remove('visible');
+    // Acepta links sin https:// (ej: az180.cl) y les agrega el prefijo
+    const cv = form.querySelector('[name="CV / Portafolio"]');
+    if (cv) {
+      cv.value = cv.value.trim();
+      if (cv.value && !/^https?:\/\//i.test(cv.value)) cv.value = 'https://' + cv.value;
+    }
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
+    try {
+      const resp = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (resp.ok) {
+        form.style.display = 'none';
+        exito.classList.add('visible');
+        exito.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        throw new Error('respuesta no ok');
+      }
+    } catch (err) {
+      errorMsg.classList.add('visible');
+      btn.disabled = false;
+      btn.textContent = 'Enviar postulación';
+    }
+  });
+
+  // ── Fade-in ──
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+</script>
+
+</body>
+</html>

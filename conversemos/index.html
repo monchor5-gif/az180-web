@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conversemos tu proyecto — Azimut 180°</title>
+  <meta name="description" content="Cuéntanos qué quieres construir. Azimut 180°, arquitectura y construcción en Valdivia. Te respondemos en 1 día hábil." />
+  <link rel="canonical" href="https://az180.cl/conversemos/" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GB6KCJKECS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GB6KCJKECS');
+  </script>
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <meta property="og:title" content="Conversemos tu proyecto — Azimut 180°" />
+  <meta property="og:description" content="Cuéntanos qué quieres construir. Te respondemos en 1 día hábil." />
+  <meta property="og:image" content="https://az180.cl/fotos/casa-palenque/casa-palenque-01.jpg" />
+  <meta property="og:url" content="https://az180.cl/conversemos/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CL" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --font: 'Segoe UI', Segoe, Tahoma, Geneva, sans-serif;
+      --bg: rgb(245, 241, 229);
+      --negro: #111;
+      --gris: #55534c;          /* texto secundario: contraste ~7:1 sobre el fondo */
+      --gris-suave: #6b675c;    /* texto terciario / placeholders: ~4,9:1 */
+      --t-micro: 0.72rem;       /* etiquetas en mayúsculas, pies, tags */
+      --t-small: 0.85rem;       /* datos secundarios: lugar, rol, correo, año */
+      --t-body: 0.95rem;        /* texto corrido, nombres, campos */
+      --gris-claro: #d8d4c8;
+      --sidebar: 340px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 18px; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--negro);
+      min-height: 100vh;
+    }
+
+    /* ══ SIDEBAR ══ */
+    aside {
+      position: fixed;
+      top: 0; left: 0;
+      width: var(--sidebar);
+      height: 100vh;
+      padding: 44px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .logo-wrap { margin-bottom: 52px; text-align: center; width: 100%; }
+    .logo-link { display: inline-block; transition: opacity 0.2s; }
+    .logo-link:hover { opacity: 0.6; }
+    .logo-wrap svg { width: 140px; height: 146px; display: block; margin: 0 auto; }
+    .logo-sub {
+      margin-top: 2px;
+      font-size: 0.64rem;
+      letter-spacing: 0.12em;
+      color: var(--gris);
+      text-transform: uppercase;
+      font-weight: 400;
+      line-height: 1.9;
+      text-align: center;
+    }
+
+    nav { display: flex; flex-direction: column; gap: 4px; flex: 1; align-items: center; width: 100%; }
+
+    nav a {
+      font-size: var(--t-body);
+      font-weight: 400;
+      color: var(--gris);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      padding: 4px 0;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 2px;
+      width: 0; height: 1px;
+      background: var(--negro);
+      transition: width 0.25s;
+    }
+
+    nav a:hover, nav a.active { color: var(--negro); }
+    nav a.active::after, nav a:hover::after { width: 100%; }
+
+    .sociales {
+      display: flex;
+      gap: 16px;
+      padding-top: 28px;
+      border-top: 1px solid var(--gris-claro);
+    }
+
+    .sociales a {
+      color: var(--gris);
+      text-decoration: none;
+      font-size: var(--t-micro);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sociales a:hover { color: var(--negro); }
+
+    /* ══ MAIN ══ */
+    main { margin-left: var(--sidebar); padding: 0 calc(var(--sidebar) / 2) 100px 48px; }
+
+    section { min-height: 100vh; padding-top: 80px; padding-bottom: 80px; }
+    section + section { border-top: 1px solid var(--gris-claro); }
+
+    .section-label {
+      font-size: 1.4rem;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      color: var(--negro);
+      margin-bottom: 52px;
+      font-weight: 300;
+      width: 38.2%;
+      text-align: right;
+      padding-right: 32px;
+    }
+
+    /* ══ ANIMACIONES ══ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ══ FORMULARIO ══ */
+    .formulario-wrap { margin-top: 0; }
+
+    .formulario {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0 32px;
+      align-items: start;
+    }
+
+    .formulario-campo {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 20px 0;
+      border-top: 1px solid #dedad0;
+    }
+
+    .formulario-campo label {
+      font-size: var(--t-micro);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gris);
+      font-weight: 400;
+    }
+
+    .formulario-campo input,
+    .formulario-campo textarea {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #dedad0;
+      padding: 8px 0;
+      font-family: var(--font);
+      font-size: var(--t-body);
+      color: var(--negro);
+      font-weight: 400;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: none;
+    }
+
+    .formulario-campo input::placeholder,
+    .formulario-campo textarea::placeholder {
+      color: var(--gris-suave);
+    }
+
+    .formulario-campo input:focus,
+    .formulario-campo textarea:focus {
+      border-bottom-color: var(--negro);
+    }
+
+    .formulario button {
+      align-self: flex-start;
+      margin-top: 8px;
+      background: none;
+      border: 1px solid #dedad0;
+      padding: 10px 28px;
+      font-family: var(--font);
+      font-size: var(--t-micro);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--negro);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .formulario button:hover {
+      background: var(--negro);
+      color: var(--bg);
+    }
+
+    /* Formulario de proyecto: 2 columnas, mismos trazos del sitio */
+    .formulario.proyecto { grid-template-columns: 1fr 1fr; }
+    .formulario .ancho { grid-column: 1 / -1; }
+    .formulario-campo label i { font-style: normal; opacity: .6; }
+    .formulario-campo select {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #dedad0;
+      border-radius: 0;
+      padding: 8px 22px 8px 0;
+      font-family: var(--font);
+      font-size: var(--t-body);
+      font-weight: 400;
+      color: var(--negro);
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' stroke='%23111' stroke-width='1.3'%3E%3Cpath d='M1 1l4 4 4-4'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 2px center;
+    }
+    .formulario-campo select:invalid { color: var(--gris-suave); }
+    .formulario-campo select:focus { border-bottom-color: var(--negro); }
+    .formulario-campo input:user-invalid,
+    .formulario-campo select:user-invalid,
+    .formulario-campo textarea:user-invalid { border-bottom-color: #b3402f; }
+    .formulario-campo textarea { min-height: 92px; }
+    .formulario .autoriza {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 20px 0 4px; border-top: 1px solid #dedad0;
+      font-size: var(--t-small); line-height: 1.5; color: var(--gris); font-weight: 400;
+    }
+    .formulario .autoriza input { margin-top: 2px; accent-color: var(--negro); flex: none; width: 15px; height: 15px; }
+    .formulario .acciones { padding-top: 16px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+    .formulario .acciones button { margin-top: 0; }
+    .formulario button[disabled] { opacity: .5; cursor: default; }
+    .formulario-msg { font-size: var(--t-small); font-weight: 400; line-height: 1.5; }
+    .formulario-msg.ok { color: #2f6b45; }
+    .formulario-msg.mal { color: #b3402f; }
+    /* Más contraste y tamaño legible (solo este formulario) */
+    .formulario.proyecto .formulario-campo label { font-size: var(--t-micro); color: var(--gris); font-weight: 500; letter-spacing: 0.14em; }
+    .formulario.proyecto .formulario-campo input,
+    .formulario.proyecto .formulario-campo textarea,
+    .formulario.proyecto .formulario-campo select { font-size: var(--t-body); font-weight: 400; color: #111; border-bottom-color: #a9a495; }
+    .formulario.proyecto .formulario-campo input::placeholder,
+    .formulario.proyecto .formulario-campo textarea::placeholder { color: var(--gris-suave); opacity: 1; }
+    .formulario.proyecto .formulario-campo select:invalid { color: var(--gris-suave); }
+    .formulario.proyecto .formulario-campo input:focus,
+    .formulario.proyecto .formulario-campo textarea:focus,
+    .formulario.proyecto .formulario-campo select:focus { border-bottom-color: #111; }
+    .formulario.proyecto .autoriza { font-size: var(--t-small); color: var(--gris); }
+    .formulario.proyecto button { border-color: #111; color: #111; font-size: var(--t-micro); padding: 12px 34px; }
+    .formulario.proyecto button:hover { background: #111; color: var(--bg); }
+    .formulario-msg { font-size: var(--t-body); }
+    .formulario-gracias {
+      display: none; border: 1px solid #111; padding: 40px 36px; margin-top: 8px;
+      background: rgba(255,255,255,.35);
+    }
+    .formulario-gracias.ver { display: block; }
+    .formulario-gracias h3 { font-size: 1.6rem; font-weight: 300; line-height: 1.3; letter-spacing: -0.01em; margin: 0 0 12px; color: #111; }
+    .formulario-gracias p { font-size: 1rem; line-height: 1.6; font-weight: 400; color: var(--negro); margin: 0 0 22px; max-width: 46ch; }
+    .formulario-gracias button {
+      background: none; border: 1px solid #111; padding: 11px 28px; font-family: var(--font);
+      font-size: var(--t-micro); letter-spacing: 0.18em; text-transform: uppercase; color: #111; cursor: pointer;
+    }
+    .formulario-gracias button:hover { background: #111; color: var(--bg); }
+    .formulario .trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+    /* ══ RESPONSIVE ══ */
+    /* ══ FOOTER ══ */
+    footer {
+      margin-left: var(--sidebar);
+      padding: 28px 64px 28px 48px;
+      border-top: 1px solid #dedad0;
+      display: flex;
+    }
+
+    .footer-contenido {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .footer-izq, .footer-der {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .footer-der { text-align: right; }
+
+    footer p, footer a {
+      font-size: var(--t-micro);
+      color: var(--gris);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--negro); }
+
+    /* ══ HAMBURGER BUTTON ══ */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 110;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--negro);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-toggle.abierto span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-toggle.abierto span:nth-child(2) { opacity: 0; }
+    .nav-toggle.abierto span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* ══ MOBILE NAV OVERLAY ══ */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100vh;
+      background: var(--bg);
+      z-index: 105;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 80px;
+      gap: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .nav-mobile.abierto {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .nav-mobile a {
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--negro);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav-mobile a:hover { color: var(--gris); }
+
+    .nav-mobile-cerrar {
+      position: absolute;
+      top: 28px; right: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--gris);
+      padding: 4px;
+      transition: color 0.2s;
+    }
+    .nav-mobile-cerrar:hover { color: var(--negro); }
+
+    @media (max-width: 900px) {
+
+      /* ── Header ── */
+      aside {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%;
+        height: 120px;
+        padding: 0 20px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid var(--gris-claro);
+        background: var(--bg);
+        z-index: 100;
+      }
+      .logo-wrap {
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-left: 6px;
+      }
+      .logo-wrap svg { width: 88px; height: 92px; }
+      .logo-sub { display: none; }
+      nav { display: none; }
+      .sociales { display: none; }
+      .nav-toggle { display: flex; position: absolute; right: 20px; }
+      .nav-mobile { display: flex; }
+
+      /* ── Main ── */
+      main {
+        margin-left: 0;
+        margin-top: 120px;
+        padding: 0 0 60px;
+      }
+
+      section { padding: 20px 20px !important; min-height: unset !important; }
+      main > section:first-child { padding-top: 8px !important; }
+      .section-label { margin-bottom: 20px !important; font-size: 1.1rem !important; letter-spacing: 0 !important; }
+      h2[style] { font-size: 1rem !important; }
+
+
+
+      /* ── Section label ── */
+      .section-label {
+        width: 100%;
+        text-align: left;
+        padding-right: 0;
+        font-size: var(--t-micro);
+        letter-spacing: 0.18em;
+        margin-bottom: 32px;
+      }
+
+      /* ── Obras / Proyectos ── */
+      .proyecto {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 28px 0;
+      }
+      .proyecto-info {
+        text-align: left;
+        padding-right: 0;
+        padding-bottom: 16px;
+        order: 2;
+      }
+      .proyecto-img {
+        width: 100%;
+        order: 1;
+      }
+
+      /* ── Publicaciones ── */
+      .publicacion {
+        grid-template-columns: 1fr auto;
+        gap: 0 16px;
+        padding: 16px 0;
+        align-items: center;
+      }
+      .publicacion > div:first-child { display: none; }
+      .publicacion > div:nth-child(2) { display: none; }
+      .publicacion-mobile {
+        display: block;
+        font-size: var(--t-body);
+        color: var(--negro);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 0;
+      }
+      .publicacion-mobile-medio {
+        font-size: var(--t-micro);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gris);
+      }
+
+      /* ── Nosotros ── */
+      .nosotros-titulo {
+        width: 100%;
+        text-align: left;
+        padding-right: 0;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+      }
+      .nosotros-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 48px;
+      }
+      .nosotros-texto p {
+        text-align: left;
+        padding-right: 0;
+      }
+      .nosotros-foto img { width: 100%; }
+      .equipo-titulo {
+        width: 100%;
+        text-align: left;
+        padding-right: 0;
+      }
+      .equipo-grid { grid-template-columns: 1fr 1fr; }
+
+      /* ── Contacto ── */
+      .contacto-grid { grid-template-columns: 1fr; }
+      .contacto-celda { border-bottom: none; }
+      .contacto-celda:last-child { border-bottom: 1px solid #dedad0; }
+
+      /* ── Títulos h2 de sección ── */
+      h2[style] {
+        width: 100% !important;
+        text-align: left !important;
+        padding-right: 0 !important;
+        font-size: 1.2rem !important;
+      }
+
+      /* ── Formulario ── */
+      .formulario-wrap { margin-left: 0; }
+      .formulario,
+      .formulario.proyecto {
+        grid-template-columns: 1fr;
+      }
+      .formulario .formulario-campo[style],
+      .formulario div[style],
+      .formulario .ancho { grid-column: 1 !important; }
+
+      /* ── Footer ── */
+      footer {
+        margin-left: 0;
+        padding: 24px 20px;
+      }
+      .footer-contenido { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .footer-der { text-align: left; }
+
+      /* ── Panel ── */
+      .panel {
+        width: 100%;
+        padding: 48px 20px 80px;
+      }
+      .panel-nombre { font-size: 1.4rem; }
+      .panel-cuerpo {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      /* Reordenar panel móvil: galería → ficha → descripción */
+      .panel-galeria { order: 1; margin-bottom: 32px; }
+      .panel-ficha   { order: 2; margin-bottom: 32px; }
+      .panel-descripcion { order: 3; }
+      .panel-cuerpo {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    /* ══ LLAMADO A CONVERSAR ══
+       Regla: "Conversemos" es el único ítem del menú en negrita; todo otro llamado es un enlace subrayado. */
+    nav a.nav-cta {
+      margin-top: 22px;
+      padding: 4px 0;
+      color: var(--negro);
+      font-size: var(--t-body);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    nav a.nav-cta::after { width: 100%; }
+    nav a.nav-cta:hover { color: var(--negro); }
+
+    .link-cta {
+      display: inline-block;
+      color: var(--negro);
+      font-size: var(--t-body);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--negro);
+      padding-bottom: 2px;
+      transition: opacity 0.2s;
+    }
+    .link-cta:hover { opacity: 0.6; }
+    .link-sec { color: var(--gris); font-size: var(--t-body); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .link-sec:hover { border-color: var(--gris); }
+
+    .hero { min-height: auto; padding-top: 80px; padding-bottom: 64px; }
+    .hero-grid { display: grid; grid-template-columns: 38.2% 61.8%; }
+    .hero-cuerpo { grid-column: 1 / -1; }
+    .hero-titulo { font-size: 3rem; font-weight: 300; line-height: 1.12; letter-spacing: -0.03em; color: var(--negro); margin-bottom: 24px; text-wrap: balance; }
+    .hero-bajada { font-size: 1.2rem; font-weight: 300; line-height: 1.55; color: var(--gris); max-width: 52ch; margin-bottom: 28px; }
+
+    .llamado { display: grid; grid-template-columns: 38.2% 61.8%; padding: 40px 0 0; }
+    .llamado-cuerpo { grid-column: 2; padding-right: 8%; }
+    .llamado-texto { font-size: 1.25rem; font-weight: 300; line-height: 1.4; letter-spacing: -0.01em; color: var(--negro); max-width: 36ch; margin-bottom: 16px; }
+    .llamado-vias { display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: baseline; }
+
+    .pasos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 32px; margin: 0 0 64px; }
+    .paso { padding: 18px 0; border-top: 1px solid #dedad0; }
+    .paso b { display: block; font-size: var(--t-micro); font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gris); margin-bottom: 8px; }
+    .paso h3 { font-size: var(--t-body); font-weight: 500; color: var(--negro); margin-bottom: 6px; }
+    .paso p { font-size: var(--t-small); line-height: 1.55; color: var(--gris); }
+
+    @media (max-width: 900px) {
+      .hero-grid, .llamado { grid-template-columns: 1fr; }
+      .hero-cuerpo, .llamado-cuerpo { grid-column: 1; padding-right: 0; }
+      .hero { padding-top: 16px !important; padding-bottom: 28px !important; }
+      .hero-titulo { font-size: 2rem; max-width: none; }
+      .hero-bajada { font-size: 1.05rem; }
+      .llamado { padding-top: 28px; }
+      .llamado-texto { font-size: 1.1rem; }
+      .pasos { grid-template-columns: 1fr 1fr; gap: 0 20px; margin-bottom: 40px; }
+      .nav-mobile a.nav-cta { font-size: 1.6rem; font-weight: 500; margin-top: 8px; }
+    }
+
+    [hidden] { display: none !important; }
+    .conv { min-height: auto; }
+    .conv-intro { margin-bottom: 52px; }
+    .conv-titulo { font-size: 3rem; font-weight: 300; line-height: 1.12; letter-spacing: -0.03em; margin-bottom: 20px; text-wrap: balance; }
+    .conv-texto { font-size: 1.2rem; font-weight: 300; line-height: 1.55; color: var(--gris); max-width: 52ch; }
+    .conv-pregunta { font-size: var(--t-micro); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gris); margin-bottom: 14px; }
+    .caminos { margin-bottom: 56px; }
+    .camino {
+      display: grid; grid-template-columns: 38.2% 1fr; align-items: baseline; width: 100%;
+      text-align: left; background: none; border: 0; border-top: 1px solid #dedad0;
+      padding: 24px 0; cursor: pointer; font: inherit; color: inherit;
+    }
+    .camino:last-child { border-bottom: 1px solid #dedad0; }
+    .camino .c-t { text-align: right; padding-right: 32px; font-size: 1.25rem; font-weight: 300; letter-spacing: -0.01em; color: var(--gris); transition: color 0.2s; }
+    .camino .c-t span { border-bottom: 1px solid transparent; padding-bottom: 2px; transition: border-color 0.2s; }
+    .camino .c-d { font-size: var(--t-body); color: var(--gris); line-height: 1.5; padding-right: 8%; }
+    .camino:hover .c-t { color: var(--negro); }
+    .camino[aria-pressed="true"] .c-t { color: var(--negro); }
+    .camino[aria-pressed="true"] .c-t span { border-bottom-color: var(--negro); }
+    .camino[aria-pressed="true"] .c-d { color: var(--negro); }
+    .camino:focus-visible { outline: 2px solid #111; outline-offset: 3px; }
+    .formulario.proyecto .formulario-campo select:has(option:checked[value=""]) { color: var(--gris-suave); }
+    .promesa { font-size: var(--t-small); color: var(--gris); margin-top: 22px; }
+    .formulario-gracias { padding-top: 8px; }
+    @media (max-width: 900px) {
+      .conv { padding-top: 16px !important; }
+      .conv-intro { margin-bottom: 28px; }
+      .conv-titulo { font-size: 2rem; max-width: none; }
+      .conv-texto { font-size: 1.05rem; }
+      .camino { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
+      .camino .c-t { text-align: left; padding-right: 0; font-size: 1.15rem; }
+      .camino .c-d { padding-right: 0; }
+      .caminos { margin-bottom: 36px; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ══ SIDEBAR ══ -->
+<aside>
+  <div class="logo-wrap">
+    <a href="../index.html" class="logo-link" aria-label="Ir al inicio del sitio" title="Inicio">
+    <svg viewBox="0 0 100 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="36" stroke="#111" stroke-width="1.6"/>
+      <line x1="50" y1="14" x2="50" y2="52" stroke="#111" stroke-width="1.1"/>
+      <line x1="50" y1="52" x2="50" y2="86" stroke="#111" stroke-width="1" stroke-dasharray="2.5 2.5"/>
+      <path d="M 16 52 A 34 10 0 0 1 84 52" stroke="#111" stroke-width="1" stroke-dasharray="2.5 2.5" fill="none"/>
+      <path d="M 16 52 A 34 10 0 0 0 79.44 57" stroke="#111" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <line x1="79.44" y1="57" x2="74.46" y2="54.68" stroke="#111" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="79.44" y1="57" x2="76.29" y2="61.51" stroke="#111" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="46.5" y1="48" x2="53.5" y2="55" stroke="#111" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="53.5" y1="48" x2="46.5" y2="55" stroke="#111" stroke-width="1.2" stroke-linecap="round"/>
+      <text x="50" y="100" text-anchor="middle"
+            font-family="'Segoe UI', sans-serif"
+            font-size="9" font-weight="400" letter-spacing="3" fill="#111">AZIMUT · 180°</text>
+    </svg>
+    </a>
+    <div>
+      <p class="logo-sub">Arquitectura y Construcción<br>Valdivia</p>
+    </div>
+  </div>
+
+  <nav>
+    <a href="../index.html#obras" >obras</a>
+    <a href="../index.html#proyectos">proyectos</a>
+    <a href="../index.html#publicaciones">publicaciones</a>
+    <a href="../index.html#nosotros">equipo</a>
+    <a href="../practicas.html">prácticas</a>
+    <a href="./" class="nav-cta" data-cta="menu">Conversemos</a>
+  </nav>
+
+  <div class="sociales">
+    <a href="https://www.instagram.com/az180.cl/" target="_blank" rel="noopener noreferrer">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4.5"/>
+        <circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"/>
+      </svg>
+      @az180.cl
+    </a>
+  </div>
+
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</aside>
+
+<!-- ══ NAV MÓVIL ══ -->
+<nav class="nav-mobile" id="nav-mobile">
+  <button class="nav-mobile-cerrar" id="nav-mobile-cerrar" aria-label="Cerrar menú">
+    <svg width="16" height="16" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+      <line x1="1" y1="1" x2="11" y2="11"/><line x1="11" y1="1" x2="1" y2="11"/>
+    </svg>
+  </button>
+  <svg viewBox="0 0 100 104" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:64px; height:67px; margin-bottom:16px; opacity:0.5;">
+    <circle cx="50" cy="50" r="36" stroke="#111" stroke-width="1.6"/>
+    <line x1="50" y1="14" x2="50" y2="52" stroke="#111" stroke-width="1.1"/>
+    <line x1="50" y1="52" x2="50" y2="86" stroke="#111" stroke-width="1" stroke-dasharray="2.5 2.5"/>
+    <path d="M 16 52 A 34 10 0 0 1 84 52" stroke="#111" stroke-width="1" stroke-dasharray="2.5 2.5" fill="none"/>
+    <path d="M 16 52 A 34 10 0 0 0 79.44 57" stroke="#111" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+    <line x1="79.44" y1="57" x2="74.46" y2="54.68" stroke="#111" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="79.44" y1="57" x2="76.29" y2="61.51" stroke="#111" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="46.5" y1="48" x2="53.5" y2="55" stroke="#111" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="53.5" y1="48" x2="46.5" y2="55" stroke="#111" stroke-width="1.2" stroke-linecap="round"/>
+    <text x="50" y="100" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="400" letter-spacing="3" fill="#111">AZIMUT · 180°</text>
+  </svg>
+  <a href="../index.html#obras">obras</a>
+  <a href="../index.html#proyectos">proyectos</a>
+  <a href="../index.html#publicaciones">publicaciones</a>
+  <a href="../index.html#nosotros">equipo</a>
+  <a href="../practicas.html">prácticas</a>
+  <a href="./" class="nav-cta" data-cta="menu-movil">Conversemos</a>
+  <a href="https://www.instagram.com/az180.cl/" target="_blank" rel="noopener noreferrer" style="font-size:1rem; letter-spacing:0.08em; color:var(--gris); margin-top:8px;">@az180.cl</a>
+</nav>
+
+<!-- ══ MAIN ══ -->
+<main>
+  <section class="conv">
+    <p class="section-label">Conversemos</p>
+
+    <div class="conv-intro fade-in">
+      <div>
+        <h1 class="conv-titulo">Cuéntanos qué quieres construir.</h1>
+        <p class="conv-texto">Te respondemos en 1 día hábil. Elige lo que más se parece a lo tuyo y te pedimos solo lo necesario.</p>
+      </div>
+    </div>
+
+    <p class="conv-pregunta">¿Qué quieres construir?</p>
+    <div class="caminos fade-in" id="caminos" role="group" aria-label="Qué quieres construir">
+      <button type="button" class="camino" data-camino="casa" aria-pressed="false">
+        <span class="c-t"><span>Una casa</span></span>
+        <span class="c-d">Quiero saber cuánto puedo construir con mi presupuesto.</span>
+      </button>
+      <button type="button" class="camino" data-camino="proyecto" aria-pressed="false">
+        <span class="c-t"><span>Otro tipo de proyecto</span></span>
+        <span class="c-d">Centro cultural, planta, local comercial, ampliación u otro.</span>
+      </button>
+      <button type="button" class="camino" data-camino="duda" aria-pressed="false">
+        <span class="c-t"><span>Solo tengo una duda</span></span>
+        <span class="c-d">Una consulta rápida, sin compromiso.</span>
+      </button>
+    </div>
+
+    <div class="formulario-wrap" id="formulario-wrap" hidden>
+      <form class="formulario proyecto" id="form-contacto" action="https://formspree.io/f/mojrboqj" method="POST" novalidate>
+        <input type="hidden" name="_subject" id="f-asunto" value="Nueva consulta desde az180.cl">
+        <input type="hidden" name="camino" id="f-camino" value="">
+        <div class="trampa" aria-hidden="true"><label>No llenar<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+
+        <div class="formulario-campo">
+          <label for="f-nombre">Nombre <i>*</i></label>
+          <input id="f-nombre" type="text" name="nombre" required autocomplete="given-name" placeholder="Pedro">
+        </div>
+        <div class="formulario-campo">
+          <label for="f-apellido">Apellido <i>*</i></label>
+          <input id="f-apellido" type="text" name="apellido" required autocomplete="family-name" placeholder="González">
+        </div>
+        <div class="formulario-campo">
+          <label for="f-email">Correo <i>*</i></label>
+          <input id="f-email" type="email" name="email" required autocomplete="email" placeholder="nombre@correo.cl">
+        </div>
+        <div class="formulario-campo">
+          <label for="f-tel">Teléfono <i>*</i></label>
+          <input id="f-tel" type="tel" name="telefono" required autocomplete="tel" inputmode="tel" placeholder="+56 9 1234 5678" pattern="[0-9+\(\)\s\-]{8,}">
+        </div>
+
+        <!-- Casa -->
+        <div class="formulario-campo" data-para="casa">
+          <label for="f-m2">Superficie a diseñar (m²) <i>*</i></label>
+          <input id="f-m2" type="text" name="superficie_m2" required inputmode="numeric" placeholder="Aproximada, ej.: 120">
+        </div>
+        <div class="formulario-campo" data-para="casa">
+          <label for="f-terreno">¿Tienes terreno? <i>*</i></label>
+          <select id="f-terreno" name="terreno" required>
+            <option value="" selected disabled>Seleccionar</option>
+            <option>Sí, ya lo tengo</option>
+            <option>Lo estoy buscando</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <!-- Otro proyecto -->
+        <div class="formulario-campo" data-para="proyecto">
+          <label for="f-tipo">Tipo de proyecto <i>*</i></label>
+          <select id="f-tipo" name="tipo_proyecto" required>
+            <option value="" selected disabled>Seleccionar</option>
+            <option>Cultural o comunitario</option>
+            <option>Productivo o industrial (cervecería, planta, bodega)</option>
+            <option>Comercial (local, centro comercial)</option>
+            <option>Educacional</option>
+            <option>Turismo y hospedaje</option>
+            <option>Salud</option>
+            <option>Ampliación o remodelación</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="formulario-campo" data-para="proyecto">
+          <label for="f-quien">¿Quién lo encarga? <i>*</i></label>
+          <select id="f-quien" name="quien_encarga" required>
+            <option value="" selected disabled>Seleccionar</option>
+            <option>Persona natural</option>
+            <option>Empresa</option>
+            <option>Organización o comunidad</option>
+            <option>Institución pública</option>
+          </select>
+        </div>
+        <div class="formulario-campo" data-para="proyecto">
+          <label for="f-etapa">¿En qué etapa está? <i>*</i></label>
+          <select id="f-etapa" name="etapa" required>
+            <option value="" selected disabled>Seleccionar</option>
+            <option>Solo una idea</option>
+            <option>Tengo terreno</option>
+            <option>Ya hay anteproyecto o proyecto</option>
+            <option>Es una licitación</option>
+          </select>
+        </div>
+        <div class="formulario-campo" data-para="proyecto">
+          <label for="f-plazo">Plazo deseado</label>
+          <select id="f-plazo" name="plazo">
+            <option value="" selected disabled>Seleccionar</option>
+            <option>Lo antes posible</option>
+            <option>En los próximos 6 meses</option>
+            <option>En 6 a 12 meses</option>
+            <option>Más de un año</option>
+            <option>Aún no lo sé</option>
+          </select>
+        </div>
+        <div class="formulario-campo" data-para="proyecto">
+          <label for="f-presu">Presupuesto referencial</label>
+          <input id="f-presu" type="text" name="presupuesto" placeholder="Opcional, ej.: 300 millones o 8.000 UF">
+        </div>
+
+        <!-- Casa y otro proyecto -->
+        <div class="formulario-campo" data-para="casa proyecto">
+          <label for="f-region">Región del proyecto <i>*</i></label>
+          <select id="f-region" name="region" required>
+            <option value="" selected disabled>Seleccionar</option>
+            <option>Arica y Parinacota</option>
+            <option>Tarapacá</option>
+            <option>Antofagasta</option>
+            <option>Atacama</option>
+            <option>Coquimbo</option>
+            <option>Valparaíso</option>
+            <option>Metropolitana de Santiago</option>
+            <option>O'Higgins</option>
+            <option>Maule</option>
+            <option>Ñuble</option>
+            <option>Biobío</option>
+            <option>La Araucanía</option>
+            <option>Los Ríos</option>
+            <option>Los Lagos</option>
+            <option>Aysén</option>
+            <option>Magallanes</option>
+            <option>Fuera de Chile</option>
+          </select>
+        </div>
+
+        <div class="formulario-campo">
+          <label for="f-como">¿Cómo nos encontraste?</label>
+          <select id="f-como" name="como_nos_encontro">
+            <option value="" selected disabled>Seleccionar</option>
+            <option>Instagram</option>
+            <option>Google</option>
+            <option>LinkedIn</option>
+            <option>Recomendación de alguien</option>
+            <option>Vi una obra nuestra</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div class="formulario-campo ancho">
+          <label for="f-msg" id="f-msg-label">Cuéntanos <i>*</i></label>
+          <textarea id="f-msg" name="mensaje" required rows="4" placeholder=""></textarea>
+        </div>
+
+        <label class="autoriza ancho">
+          <input type="checkbox" name="autoriza_datos" value="Sí" required>
+          <span>Autorizo a Azimut 180° a usar mis datos para responder mi consulta.</span>
+        </label>
+
+        <div class="acciones ancho">
+          <button type="submit" id="f-enviar">Enviar</button>
+          <span class="formulario-msg" id="f-estado" role="status" aria-live="polite"></span>
+        </div>
+      </form>
+      <p class="promesa">Te respondemos en 1 día hábil, al correo o teléfono que nos dejes.</p>
+
+      <div class="formulario-gracias" id="form-gracias" role="status" tabindex="-1">
+        <h3>Gracias, recibimos tu consulta.</h3>
+        <p>Te respondemos en 1 día hábil, al correo que nos dejaste.</p>
+        <button type="button" id="form-otra">Enviar otra consulta</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-contenido">
+    <div class="footer-izq">
+      <p>Av. Ramón Picarte 780, Oficina 303 · Valdivia, Región de Los Ríos</p>
+      <a href="https://www.instagram.com/az180.cl/" target="_blank" rel="noopener noreferrer">@az180.cl</a>
+    </div>
+    <div class="footer-der">
+      <p>© 2026 Azimut 180° · Todos los derechos reservados</p>
+      <p>Arquitectura y Construcción · Valdivia, Chile</p>
+    </div>
+  </div>
+</footer>
+
+
+
+<script>
+(function(){
+  var TXT = {
+    casa:     { asunto:'Nueva consulta (casa) desde az180.cl',        label:'Cuéntanos tu proyecto', ph:'Dónde es, presupuesto aproximado, qué necesitas.' },
+    proyecto: { asunto:'Nueva consulta (otro proyecto) desde az180.cl', label:'Cuéntanos tu idea',     ph:'Qué quieres construir, para qué y qué necesitas de nosotros.' },
+    duda:     { asunto:'Nueva consulta rápida desde az180.cl',       label:'Tu pregunta',           ph:'Escríbenos lo que quieras saber.' }
+  };
+  var wrap = document.getElementById('formulario-wrap'), f = document.getElementById('form-contacto');
+  var btn = document.getElementById('f-enviar'), est = document.getElementById('f-estado');
+  var botones = [].slice.call(document.querySelectorAll('.camino'));
+  var gracias = document.getElementById('form-gracias');
+  var actual = '';
+  function msg(t, c){ est.className = 'formulario-msg ' + (c||''); est.textContent = t; }
+  function ev(n, p){ if (typeof gtag === 'function') gtag('event', n, p||{}); }
+
+  function elegir(c, scroll){
+    if (!TXT[c]) return;
+    var nuevo = c !== actual; actual = c;
+    botones.forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-camino') === c ? 'true' : 'false'); });
+    [].forEach.call(f.querySelectorAll('[data-para]'), function(el){
+      var ver = el.getAttribute('data-para').split(' ').indexOf(c) > -1;
+      el.hidden = !ver;
+      [].forEach.call(el.querySelectorAll('input,select,textarea'), function(i){ i.disabled = !ver; });
+    });
+    document.getElementById('f-camino').value = c;
+    document.getElementById('f-asunto').value = TXT[c].asunto;
+    document.getElementById('f-msg-label').innerHTML = TXT[c].label + ' <i>*</i>';
+    document.getElementById('f-msg').placeholder = TXT[c].ph;
+    gracias.classList.remove('ver'); f.style.display = ''; msg('');
+    wrap.hidden = false;
+    try { history.replaceState(null, '', '#' + c); } catch(e){}
+    if (nuevo) ev('conversemos_camino', { camino: c });
+    if (scroll) wrap.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+  }
+  botones.forEach(function(b){ b.addEventListener('click', function(){ elegir(b.getAttribute('data-camino'), true); }); });
+  function desdeHash(){ var h = (location.hash||'').replace('#',''); if (TXT[h]) elegir(h, true); }
+  window.addEventListener('hashchange', desdeHash); desdeHash();
+
+  document.getElementById('form-otra').addEventListener('click', function(){ gracias.classList.remove('ver'); f.style.display = ''; f.scrollIntoView({behavior:'smooth', block:'start'}); });
+  f.addEventListener('input', function(){ if (est.className.indexOf('mal') > -1) msg(''); });
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (f.querySelector('[name=_gotcha]').value) return;               // trampa antispam: un robot la llenó
+    if (!f.checkValidity()){
+      var mal = f.querySelector(':invalid'); mal.focus();
+      msg(mal.type === 'checkbox' ? 'Para enviar, marca la autorización.' : 'Revisa los campos marcados.', 'mal'); return;
+    }
+    btn.disabled = true; msg('Enviando…');
+    fetch(f.action, { method:'POST', body:new FormData(f), headers:{ 'Accept':'application/json' } })
+      .then(function(r){ if(!r.ok) throw new Error(r.status); ev('consulta_enviada', { camino: actual }); f.reset(); elegirReset(); msg(''); f.style.display = 'none'; gracias.classList.add('ver'); gracias.scrollIntoView({behavior:'smooth', block:'center'}); gracias.focus({preventScroll:true}); })
+      .catch(function(){ msg('No pudimos enviarla. Intenta de nuevo o escríbenos por correo.', 'mal'); })
+      .then(function(){ btn.disabled = false; });
+  });
+  function elegirReset(){ document.getElementById('f-camino').value = actual; document.getElementById('f-asunto').value = TXT[actual].asunto; }
+})();
+
+/* Medición de clics en llamados y navegación */
+document.addEventListener('click', function(e){
+  var a = e.target.closest && e.target.closest('[data-cta]'); if (!a || typeof gtag !== 'function') return;
+  gtag('event', 'cta_click', { ubicacion: a.getAttribute('data-cta') });
+});
+
+/* Menú móvil + aparición suave */
+(function(){
+  var t = document.getElementById('nav-toggle'), m = document.getElementById('nav-mobile'), c = document.getElementById('nav-mobile-cerrar');
+  function abrir(v){ m.classList.toggle('abierto', v); t.classList.toggle('abierto', v); document.body.style.overflow = v ? 'hidden' : ''; }
+  t.addEventListener('click', function(){ abrir(!m.classList.contains('abierto')); });
+  c.addEventListener('click', function(){ abrir(false); });
+  [].forEach.call(m.querySelectorAll('a'), function(a){ a.addEventListener('click', function(){ abrir(false); }); });
+  var o = new IntersectionObserver(function(es){ es.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('visible'); o.unobserve(en.target); } }); }, { threshold: 0.1 });
+  [].forEach.call(document.querySelectorAll('.fade-in'), function(el){ o.observe(el); });
+})();
+</script>
+</body>
+</html>
