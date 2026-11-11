@@ -1078,6 +1078,11 @@
       .pasos { grid-template-columns: 1fr 1fr; gap: 0 20px; margin-bottom: 40px; }
       .nav-mobile a.nav-cta { font-size: 1.6rem; font-weight: 500; margin-top: 8px; }
     }
+    /* Logo centrado en el encabezado móvil */
+    @media (max-width: 900px) {
+      .logo-wrap { width: auto; margin-left: 0; gap: 0; justify-content: center; }
+      .logo-wrap > div { display: none; }
+    }
   </style>
 </head>
 <body>

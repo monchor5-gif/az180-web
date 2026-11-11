@@ -375,6 +375,11 @@
       .footer-contenido { flex-direction: column; align-items: flex-start; gap: 8px; }
       .footer-der { text-align: left; }
     }
+    /* Logo centrado en el encabezado móvil */
+    @media (max-width: 900px) {
+      .logo-wrap { width: auto; margin-left: 0; gap: 0; justify-content: center; }
+      .logo-wrap > div { display: none; }
+    }
   </style>
 </head>
 <body>
