@@ -774,6 +774,7 @@
     </div>
 
     <div class="formulario-wrap" id="formulario-wrap" hidden>
+      <p class="promesa" id="aviso-casa" style="margin:0 0 22px" hidden>¿Quieres saber cuánto puedes construir con tu presupuesto? <a href="../tu-casa/" class="link-cta" data-cta="conversemos-tucasa">Haz el prediagnóstico en 7 minutos</a>. O déjanos tu consulta aquí abajo.</p>
       <form class="formulario proyecto" id="form-contacto" action="https://formspree.io/f/mojrboqj" method="POST" novalidate>
         <input type="hidden" name="_subject" id="f-asunto" value="Nueva consulta desde az180.cl">
         <input type="hidden" name="camino" id="f-camino" value="">
@@ -971,7 +972,7 @@
     document.getElementById('f-msg-label').innerHTML = TXT[c].label + ' <i>*</i>';
     document.getElementById('f-msg').placeholder = TXT[c].ph;
     gracias.classList.remove('ver'); f.style.display = ''; msg('');
-    wrap.hidden = false;
+    wrap.hidden = false; document.getElementById('aviso-casa').hidden = (c !== 'casa');
     try { history.replaceState(null, '', '#' + c); } catch(e){}
     if (nuevo) ev('conversemos_camino', { camino: c });
     if (scroll) wrap.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
