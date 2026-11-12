@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tu casa en el sur — Prediagnóstico gratuito — Azimut 180°</title>
+  <title>Cuánto puedes construir con tu presupuesto — Azimut 180°</title>
   <meta name="description" content="Descubre en 7 minutos cuántos metros cuadrados alcanza tu presupuesto y qué revisar en tu terreno. Prediagnóstico gratuito de Azimut 180°, Valdivia." />
   <link rel="canonical" href="https://az180.cl/tu-casa/" />
 
@@ -21,7 +21,7 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-  <meta property="og:title" content="Tu casa en el sur — Prediagnóstico gratuito — Azimut 180°" />
+  <meta property="og:title" content="Cuánto puedes construir con tu presupuesto — Azimut 180°" />
   <meta property="og:description" content="Cuántos m² alcanza tu presupuesto y qué revisar en tu terreno. 7 minutos, sin costo." />
   <meta property="og:image" content="https://az180.cl/fotos/casa-palenque/casa-palenque-01.jpg" />
   <meta property="og:url" content="https://az180.cl/tu-casa/" />
@@ -718,6 +718,24 @@
       .tc-paso h2 { font-size: 1.3rem; }
     }
 
+    
+    .tc-puertas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 32px; margin: 0 0 44px; }
+    .tc-puertas > div { border-top: 1px solid #111; padding-top: 14px; }
+    .tc-puertas h2 { font-size: var(--t-micro); letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: var(--gris); margin: 0 0 8px; }
+    .tc-puertas p { margin: 0; font-size: var(--t-body); line-height: 1.6; }
+    .tc-puertas a { color: #111; border-bottom: 1px solid #111; text-decoration: none; }
+    .tc-puertas a:hover { opacity: .6; }
+    .tc-prog { height: 2px; background: #dedad0; margin: 0 0 26px; }
+    .tc-prog i { display: block; height: 100%; background: #111; width: 0; transition: width .3s; }
+    .tc-paso { border-top: 0; padding-top: 0; }
+    .tc-paso h2 { margin-bottom: 18px; }
+    .tc-nav { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; padding-top: 10px; }
+    .tc-atras { background: none; border: 0; border-bottom: 1px solid #111; padding: 2px 0; font-family: var(--font); font-size: var(--t-small); color: #111; cursor: pointer; }
+    .tc-afina { border-top: 1px solid #dedad0; margin-top: 34px; padding-top: 28px; }
+    .tc-afina h3 { font-size: 1.3rem; font-weight: 300; letter-spacing: -0.01em; text-transform: none; color: #111; margin: 0 0 8px; }
+    .tc-afina .tc-grupo:last-of-type { margin-bottom: 14px; }
+    @media (max-width: 900px) { .tc-puertas { grid-template-columns: 1fr; gap: 18px; margin-bottom: 30px; } }
+
     /* Logo centrado en el encabezado móvil */
     @media (max-width: 900px) {
       .logo-wrap { width: auto; margin-left: 0; gap: 0; justify-content: center; }
@@ -811,70 +829,59 @@
     <p class="section-label">Tu casa en el sur</p>
     <div class="conv-intro fade-in">
       <div>
-        <h1 class="conv-titulo">¿Estás pensando en hacerte una casa en el sur?</h1>
-        <p class="conv-texto">Responde en unos 7 minutos y verás cuántos metros cuadrados alcanza tu presupuesto y qué conviene revisar en tu terreno. Sin costo.</p>
+        <h1 class="conv-titulo">Descubre cuánto puedes construir con tu presupuesto.</h1>
+        <p class="conv-texto">Tres pasos cortos y verás cuántos m² alcanza tu presupuesto y qué revisar en tu terreno. Sin costo y sin compromiso. Te responde una persona de la oficina en 1 día hábil.</p>
       </div>
+    </div>
+
+    <div class="tc-puertas">
+      <div><h2>Hablemos ya</h2><p><a href="https://wa.me/56999982581" target="_blank" rel="noopener" data-cta="tucasa-puerta-whatsapp">WhatsApp</a> · <a href="tel:+56999982581" data-cta="tucasa-puerta-llamar">Llamar</a> · <a href="mailto:administracion@az180.cl" data-cta="tucasa-puerta-correo">Correo</a></p></div>
+      <div><h2>Déjanos tus datos</h2><p><a href="../conversemos/#duda" data-cta="tucasa-puerta-datos">Te llamamos en 1 día hábil</a></p></div>
+      <div><h2>Prefiero ver números</h2><p>Haz el prediagnóstico aquí abajo, son 3 minutos.</p></div>
     </div>
 
     <form class="tc-form" id="tc-form" action="https://formspree.io/f/mojrboqj" method="POST" novalidate>
       <div class="formulario-campo" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true"><label>No llenar<input type="text" id="tc-trampa" tabindex="-1" autocomplete="off"></label></div>
+      <div class="tc-prog" aria-hidden="true"><i id="tc-prog"></i></div>
 
-      <section class="tc-paso">
-        <h2><span>01</span>Tu terreno</h2>
+      <section class="tc-paso" data-paso="1">
+        <h2><span>Paso 1 de 3</span>Tu terreno</h2>
         <fieldset class="tc-grupo"><legend>¿Ya tienes terreno?</legend><div class="chips"><label><input type="radio" name="terreno" value="si">Sí, es mío</label><label><input type="radio" name="terreno" value="compra">Estoy por comprarlo</label><label><input type="radio" name="terreno" value="buscando">Lo estoy buscando</label></div></fieldset>
         <div class="tc-fila">
           <div class="formulario-campo"><label for="comuna">Comuna o sector</label><input type="text" id="comuna" placeholder="Ej.: Niebla, Valdivia"></div>
           <div class="formulario-campo"><label for="sup">Superficie aproximada (m²)</label><input type="number" id="sup" min="0" inputmode="numeric" placeholder="Ej.: 5000"></div>
         </div>
-        <fieldset class="tc-grupo"><legend>¿Cómo es el terreno?</legend><div class="chips"><label><input type="radio" name="tipo" value="urbano">Urbano, dentro de la ciudad</label><label><input type="radio" name="tipo" value="rural">Parcela rural</label><label><input type="radio" name="tipo" value="borde">Borde de río, lago, humedal o mar</label></div></fieldset>
-        <fieldset class="tc-grupo"><legend>Pendiente</legend><div class="chips"><label><input type="radio" name="pend" value="plano">Plano</label><label><input type="radio" name="pend" value="moderada">Moderada</label><label><input type="radio" name="pend" value="fuerte">Fuerte</label><label><input type="radio" name="pend" value="nose">No sé</label></div></fieldset>
-        <fieldset class="tc-grupo"><legend>¿Qué servicios tiene hoy?<span class="tc-hint">Marca todos los que correspondan</span></legend><div class="chips"><label><input type="checkbox" name="serv" value="agua">Agua potable (red o APR)</label><label><input type="checkbox" name="serv" value="pozo">Pozo</label><label><input type="checkbox" name="serv" value="luz">Electricidad</label><label><input type="checkbox" name="serv" value="alc">Alcantarillado</label><label><input type="checkbox" name="serv" value="camino">Camino de acceso todo el año</label></div></fieldset>
+        <fieldset class="tc-grupo"><legend>¿Cómo es el terreno?</legend><div class="chips"><label><input type="radio" name="tipo" value="urbano">Urbano, dentro de la ciudad</label><label><input type="radio" name="tipo" value="rural">Parcela rural</label><label><input type="radio" name="tipo" value="borde">Borde de río, lago, humedal o mar</label></div></fieldset><fieldset class="tc-grupo"><legend>Pendiente</legend><div class="chips"><label><input type="radio" name="pend" value="plano">Plano</label><label><input type="radio" name="pend" value="moderada">Moderada</label><label><input type="radio" name="pend" value="fuerte">Fuerte</label><label><input type="radio" name="pend" value="nose">No sé</label></div></fieldset><fieldset class="tc-grupo"><legend>¿Qué servicios tiene hoy?<span class="tc-hint">Marca todos los que correspondan</span></legend><div class="chips"><label><input type="checkbox" name="serv" value="agua">Agua potable (red o APR)</label><label><input type="checkbox" name="serv" value="pozo">Pozo</label><label><input type="checkbox" name="serv" value="luz">Electricidad</label><label><input type="checkbox" name="serv" value="alc">Alcantarillado</label><label><input type="checkbox" name="serv" value="camino">Camino de acceso todo el año</label></div></fieldset><div class="tc-nav"><button type="button" class="tc-btn" data-sig>Siguiente</button><span class="tc-err" data-err role="alert" hidden></span></div>
       </section>
 
-      <section class="tc-paso">
-        <h2><span>02</span>Quiénes la van a vivir</h2>
+      <section class="tc-paso" data-paso="2" hidden>
+        <h2><span>Paso 2 de 3</span>Tu casa</h2>
         <div class="tc-fila">
           <div class="formulario-campo"><label for="personas">Personas que vivirán en la casa</label><input type="number" id="personas" min="1" max="20" value="3"></div>
           <div class="formulario-campo"><label for="uso">Uso principal</label>
             <select id="uso"><option value="permanente">Vivienda permanente</option><option value="segunda">Segunda vivienda o descanso</option><option value="arriendo">Arriendo turístico</option></select></div>
         </div>
-        <div class="formulario-campo" style="border-top:0;padding-top:0"><label for="vida">¿Cómo es su día a día?</label><textarea id="vida" placeholder="Teletrabajo, hijos, adultos mayores, mascotas, visitas frecuentes, talleres… Ej.: Trabajamos los dos desde casa y recibimos a los abuelos varias semanas al año."></textarea></div>
-      </section>
-
-      <section class="tc-paso">
-        <h2><span>03</span>La casa que imaginas</h2>
         <div class="tc-grupo"><label class="tc-lab" for="m2">Tamaño aproximado<span class="tc-hint">si no sabes, déjalo como está</span></label>
           <input class="tc-rango" type="range" id="m2" min="40" max="300" step="5" value="120">
           <div class="tc-rango-out"><span id="m2o">120</span> m² construidos</div></div>
-        <fieldset class="tc-grupo"><legend>¿Cuántos dormitorios?</legend><div class="chips"><label><input type="radio" name="dorm" value="1">1</label><label><input type="radio" name="dorm" value="2">2</label><label><input type="radio" name="dorm" value="3">3</label><label><input type="radio" name="dorm" value="4">4</label><label><input type="radio" name="dorm" value="5 o más">5 o más</label></div></fieldset><fieldset class="tc-grupo"><legend>¿Cuántos baños?</legend><div class="chips"><label><input type="radio" name="banos" value="1">1</label><label><input type="radio" name="banos" value="2">2</label><label><input type="radio" name="banos" value="3 o más">3 o más</label></div></fieldset><fieldset class="tc-grupo"><legend>¿Qué espacios quieres que tenga?<span class="tc-hint">Marca todos los que correspondan</span></legend><div class="chips"><label><input type="checkbox" name="esp" value="Living-comedor-cocina integrados">Living-comedor-cocina integrados</label><label><input type="checkbox" name="esp" value="Cocina separada">Cocina separada</label><label><input type="checkbox" name="esp" value="Escritorio o espacio de trabajo">Escritorio o espacio de trabajo</label><label><input type="checkbox" name="esp" value="Logia (lavado y secado)">Logia (lavado y secado)</label><label><input type="checkbox" name="esp" value="Chiflonera (entrada con doble puerta)">Chiflonera (entrada con doble puerta)</label><label><input type="checkbox" name="esp" value="Despensa o bodega">Despensa o bodega</label><label><input type="checkbox" name="esp" value="Leñera">Leñera</label><label><input type="checkbox" name="esp" value="Terraza cubierta o quincho">Terraza cubierta o quincho</label><label><input type="checkbox" name="esp" value="Taller">Taller</label><label><input type="checkbox" name="esp" value="Pieza de visitas">Pieza de visitas</label><label><input type="checkbox" name="esp" value="Dormitorio principal en el primer piso">Dormitorio principal en el primer piso</label><label><input type="checkbox" name="esp" value="Estacionamiento techado">Estacionamiento techado</label></div></fieldset><div class="formulario-campo" style="border-top:0;padding-top:0"><label for="otros">¿Otro espacio o necesidad?</label><input type="text" id="otros" placeholder="Sala de música, estudio de arte, espacio para mascotas…"></div>
-        <div class="formulario-campo" style="border-top:0;padding-top:0"><label for="ref">¿Tienes referencias?</label><input type="text" id="ref" placeholder="Links de Instagram o Pinterest"></div>
+        <fieldset class="tc-grupo"><legend>¿Cuántos dormitorios?</legend><div class="chips"><label><input type="radio" name="dorm" value="1">1</label><label><input type="radio" name="dorm" value="2">2</label><label><input type="radio" name="dorm" value="3">3</label><label><input type="radio" name="dorm" value="4">4</label><label><input type="radio" name="dorm" value="5 o más">5 o más</label></div></fieldset><fieldset class="tc-grupo"><legend>¿Cuántos baños?</legend><div class="chips"><label><input type="radio" name="banos" value="1">1</label><label><input type="radio" name="banos" value="2">2</label><label><input type="radio" name="banos" value="3 o más">3 o más</label></div></fieldset><fieldset class="tc-grupo"><legend>¿Qué espacios quieres que tenga?<span class="tc-hint">Marca todos los que correspondan</span></legend><div class="chips"><label><input type="checkbox" name="esp" value="Living-comedor-cocina integrados">Living-comedor-cocina integrados</label><label><input type="checkbox" name="esp" value="Cocina separada">Cocina separada</label><label><input type="checkbox" name="esp" value="Escritorio o espacio de trabajo">Escritorio o espacio de trabajo</label><label><input type="checkbox" name="esp" value="Logia (lavado y secado)">Logia (lavado y secado)</label><label><input type="checkbox" name="esp" value="Chiflonera (entrada con doble puerta)">Chiflonera (entrada con doble puerta)</label><label><input type="checkbox" name="esp" value="Despensa o bodega">Despensa o bodega</label><label><input type="checkbox" name="esp" value="Leñera">Leñera</label><label><input type="checkbox" name="esp" value="Terraza cubierta o quincho">Terraza cubierta o quincho</label><label><input type="checkbox" name="esp" value="Taller">Taller</label><label><input type="checkbox" name="esp" value="Pieza de visitas">Pieza de visitas</label><label><input type="checkbox" name="esp" value="Dormitorio principal en el primer piso">Dormitorio principal en el primer piso</label><label><input type="checkbox" name="esp" value="Estacionamiento techado">Estacionamiento techado</label></div></fieldset><div class="formulario-campo" style="border-top:0;padding-top:0"><label for="otros">¿Otro espacio o necesidad?</label><input type="text" id="otros" placeholder="Sala de música, estudio de arte, espacio para mascotas…"></div><div class="tc-nav"><button type="button" class="tc-atras" data-atras>Atrás</button><button type="button" class="tc-btn" data-sig>Siguiente</button><span class="tc-err" data-err role="alert" hidden></span></div>
       </section>
 
-      <section class="tc-paso">
-        <h2><span>04</span>Presupuesto y plazos</h2>
-        <fieldset class="tc-grupo"><legend>Presupuesto para construir<span class="tc-hint">Solo la obra, sin terreno ni proyecto</span></legend><div class="chips"><label><input type="radio" name="ppto" value="0-1500">Menos de 1.500 UF</label><label><input type="radio" name="ppto" value="1500-2500">1.500 a 2.500 UF</label><label><input type="radio" name="ppto" value="2500-4000">2.500 a 4.000 UF</label><label><input type="radio" name="ppto" value="4000-6000">4.000 a 6.000 UF</label><label><input type="radio" name="ppto" value="6000-9000">Más de 6.000 UF</label><label><input type="radio" name="ppto" value="nose">Aún no lo sé</label></div></fieldset>
+      <section class="tc-paso" data-paso="3" hidden>
+        <h2><span>Paso 3 de 3</span>Presupuesto y plazos</h2>
+        <fieldset class="tc-grupo"><legend>Presupuesto para construir<span class="tc-hint">Solo la obra, sin terreno ni proyecto</span></legend><div class="chips"><label><input type="radio" name="ppto" value="0-600">Menos de 600 UF</label><label><input type="radio" name="ppto" value="600-1000">600 a 1.000 UF</label><label><input type="radio" name="ppto" value="1000-1500">1.000 a 1.500 UF</label><label><input type="radio" name="ppto" value="1500-2500">1.500 a 2.500 UF</label><label><input type="radio" name="ppto" value="2500-4000">2.500 a 4.000 UF</label><label><input type="radio" name="ppto" value="4000-6000">4.000 a 6.000 UF</label><label><input type="radio" name="ppto" value="6000-9000">6.000 a 9.000 UF</label><label><input type="radio" name="ppto" value="9000-15000">Más de 9.000 UF</label><label><input type="radio" name="ppto" value="nose">Aún no lo sé</label></div></fieldset>
         <div class="tc-fila">
-          <div class="formulario-campo"><label for="fin">Financiamiento</label>
+          <div class="formulario-campo"><label for="fin">¿Con qué lo financiarías?</label>
             <select id="fin"><option value="ahorro">Ahorro propio</option><option value="credito">Crédito hipotecario</option><option value="subsidio">Subsidio</option><option value="mixto">Mixto</option><option value="nose">Aún no lo sé</option></select></div>
           <div class="formulario-campo"><label for="plazo">¿Cuándo te gustaría empezar a construir?</label>
             <select id="plazo"><option value="6">En menos de 6 meses</option><option value="12">Entre 6 y 12 meses</option><option value="24">En más de un año</option><option value="explorando">Solo estoy explorando</option></select></div>
         </div>
+        <div class="tc-nav"><button type="button" class="tc-atras" data-atras>Atrás</button><button type="button" class="tc-btn" data-sig>Siguiente</button><span class="tc-err" data-err role="alert" hidden></span></div>
       </section>
 
-      <section class="tc-paso">
-        <h2><span>05</span>La casa en el tiempo</h2>
-        <p class="tc-intro">Una casa dura décadas. Pensar desde ahora cómo cambiará su vida permite diseñar algo que se adapte, se amplíe, se arriende o se venda bien.</p>
-        <fieldset class="tc-grupo"><legend>¿Cuánto tiempo piensan vivir ahí?</legend><div class="chips"><label><input type="radio" name="horiz" value="siempre">Para siempre, envejecer aquí</label><label><input type="radio" name="horiz" value="10-20">Entre 10 y 20 años</label><label><input type="radio" name="horiz" value="5-10">Entre 5 y 10 años</label><label><input type="radio" name="horiz" value="-5">Menos de 5 años</label><label><input type="radio" name="horiz" value="nose">No lo sabemos</label></div></fieldset>
-        <fieldset class="tc-grupo"><legend>¿Qué cambios ven venir en la familia?<span class="tc-hint">Marca todos los que correspondan</span></legend><div class="chips"><label><input type="checkbox" name="cambios" value="hijos-llegan">Llegarán hijos</label><label><input type="checkbox" name="cambios" value="hijos-van">Los hijos se irán de la casa</label><label><input type="checkbox" name="cambios" value="padres">Vendrán a vivir padres o suegros</label><label><input type="checkbox" name="cambios" value="teletrabajo">Más trabajo desde casa</label><label><input type="checkbox" name="cambios" value="mudanza">Podríamos cambiarnos de ciudad</label><label><input type="checkbox" name="cambios" value="ninguno">Ninguno previsto</label></div></fieldset>
-        <fieldset class="tc-grupo"><legend>¿Necesitan que la vida diaria funcione en un solo piso?</legend><div class="chips"><label><input type="radio" name="unpiso" value="si">Sí, es necesario</label><label><input type="radio" name="unpiso" value="bueno">Sería bueno a futuro</label><label><input type="radio" name="unpiso" value="no">No es tema</label></div></fieldset>
-        <fieldset class="tc-grupo"><legend>¿Cómo imaginan construirla?</legend><div class="chips"><label><input type="radio" name="etapas" value="una">Todo de una vez</label><label><input type="radio" name="etapas" value="etapas">Por etapas, con ampliación prevista</label><label><input type="radio" name="etapas" value="nose">No lo sabemos</label></div></fieldset>
-        <fieldset class="tc-grupo"><legend>¿Contemplan arrendar?<span class="tc-hint">Marca todas las que apliquen</span></legend><div class="chips"><label><input type="checkbox" name="renta" value="unidad">Una unidad independiente (cabaña o departamento)</label><label><input type="checkbox" name="renta" value="temporada">La casa completa en temporada</label><label><input type="checkbox" name="renta" value="sinosvamos">La casa, si algún día nos vamos</label><label><input type="checkbox" name="renta" value="no">No pensamos arrendar</label></div></fieldset>
-        <fieldset class="tc-grupo"><legend>¿Piensan venderla algún día?</legend><div class="chips"><label><input type="radio" name="venta" value="no">No</label><label><input type="radio" name="venta" value="10+">Quizás, en más de 10 años</label><label><input type="radio" name="venta" value="-10">Probablemente, en menos de 10 años</label><label><input type="radio" name="venta" value="inversion">Es una inversión</label></div></fieldset>
-      </section>
-
-      <section class="tc-paso">
-        <h2><span>06</span>Contacto</h2>
-        <p class="tc-intro">Con estos datos te mostramos tu prediagnóstico y nuestro equipo te escribe en 1 día hábil.</p>
+      <section class="tc-paso" data-paso="4" hidden>
+        <h2><span>Tu prediagnóstico está listo</span>¿A dónde te lo enviamos?</h2>
+        <p class="tc-intro">Lo verás en esta misma pantalla y nuestro equipo te escribe en 1 día hábil.</p>
         <div class="tc-fila">
           <div class="formulario-campo"><label for="nombre">Nombre <i>*</i></label><input type="text" id="nombre" autocomplete="given-name" required placeholder="Pedro"></div>
           <div class="formulario-campo"><label for="apellido">Apellido <i>*</i></label><input type="text" id="apellido" autocomplete="family-name" required placeholder="González"></div>
@@ -891,11 +898,17 @@
           <input type="checkbox" id="autoriza" required style="margin-top:2px;accent-color:#111;flex:none;width:15px;height:15px">
           <span>Autorizo a Azimut 180° a usar mis datos para prepararme este prediagnóstico y responder mi consulta.</span>
         </label>
-        <div class="tc-enviar"><button type="submit" class="tc-btn" id="tc-enviar">Ver mi prediagnóstico</button><span class="tc-err" id="formErr" role="alert" hidden></span></div>
+        <div class="tc-nav"><button type="button" class="tc-atras" data-atras>Atrás</button><button type="submit" class="tc-btn" id="tc-enviar">Ver mi prediagnóstico</button><span class="tc-err" id="formErr" role="alert" hidden></span></div>
       </section>
     </form>
 
     <section class="tc-res" id="result" hidden aria-live="polite" tabindex="-1"></section>
+
+    <form class="tc-afina" id="tc-afina" hidden novalidate>
+      <h3>Afina tu prediagnóstico <span class="tc-hint">2 minutos, opcional</span></h3>
+      <p class="tc-intro">Una casa dura décadas. Si nos cuentas cómo imaginas los próximos años, diseñamos algo que se adapte, se amplíe, se arriende o se venda bien.</p><fieldset class="tc-grupo"><legend>¿Cuánto tiempo piensan vivir ahí?</legend><div class="chips"><label><input type="radio" name="horiz" value="siempre">Para siempre, envejecer aquí</label><label><input type="radio" name="horiz" value="10-20">Entre 10 y 20 años</label><label><input type="radio" name="horiz" value="5-10">Entre 5 y 10 años</label><label><input type="radio" name="horiz" value="-5">Menos de 5 años</label><label><input type="radio" name="horiz" value="nose">No lo sabemos</label></div></fieldset><fieldset class="tc-grupo"><legend>¿Qué cambios ven venir en la familia?<span class="tc-hint">Marca todos los que correspondan</span></legend><div class="chips"><label><input type="checkbox" name="cambios" value="hijos-llegan">Llegarán hijos</label><label><input type="checkbox" name="cambios" value="hijos-van">Los hijos se irán de la casa</label><label><input type="checkbox" name="cambios" value="padres">Vendrán a vivir padres o suegros</label><label><input type="checkbox" name="cambios" value="teletrabajo">Más trabajo desde casa</label><label><input type="checkbox" name="cambios" value="mudanza">Podríamos cambiarnos de ciudad</label><label><input type="checkbox" name="cambios" value="ninguno">Ninguno previsto</label></div></fieldset><fieldset class="tc-grupo"><legend>¿Necesitan que la vida diaria funcione en un solo piso?</legend><div class="chips"><label><input type="radio" name="unpiso" value="si">Sí, es necesario</label><label><input type="radio" name="unpiso" value="bueno">Sería bueno a futuro</label><label><input type="radio" name="unpiso" value="no">No es tema</label></div></fieldset><fieldset class="tc-grupo"><legend>¿Cómo imaginan construirla?</legend><div class="chips"><label><input type="radio" name="etapas" value="una">Todo de una vez</label><label><input type="radio" name="etapas" value="etapas">Por etapas, con ampliación prevista</label><label><input type="radio" name="etapas" value="nose">No lo sabemos</label></div></fieldset><fieldset class="tc-grupo"><legend>¿Contemplan arrendar?<span class="tc-hint">Marca todas las que apliquen</span></legend><div class="chips"><label><input type="checkbox" name="renta" value="unidad">Una unidad independiente (cabaña o departamento)</label><label><input type="checkbox" name="renta" value="temporada">La casa completa en temporada</label><label><input type="checkbox" name="renta" value="sinosvamos">La casa, si algún día nos vamos</label><label><input type="checkbox" name="renta" value="no">No pensamos arrendar</label></div></fieldset><fieldset class="tc-grupo"><legend>¿Piensan venderla algún día?</legend><div class="chips"><label><input type="radio" name="venta" value="no">No</label><label><input type="radio" name="venta" value="10+">Quizás, en más de 10 años</label><label><input type="radio" name="venta" value="-10">Probablemente, en menos de 10 años</label><label><input type="radio" name="venta" value="inversion">Es una inversión</label></div></fieldset>
+      <div class="tc-nav"><button type="submit" class="tc-btn" id="tc-afina-env">Enviar y afinar</button><span class="tc-estado" id="afina-estado" role="status"></span></div>
+    </form>
   </section>
 </main>
 
@@ -915,71 +928,108 @@
 
 
 
-<script>
-(function(){
-  var CONFIG = { ufM2: { min: 28, max: 42 }, whatsapp: '+56 9 9998 2581', correo: 'administracion@az180.cl', endpoint: 'https://formspree.io/f/mojrboqj' };
+<script>(function(){
+  /* Ajustes de la oficina (calibrar con cubicaciones propias) */
+  var CONFIG = {
+    ufM2: { min: 28, max: 42 },                 // costo referencial de obra, UF/m²
+    minUF: 1000,                                // bajo este presupuesto no se ofrece casa nueva con proyecto
+    cortes: { ajustado: 1.3, media: 2.5 },      // brecha = (m² × UF/m² mínimo) ÷ presupuesto
+    whatsapp: '+56 9 9998 2581',
+    endpoint: 'https://formspree.io/f/mojrboqj'
+  };
   var $ = function(s){ return document.querySelector(s); };
   var radio = function(n){ var e = document.querySelector('input[name="'+n+'"]:checked'); return e ? e.value : ''; };
   var checks = function(n){ return [].map.call(document.querySelectorAll('input[name="'+n+'"]:checked'), function(i){ return i.value; }); };
   var fmt = function(n){ return Math.round(n).toLocaleString('es-CL'); };
   var label = function(n,v){ var i = document.querySelector('input[name="'+n+'"][value="'+v+'"]'); return i ? i.parentElement.textContent.trim() : '—'; };
+  var has = function(a,v){ return a.indexOf(v) > -1; };
   function ev(n,p){ if (typeof gtag === 'function') gtag('event', n, p||{}); }
+  function el(tag, cls, txt){ var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   $('#m2').addEventListener('input', function(e){ $('#m2o').textContent = e.target.value; });
 
+  function presupuestoUF(p){
+    if (!p || p === 'nose') return null;
+    var x = p.split('-').map(Number); return x[0] === 0 ? x[1] * 0.67 : (x[0] + x[1]) / 2;
+  }
+
   function diagnose(d){
-    var notes = [], time = [], m2 = +d.m2, verdict, cls = 'ajustado', metrics = null, U = CONFIG.ufM2;
-    if (d.ppto && d.ppto !== 'nose'){
-      var p = d.ppto.split('-').map(Number), lo = p[0], hi = p[1];
-      var mid = lo === 0 ? 1200 : (lo + hi) / 2;
-      var m2lo = mid / U.max, m2hi = mid / U.min;
-      metrics = [['Superficie que buscas', fmt(m2)+' m²'], ['Costo estimado de obra', fmt(m2*U.min)+'–'+fmt(m2*U.max)+' UF'], ['Tu presupuesto alcanza para', fmt(m2lo)+'–'+fmt(m2hi)+' m²']];
-      if (m2 <= m2lo){ verdict = 'Tu presupuesto calza con la casa que imaginas, con margen para terminaciones o imprevistos.'; cls = 'ok'; }
-      else if (m2 <= m2hi){ verdict = 'Está ajustado. Es posible con un diseño eficiente y decisiones claras de materialidad desde el inicio.'; cls = 'ajustado'; }
-      else { verdict = 'Con este presupuesto, una superficie realista está entre '+fmt(m2lo)+' y '+fmt(m2hi)+' m². Una opción es construir una primera etapa y dejar la ampliación prevista.'; cls = 'alto'; }
+    var U = CONFIG.ufM2, m2 = +d.m2, B = presupuestoUF(d.ppto), notes = [], time = [], alts = [];
+    var tier, cls, verdict, metrics = null;
+    if (B){
+      var m2lo = B / U.max, m2hi = B / U.min, ratio = (m2 * U.min) / B;
+      metrics = [['Superficie que buscas', fmt(m2) + ' m²'], ['Costo estimado de obra', fmt(m2*U.min) + '–' + fmt(m2*U.max) + ' UF'], ['Tu presupuesto alcanza para', m2hi < 30 ? 'Menos de 30 m²' : fmt(m2lo) + '–' + fmt(m2hi) + ' m²']];
+      if (B < CONFIG.minUF || ratio > CONFIG.cortes.media){
+        tier = 'grande'; cls = 'alto';
+        verdict = B < CONFIG.minUF
+          ? 'Con este presupuesto, hoy no alcanza para construir una casa nueva con proyecto de arquitectura. No es un no definitivo: hay caminos que conviene conocer.'
+          : 'La casa que imaginas (' + fmt(m2) + ' m²) cuesta bastante más de lo que tienes hoy: entre ' + fmt(m2*U.min) + ' y ' + fmt(m2*U.max) + ' UF, frente a unas ' + fmt(B) + ' UF. Antes de proyectar conviene ajustar el tamaño o el presupuesto.';
+        alts = [
+          (m2hi < 30 ? 'Un módulo o refugio pequeño como primera etapa, con la ampliación prevista desde el inicio.' : 'Una casa más pequeña o por etapas: con tu presupuesto, una primera etapa compacta de ' + fmt(m2lo) + ' a ' + fmt(m2hi) + ' m², con la ampliación prevista desde el inicio.'),
+          'Ampliar o mejorar una construcción que ya tengas, que suele costar menos que una casa nueva.',
+          'Revisar subsidios y financiamiento: el SERVIU y los créditos hipotecarios pueden cambiar la cuenta.',
+          'Reunir un presupuesto mayor antes de proyectar y volver a hacer este prediagnóstico en unos meses.'
+        ];
+      } else if (ratio > 1 || m2 * U.max > B){
+        if (ratio > CONFIG.cortes.ajustado){ tier = 'media'; cls = 'ajustado';
+          verdict = 'Con este presupuesto, una superficie realista está entre ' + fmt(m2lo) + ' y ' + fmt(m2hi) + ' m². Lo que imaginas pide más. Una opción es construir una primera etapa y dejar la ampliación prevista.'; }
+        else { tier = 'ajustado'; cls = 'ajustado';
+          verdict = 'Está ajustado. Es posible con un diseño eficiente y decisiones claras de materialidad desde el inicio.'; }
+      } else { tier = 'ok'; cls = 'ok'; verdict = 'Tu presupuesto calza con la casa que imaginas, con margen para terminaciones o imprevistos.'; }
     } else {
-      verdict = 'Como referencia, construir '+fmt(m2)+' m² en la zona cuesta entre '+fmt(m2*U.min)+' y '+fmt(m2*U.max)+' UF, sin terreno ni proyecto.';
+      tier = 'sin'; cls = '';
+      verdict = 'Como referencia, construir ' + fmt(m2) + ' m² en la zona cuesta entre ' + fmt(m2*U.min) + ' y ' + fmt(m2*U.max) + ' UF, sin terreno ni proyecto.';
     }
-    if (d.terreno === 'buscando') notes.push('Antes de comprar, conviene revisar la normativa, el acceso y los servicios del terreno. Podemos evaluar las opciones que estés mirando.');
-    if (d.terreno === 'compra') notes.push('Si aún no firmas, revisemos el certificado de informaciones previas y la factibilidad de servicios antes de cerrar la compra.');
-    if (d.tipo === 'rural') notes.push('En terreno rural, el agua, la solución sanitaria (fosa o planta) y la tramitación del permiso definen buena parte del costo y del plazo.');
-    if (d.tipo === 'borde') notes.push('Cerca de ríos, lagos, humedales o el mar puede haber zonas de riesgo, franjas de protección o exigencias ambientales. Hay que verificarlo antes de diseñar.');
-    if (d.tipo === 'urbano') notes.push('En zona urbana, el Plan Regulador fija cuánto y cómo se puede construir. Lo revisamos con el certificado de informaciones previas.');
-    if (d.pend === 'fuerte') notes.push('Con pendiente fuerte, las fundaciones y los accesos pueden subir el costo de forma importante. Conviene un levantamiento topográfico temprano.');
-    if (d.pend === 'nose') notes.push('Un levantamiento topográfico es el primer documento útil: define fundaciones, accesos y orientación.');
-    var s = d.serv;
-    if (d.terreno !== 'buscando'){
-      if (s.indexOf('agua') < 0 && s.indexOf('pozo') < 0) notes.push('Sin agua potable resuelta, hay que estudiar pozo, APR o derechos de agua antes de proyectar.');
-      if (s.indexOf('luz') < 0) notes.push('Sin electricidad, el empalme o una solución autónoma puede tomar meses. Conviene pedir factibilidad pronto.');
-      if (s.indexOf('alc') < 0) notes.push('Sin alcantarillado, se necesita una solución particular aprobada por la autoridad sanitaria.');
+
+    if (tier !== 'grande'){
+      if (d.terreno === 'buscando') notes.push('Antes de comprar, conviene revisar la normativa, el acceso y los servicios del terreno. Podemos evaluar las opciones que estés mirando.');
+      if (d.terreno === 'compra') notes.push('Si aún no firmas, revisemos el certificado de informaciones previas y la factibilidad de servicios antes de cerrar la compra.');
+      if (d.tipo === 'rural') notes.push('En terreno rural, el agua, la solución sanitaria (fosa o planta) y la tramitación del permiso definen buena parte del costo y del plazo.');
+      if (d.tipo === 'borde') notes.push('Cerca de ríos, lagos, humedales o el mar puede haber zonas de riesgo, franjas de protección o exigencias ambientales. Hay que verificarlo antes de diseñar.');
+      if (d.tipo === 'urbano') notes.push('En zona urbana, el Plan Regulador fija cuánto y cómo se puede construir. Lo revisamos con el certificado de informaciones previas.');
+      if (d.pend === 'fuerte') notes.push('Con pendiente fuerte, las fundaciones y los accesos pueden subir el costo de forma importante. Conviene un levantamiento topográfico temprano.');
+      if (d.pend === 'nose') notes.push('Un levantamiento topográfico es el primer documento útil: define fundaciones, accesos y orientación.');
+      var s = d.serv;
+      if (d.terreno !== 'buscando'){
+        if (!has(s,'agua') && !has(s,'pozo')) notes.push('Sin agua potable resuelta, hay que estudiar pozo, APR o derechos de agua antes de proyectar.');
+        if (!has(s,'luz')) notes.push('Sin electricidad, el empalme o una solución autónoma puede tomar meses. Conviene pedir factibilidad pronto.');
+        if (!has(s,'alc')) notes.push('Sin alcantarillado, se necesita una solución particular aprobada por la autoridad sanitaria.');
+      }
+      if (d.plazo === '6') notes.push('Para partir en menos de 6 meses hay que considerar que el proyecto y el permiso de edificación suelen tomar entre 3 y 6 meses.');
+      if (d.fin === 'credito' || d.fin === 'subsidio' || d.fin === 'mixto') notes.push('Con crédito o subsidio, el banco o el SERVIU tienen sus propios requisitos y plazos. Es mejor considerarlos desde el diseño.');
+      var nd = parseInt(d.dorm,10) || 0, nb = parseInt(d.banos,10) || 0;
+      if (nd){ var need = 30 + 18*nd + 4*nb; if (m2 < need) notes.push('Un programa de ' + d.dorm + ' dormitorio' + (nd>1?'s':'') + (nb ? ' y ' + d.banos + ' baño' + (nb>1?'s':'') : '') + ' suele necesitar cerca de ' + need + ' m². Con ' + m2 + ' m² conviene priorizar qué recintos son indispensables y cuáles pueden ser más compactos.'); }
+      if (has(d.esp,'Chiflonera (entrada con doble puerta)')) notes.push('La chiflonera corta el viento y el frío en la entrada y cuida el calor de la casa. Funciona mejor si se diseña junto con el acceso y el lugar para dejar abrigos y botas.');
+      if (has(d.esp,'Logia (lavado y secado)')) notes.push('En el sur la logia necesita resolver el secado de ropa en invierno: ventilación, calor o un tendedero techado. Conviene ubicarla cerca de la cocina o del acceso.');
+      if (has(d.esp,'Leñera')) notes.push('Una leñera bien ubicada y techada, cerca de la estufa, evita acarrear leña bajo la lluvia. Tiene que quedar a una distancia segura de la casa.');
     }
-    if (d.plazo === '6') notes.push('Para partir en menos de 6 meses hay que considerar que el proyecto y el permiso de edificación suelen tomar entre 3 y 6 meses.');
-    if (d.fin === 'credito' || d.fin === 'subsidio' || d.fin === 'mixto') notes.push('Con crédito o subsidio, el banco o el SERVIU tienen sus propios requisitos y plazos. Es mejor considerarlos desde el diseño.');
-    var esp = d.esp, nd = parseInt(d.dorm,10) || 0, nb = parseInt(d.banos,10) || 0;
-    if (nd){ var need = 30 + 18*nd + 4*nb; if (m2 < need) notes.push('Un programa de ' + d.dorm + ' dormitorio' + (nd>1?'s':'') + (nb ? ' y ' + d.banos + ' baño' + (nb>1?'s':'') : '') + ' suele necesitar cerca de ' + need + ' m². Con ' + m2 + ' m² conviene priorizar qué recintos son indispensables y cuáles pueden ser más compactos.'); }
-    if (esp.indexOf('Chiflonera (entrada con doble puerta)') > -1) notes.push('La chiflonera corta el viento y el frío en la entrada y cuida el calor de la casa. Funciona mejor si se diseña junto con el acceso y el lugar para dejar abrigos y botas.');
-    if (esp.indexOf('Logia (lavado y secado)') > -1) notes.push('En el sur la logia necesita resolver el secado de ropa en invierno: ventilación, calor o un tendedero techado. Conviene ubicarla cerca de la cocina o del acceso.');
-    if (esp.indexOf('Leñera') > -1) notes.push('Una leñera bien ubicada, techada y cerca de la estufa evita acarrear leña bajo la lluvia. Tiene que quedar a una distancia segura de la casa.');
-    if (esp.indexOf('Dormitorio principal en el primer piso') > -1 || esp.indexOf('Pieza de visitas') > -1) time.push('Dejar un dormitorio en el primer piso hace que la casa sirva a cualquier edad y para visitas.');
-    var has = function(a,v){ return a.indexOf(v) > -1; };
-    if (d.horiz === 'siempre' || d.unpiso === 'si' || d.unpiso === 'bueno' || has(d.cambios,'padres')) time.push('Para envejecer en la casa o recibir a padres, conviene un dormitorio con baño en el primer piso, pasos amplios y sin desniveles. Resolverlo desde el inicio cuesta poco; adaptarlo después, mucho.');
-    if (d.etapas === 'etapas' || has(d.renta,'unidad')) time.push('Una ampliación o unidad futura sale mucho más barata si desde la primera etapa se dejan previstas la estructura, las instalaciones, el acceso y, idealmente, el permiso.');
-    if (has(d.renta,'unidad')) time.push('Para arrendar una unidad independiente hay que verificar que la normativa del terreno lo permita, y prever acceso, estacionamiento, medidores y aislación acústica propios.');
-    if (has(d.renta,'temporada') || has(d.renta,'sinosvamos')) time.push('Si la casa se arrendará completa, sirve un recinto cerrado para guardar lo propio, terminaciones resistentes y sistemas fáciles de usar para cualquier persona.');
+    var ah = d.cambios || [], rn = d.renta || [];
+    if (has(d.esp,'Dormitorio principal en el primer piso') || has(d.esp,'Pieza de visitas') || d.horiz === 'siempre' || d.unpiso === 'si' || d.unpiso === 'bueno' || has(ah,'padres'))
+      time.push('Un dormitorio con baño en el primer piso, pasos amplios y sin desniveles hacen que la casa sirva a cualquier edad y para visitas. Resolverlo desde el inicio cuesta poco; adaptarlo después, mucho.');
+    if (d.etapas === 'etapas' || has(rn,'unidad')) time.push('Una ampliación o unidad futura sale mucho más barata si desde la primera etapa se dejan previstas la estructura, las instalaciones, el acceso y, idealmente, el permiso.');
+    if (has(rn,'unidad')) time.push('Para arrendar una unidad independiente hay que verificar que la normativa del terreno lo permita, y prever acceso, estacionamiento, medidores y aislación acústica propios.');
+    if (has(rn,'temporada') || has(rn,'sinosvamos')) time.push('Si la casa se arrendará completa, sirve un recinto cerrado para guardar lo propio, terminaciones resistentes y sistemas fáciles de usar para cualquier persona.');
     if (d.venta === '-10' || d.venta === 'inversion') time.push('Si piensan vender en menos de 10 años, conviene una planta flexible y un programa que el mercado valore. Lo muy personal es mejor resolverlo en terminaciones y no en la estructura.');
-    if (has(d.cambios,'hijos-van') || has(d.cambios,'hijos-llegan')) time.push('Si la familia va a crecer o a achicarse, algunos recintos pueden diseñarse para cambiar de uso: un dormitorio que después sea escritorio, taller o pieza de arriendo.');
+    if (has(ah,'hijos-van') || has(ah,'hijos-llegan')) time.push('Si la familia va a crecer o a achicarse, algunos recintos pueden diseñarse para cambiar de uso: un dormitorio que después sea escritorio, taller o pieza de arriendo.');
     if (d.horiz === '-5') time.push('Con un horizonte menor a 5 años, la casa también es un activo. El diseño debe equilibrar cómo la quieren vivir con lo que buscará el próximo dueño o arrendatario.');
-    return { verdict: verdict, cls: cls, metrics: metrics, notes: notes, time: time };
+
+    var sem;
+    if (tier === 'grande') sem = 'FRÍO';
+    else if ((tier === 'ok' || tier === 'ajustado') && (d.terreno === 'si' || d.terreno === 'compra') && (d.plazo === '6' || d.plazo === '12')) sem = 'CALIENTE';
+    else sem = 'TIBIO';
+    return { tier: tier, cls: cls, verdict: verdict, metrics: metrics, notes: notes, time: time, alts: alts, sem: sem };
   }
 
   function collect(){
     return { terreno: radio('terreno'), comuna: $('#comuna').value.trim(), sup: $('#sup').value, tipo: radio('tipo'), pend: radio('pend'), serv: checks('serv'),
-      personas: $('#personas').value, uso: $('#uso').selectedOptions[0].text, vida: $('#vida').value.trim(),
-      m2: $('#m2').value, dorm: radio('dorm'), banos: radio('banos'), esp: checks('esp'), otros: $('#otros').value.trim(), ref: $('#ref').value.trim(),
-      horiz: radio('horiz'), cambios: checks('cambios'), unpiso: radio('unpiso'), etapas: radio('etapas'), renta: checks('renta'), venta: radio('venta'),
+      personas: $('#personas').value, uso: $('#uso').selectedOptions[0].text,
+      m2: $('#m2').value, dorm: radio('dorm'), banos: radio('banos'), esp: checks('esp'), otros: $('#otros').value.trim(),
       ppto: radio('ppto'), fin: $('#fin').value, finTxt: $('#fin').selectedOptions[0].text, plazo: $('#plazo').value, plazoTxt: $('#plazo').selectedOptions[0].text,
-      nombre: $('#nombre').value.trim(), apellido: $('#apellido').value.trim(), tel: $('#tel').value.trim(), mail: $('#mail').value.trim(), origen: $('#origen').value };
+      nombre: $('#nombre').value.trim(), apellido: $('#apellido').value.trim(), tel: $('#tel').value.trim(), mail: $('#mail').value.trim(), origen: $('#origen').value,
+      horiz: '', cambios: [], unpiso: '', etapas: '', renta: [], venta: '' };
   }
+  function collectAfina(){ return { horiz: radio('horiz'), cambios: checks('cambios'), unpiso: radio('unpiso'), etapas: radio('etapas'), renta: checks('renta'), venta: radio('venta') }; }
 
   function makeCode(apellido){
     var n = new Date(), yymm = String(n.getFullYear()).slice(2) + String(n.getMonth()+1).padStart(2,'0');
@@ -990,82 +1040,139 @@
   function summaryText(d, r, code){
     var many = function(n, arr){ return arr.map(function(v){ return label(n,v); }).join(', ') || '—'; };
     return [
+      'SEMÁFORO: ' + r.sem + ' (' + r.tier + ')',
       'SOLICITUD DE PREDIAGNÓSTICO — ' + d.nombre + ' ' + d.apellido,
       'Código de proyecto: ' + code,
       'Contacto: ' + d.tel + ' · ' + d.mail + ' · Nos conoció por: ' + (d.origen || '—'), '',
       'TERRENO: ' + (d.terreno ? label('terreno',d.terreno) : '—') + ' · ' + (d.comuna || '—') + ' · ' + (d.sup ? d.sup + ' m²' : 'superficie —'),
       'Tipo: ' + (d.tipo ? label('tipo',d.tipo) : '—') + ' · Pendiente: ' + (d.pend ? label('pend',d.pend) : '—'),
       'Servicios: ' + many('serv', d.serv), '',
-      'HABITANTES: ' + d.personas + ' personas · ' + d.uso,
-      'Día a día: ' + (d.vida || '—'), '',
+      'HABITANTES: ' + d.personas + ' personas · ' + d.uso, '',
       'CASA: ' + d.m2 + ' m² aprox. · Dormitorios: ' + (d.dorm || '—') + ' · Baños: ' + (d.banos || '—'),
       'Espacios: ' + (d.esp.join(', ') || '—'),
-      'Otros espacios o necesidades: ' + (d.otros || '—'),
-      'Referencias: ' + (d.ref || '—'), '',
+      'Otros espacios o necesidades: ' + (d.otros || '—'), '',
       'PRESUPUESTO: ' + (d.ppto ? label('ppto',d.ppto) : '—') + ' · ' + d.finTxt + ' · Inicio: ' + d.plazoTxt, '',
-      'PROYECCIÓN: Horizonte: ' + (d.horiz ? label('horiz',d.horiz) : '—') + ' · Construcción: ' + (d.etapas ? label('etapas',d.etapas) : '—') + ' · Un piso: ' + (d.unpiso ? label('unpiso',d.unpiso) : '—'),
-      'Cambios previstos: ' + many('cambios', d.cambios),
-      'Arriendo: ' + many('renta', d.renta) + ' · Venta: ' + (d.venta ? label('venta',d.venta) : '—'), '',
       'PREDIAGNÓSTICO: ' + r.verdict
-    ].concat(r.notes.map(function(n){ return '· ' + n; }), r.time.map(function(n){ return '· ' + n; })).join('\n');
+    ].concat(r.notes.map(function(n){ return '· ' + n; }), r.alts.map(function(n){ return '· ' + n; })).join('\n');
+  }
+  function summaryAfina(a){
+    var many = function(n, arr){ return arr.map(function(v){ return label(n,v); }).join(', ') || '—'; };
+    return ['AFINACIÓN DEL PREDIAGNÓSTICO',
+      'Horizonte: ' + (a.horiz ? label('horiz',a.horiz) : '—'),
+      'Cambios previstos: ' + many('cambios', a.cambios),
+      'Un piso: ' + (a.unpiso ? label('unpiso',a.unpiso) : '—'),
+      'Construcción: ' + (a.etapas ? label('etapas',a.etapas) : '—'),
+      'Arriendo: ' + many('renta', a.renta),
+      'Venta: ' + (a.venta ? label('venta',a.venta) : '—')].join('\n');
   }
 
-  function el(tag, cls, txt){ var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
-
-  function enviar(payload, estado, reintento){
-    estado.className = 'tc-estado'; estado.textContent = 'Enviando tu solicitud a nuestro equipo…'; reintento.hidden = true;
+  function enviar(payload, estado, reintento, okTxt, evNombre){
+    estado.className = 'tc-estado'; estado.textContent = 'Enviando…'; if (reintento) reintento.hidden = true;
     var fd = new FormData(); Object.keys(payload).forEach(function(k){ fd.append(k, payload[k]); });
-    fetch(CONFIG.endpoint, { method:'POST', body: fd, headers:{ 'Accept':'application/json' } })
-      .then(function(r){ if (!r.ok) throw new Error(r.status); estado.className = 'tc-estado ok'; estado.textContent = 'Recibimos tu solicitud. Te escribimos en 1 día hábil, al correo o teléfono que nos dejaste.'; ev('consulta_enviada', { camino: 'tu-casa' }); })
-      .catch(function(){ estado.className = 'tc-estado mal'; estado.textContent = 'No pudimos enviar tu solicitud automáticamente. Puedes reintentar o escribirnos por WhatsApp con el botón de abajo.'; reintento.hidden = false; });
+    return fetch(CONFIG.endpoint, { method:'POST', body: fd, headers:{ 'Accept':'application/json' } })
+      .then(function(r){ if (!r.ok) throw new Error(r.status); estado.className = 'tc-estado ok'; estado.textContent = okTxt; ev(evNombre || 'consulta_enviada', { camino: payload.camino, semaforo: payload.semaforo || '' }); return true; })
+      .catch(function(){ estado.className = 'tc-estado mal'; estado.textContent = 'No pudimos enviarlo automáticamente. Puedes reintentar o escribirnos por WhatsApp.'; if (reintento) reintento.hidden = false; return false; });
   }
 
-  var f = $('#tc-form'), res = $('#result'), btn = $('#tc-enviar'), err = $('#formErr');
-  f.addEventListener('input', function(){ err.hidden = true; });
+  /* ── Pasos ── */
+  var f = $('#tc-form'), pasos = [].slice.call(f.querySelectorAll('.tc-paso')), cur = 0, prog = $('#tc-prog'), res = $('#result');
+  function ir(n, scroll){
+    cur = n; pasos.forEach(function(p, i){ p.hidden = i !== n; });
+    prog.style.width = ((n + 1) / pasos.length * 100) + '%';
+    ev('tucasa_paso', { paso: n + 1 });
+    if (scroll !== false) f.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  }
+  function validar(n){
+    var msg = '';
+    if (n === 0 && !radio('terreno')) msg = 'Cuéntanos si ya tienes terreno.';
+    if (n === 2 && !radio('ppto')) msg = 'Elige un tramo de presupuesto, o "Aún no lo sé".';
+    var e = pasos[n].querySelector('[data-err]'); if (e){ e.textContent = msg; e.hidden = !msg; }
+    return !msg;
+  }
+  f.addEventListener('click', function(e){
+    var t = e.target.closest ? e.target.closest('[data-sig],[data-atras]') : null; if (!t) return;
+    if (t.hasAttribute('data-sig')){ if (validar(cur)) ir(cur + 1); } else if (cur > 0) ir(cur - 1);
+  });
+  f.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' && cur < pasos.length - 1 && e.target.tagName !== 'BUTTON'){ e.preventDefault(); if (validar(cur)) ir(cur + 1); }
+  });
+  f.addEventListener('input', function(){ [].forEach.call(f.querySelectorAll('[data-err],#formErr'), function(x){ x.hidden = true; }); });
+  ir(0, false); ev('tucasa_inicio');
+
+  /* ── Envío y resultado ── */
+  var ultimo = null;
   f.addEventListener('submit', function(e){
     e.preventDefault();
+    if (cur < pasos.length - 1){ if (validar(cur)) ir(cur + 1); return; }
     if ($('#tc-trampa').value) return;
-    var d = collect(), faltan = [];
-    if (!d.terreno) faltan.push('si tienes terreno');
-    if (!d.ppto) faltan.push('el presupuesto');
+    var d = collect(), faltan = [], err = $('#formErr');
     if (!d.nombre || !d.apellido) faltan.push('tu nombre y apellido');
     if (!/^\S+@\S+\.\S+$/.test(d.mail)) faltan.push('un correo válido');
     if (!/^[0-9+()\s-]{8,}$/.test(d.tel)) faltan.push('un teléfono');
     if (!$('#autoriza').checked) faltan.push('la autorización de datos');
     if (faltan.length){ err.textContent = 'Falta indicar ' + faltan.join(', ') + '.'; err.hidden = false; return; }
-    err.hidden = true; btn.disabled = true;
+    err.hidden = true; $('#tc-enviar').disabled = true;
 
     var r = diagnose(d), code = makeCode(d.apellido), txt = summaryText(d, r, code), first = d.nombre.split(' ')[0];
+    ultimo = { d: d, code: code };
     res.textContent = '';
     res.appendChild(el('h2', null, first + ', este es un primer panorama de tu casa'));
     if (r.metrics){ var m = el('div','tc-metricas'); r.metrics.forEach(function(x){ var dv = el('div'); dv.appendChild(el('small',null,x[0])); dv.appendChild(el('strong',null,x[1])); m.appendChild(dv); }); res.appendChild(m); }
     res.appendChild(el('p','tc-veredicto ' + r.cls, r.verdict));
-    [['Puntos a revisar', r.notes], ['Pensando en los próximos años', r.time]].forEach(function(b){
-      if (!b[1].length) return; res.appendChild(el('h3',null,b[0])); var ul = el('ul','tc-notas'); b[1].forEach(function(n){ ul.appendChild(el('li',null,n)); }); res.appendChild(ul);
-    });
+    var lista = function(titulo, arr, id){ var w = el('div'); if (id) w.id = id; if (!arr.length) w.hidden = true; w.appendChild(el('h3',null,titulo)); var ul = el('ul','tc-notas'); arr.forEach(function(n){ ul.appendChild(el('li',null,n)); }); w.appendChild(ul); res.appendChild(w); return w; };
+    if (r.alts.length) lista('Caminos posibles', r.alts);
+    if (r.notes.length) lista('Puntos a revisar', r.notes);
+    lista('Pensando en los próximos años', r.time, 'tc-time');
     var cb = el('div','tc-codigo'); cb.appendChild(el('small',null,'Tu código de proyecto')); cb.appendChild(el('strong',null,code));
     cb.appendChild(el('span',null,'Guárdalo: identifica tu proyecto con nosotros. Si trabajamos juntos, lo usarás en la siguiente etapa y lo compartirás con quienes vivirán la casa.')); res.appendChild(cb);
     var estado = el('p','tc-estado'); estado.setAttribute('role','status'); res.appendChild(estado);
     res.appendChild(el('p','tc-fine','Valores referenciales de construcción en la zona sur, sin terreno, honorarios de proyecto ni permisos. El costo real depende del suelo, el acceso y la materialidad, y lo definimos con el proyecto.'));
-    var sig = el('div','tc-sig'); sig.appendChild(el('h3',null,'El siguiente paso'));
-    sig.appendChild(el('p',null,'Te escribimos para coordinar una reunión de 30 minutos, sin costo, y revisar contigo tu terreno y lo que quieres construir. Si tu caso calza con alguna de nuestras casas, también te la mostramos.'));
-    var ac = el('div','tc-acciones');
-    var wa = el('a','tc-btn','Escribir por WhatsApp'); wa.target = '_blank'; wa.rel = 'noopener';
-    wa.href = 'https://wa.me/' + CONFIG.whatsapp.replace(/\D/g,'') + '?text=' + encodeURIComponent('Hola, hice el prediagnóstico en az180.cl. Mi código de proyecto es ' + code + '.');
-    wa.setAttribute('data-cta','tucasa-whatsapp');
-    var rb = el('button','tc-btn','Reintentar envío'); rb.type = 'button'; rb.hidden = true;
+
+    var sig = el('div','tc-sig'), ac = el('div','tc-acciones'), rb = el('button','tc-btn','Reintentar envío'); rb.type = 'button'; rb.hidden = true;
     var cp = el('button','tc-btn','Copiar código'); cp.type = 'button';
     cp.addEventListener('click', function(){ (navigator.clipboard ? navigator.clipboard.writeText(code) : Promise.reject()).then(function(){ cp.textContent = 'Código copiado'; }).catch(function(){ cp.textContent = code; }); });
-    ac.appendChild(wa); ac.appendChild(cp); ac.appendChild(rb); sig.appendChild(ac); res.appendChild(sig);
+    var okTxt;
+    if (r.tier === 'grande'){
+      sig.appendChild(el('h3',null,'Y ahora'));
+      sig.appendChild(el('p',null,'Por ahora no te vamos a proponer una reunión, pero no es un no. Guarda tu código: cuando tu presupuesto o tu idea cambien, rehacer el prediagnóstico toma 3 minutos. Y si tienes una duda puntual, escríbenos.'));
+      var du = el('a','tc-btn','Hacer una consulta'); du.href = '../conversemos/#duda'; du.setAttribute('data-cta','tucasa-resultado-duda'); ac.appendChild(du);
+      okTxt = 'Guardamos tu solicitud y tu código de proyecto.';
+    } else {
+      var textos = {
+        ok: 'Te escribimos para coordinar una reunión de 30 minutos, sin costo, y revisar contigo tu terreno y lo que quieres construir. Si tu caso calza con alguna de nuestras casas, también te la mostramos.',
+        ajustado: 'Te escribimos para coordinar una reunión de 30 minutos, sin costo, y ver cómo ajustar el diseño a tu presupuesto. Si tu caso calza con alguna de nuestras casas, también te la mostramos.',
+        media: 'Te escribimos para coordinar una llamada corta de 15 minutos. Ahí vemos cómo acercar lo que imaginas a tu presupuesto, por ejemplo con una primera etapa.',
+        sin: 'Te escribimos para ayudarte a definir un presupuesto realista en una llamada corta de 15 minutos.' };
+      sig.appendChild(el('h3',null,'El siguiente paso')); sig.appendChild(el('p',null,textos[r.tier]));
+      var wa = el('a','tc-btn','Escribir por WhatsApp'); wa.target = '_blank'; wa.rel = 'noopener'; wa.setAttribute('data-cta','tucasa-resultado-whatsapp');
+      wa.href = 'https://wa.me/' + CONFIG.whatsapp.replace(/\D/g,'') + '?text=' + encodeURIComponent('Hola, hice el prediagnóstico en az180.cl. Mi código de proyecto es ' + code + '.');
+      ac.appendChild(wa);
+      okTxt = 'Recibimos tu solicitud. Te escribimos en 1 día hábil, al correo o teléfono que nos dejaste.';
+    }
+    ac.appendChild(cp); ac.appendChild(rb); sig.appendChild(ac); res.appendChild(sig);
 
-    var payload = { _subject: 'Prediagnóstico "Tu casa en el sur" · ' + code + ' · ' + d.nombre + ' ' + d.apellido, camino: 'tu-casa', codigo: code,
+    var payload = { _subject: '[' + r.sem + '] Prediagnóstico "Tu casa en el sur" · ' + code + ' · ' + d.nombre + ' ' + d.apellido, camino: 'tu-casa', semaforo: r.sem, tramo: r.tier, codigo: code,
       nombre: d.nombre, apellido: d.apellido, email: d.mail, telefono: d.tel, comuna: d.comuna, m2_deseados: d.m2, presupuesto: d.ppto ? label('ppto', d.ppto) : '',
       autoriza_datos: 'Sí', resumen: txt };
-    rb.addEventListener('click', function(){ enviar(payload, estado, rb); });
-    f.hidden = true; res.hidden = false; btn.disabled = false;
-    ev('tucasa_prediagnostico', { cobertura: r.cls });
-    res.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); res.focus({ preventScroll: true });
-    enviar(payload, estado, rb);
+    rb.addEventListener('click', function(){ enviar(payload, estado, rb, okTxt, 'consulta_enviada'); });
+    f.hidden = true; res.hidden = false; $('#tc-enviar').disabled = false;
+    if (r.tier !== 'grande') $('#tc-afina').hidden = false;
+    ev('tucasa_prediagnostico', { tramo: r.tier, semaforo: r.sem });
+    res.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); res.focus({ preventScroll: true });
+    enviar(payload, estado, rb, okTxt, 'consulta_enviada');
+  });
+
+  /* ── Afinar (opcional, después de dejar el contacto) ── */
+  $('#tc-afina').addEventListener('submit', function(e){
+    e.preventDefault(); if (!ultimo) return;
+    var a = collectAfina(), d = ultimo.d, est = $('#afina-estado'), b = $('#tc-afina-env');
+    var r2 = diagnose(Object.assign({}, d, a));
+    var w = $('#tc-time'), ul = w.querySelector('ul'); ul.textContent = '';
+    r2.time.forEach(function(n){ ul.appendChild(el('li',null,n)); }); w.hidden = !r2.time.length;
+    b.disabled = true;
+    enviar({ _subject: 'Afinación del prediagnóstico · ' + ultimo.code + ' · ' + d.nombre + ' ' + d.apellido, camino: 'tu-casa-afina', codigo: ultimo.code,
+      nombre: d.nombre, apellido: d.apellido, email: d.mail, resumen: summaryAfina(a) }, est, null, 'Gracias. Afinamos tu prediagnóstico y lo tendremos en cuenta en nuestra conversación.', 'tucasa_afinacion')
+      .then(function(ok){ b.disabled = false; if (ok && !w.hidden) w.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }); });
   });
 })();
 
