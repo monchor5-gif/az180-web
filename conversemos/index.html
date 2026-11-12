@@ -514,7 +514,7 @@
         text-align: left;
         padding-right: 0;
       }
-      .equipo-grid { grid-template-columns: 1fr 1fr; }
+      .equipo-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
 
       /* ── Contacto ── */
       .contacto-grid { grid-template-columns: 1fr; }
@@ -533,8 +533,9 @@
       .formulario-wrap { margin-left: 0; }
       .formulario,
       .formulario.proyecto {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
+      .formulario .formulario-campo, .formulario input, .formulario select, .formulario textarea { min-width: 0; max-width: 100%; }
       .formulario .formulario-campo[style],
       .formulario div[style],
       .formulario .ancho { grid-column: 1 !important; }
