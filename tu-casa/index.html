@@ -975,17 +975,17 @@
       if (B < CONFIG.minUF || ratio > CONFIG.cortes.media){
         tier = 'grande'; cls = 'alto';
         verdict = B < CONFIG.minUF
-          ? 'Con este presupuesto, hoy no alcanza para construir una casa nueva con proyecto de arquitectura. No es un no definitivo: hay caminos que conviene conocer.'
-          : 'La casa que imaginas (' + fmt(m2) + ' m²) cuesta bastante más de lo que tienes hoy: entre ' + fmt(m2*U.min) + ' y ' + fmt(m2*U.max) + ' UF, frente a unas ' + fmt(B) + ' UF. Antes de proyectar conviene ajustar el tamaño o el presupuesto.';
+          ? 'Con este presupuesto, una casa nueva con proyecto de arquitectura todavía queda un poco lejos. Hay buenos caminos para acercarse, y te mostramos algunos.'
+          : 'La casa que imaginas (' + fmt(m2) + ' m²) tiene un costo estimado de ' + fmt(m2*U.min) + ' a ' + fmt(m2*U.max) + ' UF, por sobre las ' + fmt(B) + ' UF que consideras. Se puede acercar ajustando el tamaño, construyendo por etapas o revisando el presupuesto.';
         alts = [
           (m2hi < 30 ? 'Un módulo o refugio pequeño como primera etapa, con la ampliación prevista desde el inicio.' : 'Una casa más pequeña o por etapas: con tu presupuesto, una primera etapa compacta de ' + fmt(m2lo) + ' a ' + fmt(m2hi) + ' m², con la ampliación prevista desde el inicio.'),
           'Ampliar o mejorar una construcción que ya tengas, que suele costar menos que una casa nueva.',
           'Revisar subsidios y financiamiento: el SERVIU y los créditos hipotecarios pueden cambiar la cuenta.',
-          'Reunir un presupuesto mayor antes de proyectar y volver a hacer este prediagnóstico en unos meses.'
+          'Tomarse un tiempo para reunir más presupuesto y volver a hacer este prediagnóstico cuando quieras: toma solo 3 minutos.'
         ];
       } else if (ratio > 1 || m2 * U.max > B){
         if (ratio > CONFIG.cortes.ajustado){ tier = 'media'; cls = 'ajustado';
-          verdict = 'Con este presupuesto, una superficie realista está entre ' + fmt(m2lo) + ' y ' + fmt(m2hi) + ' m². Lo que imaginas pide más. Una opción es construir una primera etapa y dejar la ampliación prevista.'; }
+          verdict = 'Con este presupuesto, una superficie cómoda está entre ' + fmt(m2lo) + ' y ' + fmt(m2hi) + ' m². La casa que imaginas sería algo mayor, así que una buena opción es construir una primera etapa y dejar la ampliación prevista.'; }
         else { tier = 'ajustado'; cls = 'ajustado';
           verdict = 'Está ajustado. Es posible con un diseño eficiente y decisiones claras de materialidad desde el inicio.'; }
       } else { tier = 'ok'; cls = 'ok'; verdict = 'Tu presupuesto calza con la casa que imaginas, con margen para terminaciones o imprevistos.'; }
@@ -1122,7 +1122,7 @@
     if (!/^\S+@\S+\.\S+$/.test(d.mail)) faltan.push('un correo válido');
     if (!/^[0-9+()\s-]{8,}$/.test(d.tel)) faltan.push('un teléfono');
     if (!$('#autoriza').checked) faltan.push('la autorización de datos');
-    if (faltan.length){ err.textContent = 'Falta indicar ' + faltan.join(', ') + '.'; err.hidden = false; return; }
+    if (faltan.length){ err.textContent = 'Para continuar, necesitamos ' + faltan.join(', ') + '.'; err.hidden = false; return; }
     err.hidden = true; $('#tc-enviar').disabled = true;
 
     var r = diagnose(d), code = makeCode(d.apellido), txt = summaryText(d, r, code), first = d.nombre.split(' ')[0];
@@ -1132,7 +1132,7 @@
     if (r.metrics){ var m = el('div','tc-metricas'); r.metrics.forEach(function(x){ var dv = el('div'); dv.appendChild(el('small',null,x[0])); dv.appendChild(el('strong',null,x[1])); m.appendChild(dv); }); res.appendChild(m); }
     res.appendChild(el('p','tc-veredicto ' + r.cls, r.verdict));
     var lista = function(titulo, arr, id){ var w = el('div'); if (id) w.id = id; if (!arr.length) w.hidden = true; w.appendChild(el('h3',null,titulo)); var ul = el('ul','tc-notas'); arr.forEach(function(n){ ul.appendChild(el('li',null,n)); }); w.appendChild(ul); res.appendChild(w); return w; };
-    if (r.alts.length) lista('Caminos posibles', r.alts);
+    if (r.alts.length) lista('Caminos para avanzar', r.alts);
     if (r.notes.length) lista('Puntos a revisar', r.notes);
     lista('Pensando en los próximos años', r.time, 'tc-time');
     var cb = el('div','tc-codigo'); cb.appendChild(el('small',null,'Tu código de proyecto')); cb.appendChild(el('strong',null,code));
@@ -1145,16 +1145,16 @@
     cp.addEventListener('click', function(){ (navigator.clipboard ? navigator.clipboard.writeText(code) : Promise.reject()).then(function(){ cp.textContent = 'Código copiado'; }).catch(function(){ cp.textContent = code; }); });
     var okTxt;
     if (r.tier === 'grande'){
-      sig.appendChild(el('h3',null,'Y ahora'));
-      sig.appendChild(el('p',null,'Por ahora no te vamos a proponer una reunión, pero no es un no. Guarda tu código: cuando tu presupuesto o tu idea cambien, rehacer el prediagnóstico toma 3 minutos. Y si tienes una duda puntual, escríbenos.'));
-      var du = el('a','tc-btn','Hacer una consulta'); du.href = '../conversemos/#duda'; du.setAttribute('data-cta','tucasa-resultado-duda'); ac.appendChild(du);
-      okTxt = 'Guardamos tu solicitud y tu código de proyecto.';
+      sig.appendChild(el('h3',null,'Cómo seguir'));
+      sig.appendChild(el('p',null,'Gracias por contarnos tu proyecto. Guarda tu código: cuando tu idea o tu presupuesto cambien, puedes rehacer el prediagnóstico en 3 minutos. Y si quieres conversarlo o resolver cualquier duda, escríbenos cuando quieras: estamos a un mensaje de distancia.'));
+      var du = el('a','tc-btn','Escribirnos una consulta'); du.href = '../conversemos/#duda'; du.setAttribute('data-cta','tucasa-resultado-duda'); ac.appendChild(du);
+      okTxt = 'Recibimos tu solicitud y guardamos tu código de proyecto. Gracias por escribirnos.';
     } else {
       var textos = {
         ok: 'Te escribimos para coordinar una reunión de 30 minutos, sin costo, y revisar contigo tu terreno y lo que quieres construir. Si tu caso calza con alguna de nuestras casas, también te la mostramos.',
         ajustado: 'Te escribimos para coordinar una reunión de 30 minutos, sin costo, y ver cómo ajustar el diseño a tu presupuesto. Si tu caso calza con alguna de nuestras casas, también te la mostramos.',
         media: 'Te escribimos para coordinar una llamada corta de 15 minutos. Ahí vemos cómo acercar lo que imaginas a tu presupuesto, por ejemplo con una primera etapa.',
-        sin: 'Te escribimos para ayudarte a definir un presupuesto realista en una llamada corta de 15 minutos.' };
+        sin: 'Te escribimos para ayudarte a aclarar tu presupuesto en una llamada corta de 15 minutos.' };
       sig.appendChild(el('h3',null,'El siguiente paso')); sig.appendChild(el('p',null,textos[r.tier]));
       var wa = el('a','tc-btn','Escribir por WhatsApp'); wa.target = '_blank'; wa.rel = 'noopener'; wa.setAttribute('data-cta','tucasa-resultado-whatsapp');
       wa.href = 'https://wa.me/' + CONFIG.whatsapp.replace(/\D/g,'') + '?text=' + encodeURIComponent('Hola, hice el prediagnóstico en az180.cl. Mi código de proyecto es ' + code + '.');
