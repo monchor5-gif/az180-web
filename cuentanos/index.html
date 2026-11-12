@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuéntanos tu proyecto — Azimut 180°</title>
+  <meta name="description" content="Centros culturales, escuelas, plantas de proceso, locales comerciales y otros proyectos. Cuéntanos lo esencial en 3 pasos y te respondemos en 1 día hábil. Azimut 180°, Valdivia." />
+  <link rel="canonical" href="https://az180.cl/cuentanos/" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GB6KCJKECS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GB6KCJKECS');
+  </script>
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <meta property="og:title" content="Cuéntanos tu proyecto — Azimut 180°" />
+  <meta property="og:description" content="Cuántos m² alcanza tu presupuesto y qué revisar en tu terreno. 3 minutos, sin costo." />
+  <meta property="og:image" content="https://az180.cl/fotos/casa-palenque/casa-palenque-01.jpg" />
+  <meta property="og:url" content="https://az180.cl/cuentanos/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CL" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --font: 'Segoe UI', Segoe, Tahoma, Geneva, sans-serif;
+      --bg: rgb(245, 241, 229);
+      --negro: #111;
+      --gris: #55534c;          /* texto secundario: contraste ~7:1 sobre el fondo */
+      --gris-suave: #6b675c;    /* texto terciario / placeholders: ~4,9:1 */
+      --t-micro: 0.72rem;       /* etiquetas en mayúsculas, pies, tags */
+      --t-small: 0.85rem;       /* datos secundarios: lugar, rol, correo, año */
+      --t-body: 0.95rem;        /* texto corrido, nombres, campos */
+      --gris-claro: #d8d4c8;
+      --sidebar: 340px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 18px; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--negro);
+      min-height: 100vh;
+    }
+
+    /* ══ SIDEBAR ══ */
+    aside {
+      position: fixed;
+      top: 0; left: 0;
+      width: var(--sidebar);
+      height: 100vh;
+      padding: 44px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .logo-wrap { margin-bottom: 52px; text-align: center; width: 100%; }
+    .logo-link { display: inline-block; transition: opacity 0.2s; }
+    .logo-link:hover { opacity: 0.6; }
+    .logo-wrap svg { width: 140px; height: 146px; display: block; margin: 0 auto; }
+    .logo-sub {
+      margin-top: 2px;
+      font-size: 0.64rem;
+      letter-spacing: 0.12em;
+      color: var(--gris);
+      text-transform: uppercase;
+      font-weight: 400;
+      line-height: 1.9;
+      text-align: center;
+    }
+
+    nav { display: flex; flex-direction: column; gap: 4px; flex: 1; align-items: center; width: 100%; }
+
+    nav a {
+      font-size: var(--t-body);
+      font-weight: 400;
+      color: var(--gris);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      padding: 4px 0;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 2px;
+      width: 0; height: 1px;
+      background: var(--negro);
+      transition: width 0.25s;
+    }
+
+    nav a:hover, nav a.active { color: var(--negro); }
+    nav a.active::after, nav a:hover::after { width: 100%; }
+
+    .sociales {
+      display: flex;
+      gap: 16px;
+      padding-top: 28px;
+      border-top: 1px solid var(--gris-claro);
+    }
+
+    .sociales a {
+      color: var(--gris);
+      text-decoration: none;
+      font-size: var(--t-micro);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sociales a:hover { color: var(--negro); }
+
+    /* ══ MAIN ══ */
+    main { margin-left: var(--sidebar); padding: 0 calc(var(--sidebar) / 2) 100px 48px; }
+
+    section { min-height: 100vh; padding-top: 80px; padding-bottom: 80px; }
+    section + section { border-top: 1px solid var(--gris-claro); }
+
+    .section-label {
+      font-size: 1.4rem;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      color: var(--negro);
+      margin-bottom: 52px;
+      font-weight: 300;
+      width: 38.2%;
+      text-align: right;
+      padding-right: 32px;
+    }
+
+    /* ══ ANIMACIONES ══ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ══ FORMULARIO ══ */
+    .formulario-wrap { margin-top: 0; }
+
+    .formulario {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0 32px;
+      align-items: start;
+    }
+
+    .formulario-campo {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 20px 0;
+      border-top: 1px solid #dedad0;
+    }
+
+    .formulario-campo label {
+      font-size: var(--t-micro);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gris);
+      font-weight: 400;
+    }
+
+    .formulario-campo input,
+    .formulario-campo textarea {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #dedad0;
+      padding: 8px 0;
+      font-family: var(--font);
+      font-size: var(--t-body);
+      color: var(--negro);
+      font-weight: 400;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: none;
+    }
+
+    .formulario-campo input::placeholder,
+    .formulario-campo textarea::placeholder {
+      color: var(--gris-suave);
+    }
+
+    .formulario-campo input:focus,
+    .formulario-campo textarea:focus {
+      border-bottom-color: var(--negro);
+    }
+
+    .formulario button {
+      align-self: flex-start;
+      margin-top: 8px;
+      background: none;
+      border: 1px solid #dedad0;
+      padding: 10px 28px;
+      font-family: var(--font);
+      font-size: var(--t-micro);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--negro);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .formulario button:hover {
+      background: var(--negro);
+      color: var(--bg);
+    }
+
+    /* Formulario de proyecto: 2 columnas, mismos trazos del sitio */
+    .formulario.proyecto { grid-template-columns: 1fr 1fr; }
+    .formulario .ancho { grid-column: 1 / -1; }
+    .formulario-campo label i { font-style: normal; opacity: .6; }
+    .formulario-campo select {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #dedad0;
+      border-radius: 0;
+      padding: 8px 22px 8px 0;
+      font-family: var(--font);
+      font-size: var(--t-body);
+      font-weight: 400;
+      color: var(--negro);
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' stroke='%23111' stroke-width='1.3'%3E%3Cpath d='M1 1l4 4 4-4'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 2px center;
+    }
+    .formulario-campo select:invalid { color: var(--gris-suave); }
+    .formulario-campo select:focus { border-bottom-color: var(--negro); }
+    .formulario-campo input:user-invalid,
+    .formulario-campo select:user-invalid,
+    .formulario-campo textarea:user-invalid { border-bottom-color: #b3402f; }
+    .formulario-campo textarea { min-height: 92px; }
+    .formulario .autoriza {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 20px 0 4px; border-top: 1px solid #dedad0;
+      font-size: var(--t-small); line-height: 1.5; color: var(--gris); font-weight: 400;
+    }
+    .formulario .autoriza input { margin-top: 2px; accent-color: var(--negro); flex: none; width: 15px; height: 15px; }
+    .formulario .acciones { padding-top: 16px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+    .formulario .acciones button { margin-top: 0; }
+    .formulario button[disabled] { opacity: .5; cursor: default; }
+    .formulario-msg { font-size: var(--t-small); font-weight: 400; line-height: 1.5; }
+    .formulario-msg.ok { color: #2f6b45; }
+    .formulario-msg.mal { color: #b3402f; }
+    /* Más contraste y tamaño legible (solo este formulario) */
+    .formulario.proyecto .formulario-campo label { font-size: var(--t-micro); color: var(--gris); font-weight: 500; letter-spacing: 0.14em; }
+    .formulario.proyecto .formulario-campo input,
+    .formulario.proyecto .formulario-campo textarea,
+    .formulario.proyecto .formulario-campo select { font-size: var(--t-body); font-weight: 400; color: #111; border-bottom-color: #a9a495; }
+    .formulario.proyecto .formulario-campo input::placeholder,
+    .formulario.proyecto .formulario-campo textarea::placeholder { color: var(--gris-suave); opacity: 1; }
+    .formulario.proyecto .formulario-campo select:invalid { color: var(--gris-suave); }
+    .formulario.proyecto .formulario-campo input:focus,
+    .formulario.proyecto .formulario-campo textarea:focus,
+    .formulario.proyecto .formulario-campo select:focus { border-bottom-color: #111; }
+    .formulario.proyecto .autoriza { font-size: var(--t-small); color: var(--gris); }
+    .formulario.proyecto button { border-color: #111; color: #111; font-size: var(--t-micro); padding: 12px 34px; }
+    .formulario.proyecto button:hover { background: #111; color: var(--bg); }
+    .formulario-msg { font-size: var(--t-body); }
+    .formulario-gracias {
+      display: none; border: 1px solid #111; padding: 40px 36px; margin-top: 8px;
+      background: rgba(255,255,255,.35);
+    }
+    .formulario-gracias.ver { display: block; }
+    .formulario-gracias h3 { font-size: 1.6rem; font-weight: 300; line-height: 1.3; letter-spacing: -0.01em; margin: 0 0 12px; color: #111; }
+    .formulario-gracias p { font-size: 1rem; line-height: 1.6; font-weight: 400; color: var(--negro); margin: 0 0 22px; max-width: 46ch; }
+    .formulario-gracias button {
+      background: none; border: 1px solid #111; padding: 11px 28px; font-family: var(--font);
+      font-size: var(--t-micro); letter-spacing: 0.18em; text-transform: uppercase; color: #111; cursor: pointer;
+    }
+    .formulario-gracias button:hover { background: #111; color: var(--bg); }
+    .formulario .trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+    /* ══ RESPONSIVE ══ */
+    /* ══ FOOTER ══ */
+    footer {
+      margin-left: var(--sidebar);
+      padding: 28px 64px 28px 48px;
+      border-top: 1px solid #dedad0;
+      display: flex;
+    }
+
+    .footer-contenido {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .footer-izq, .footer-der {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .footer-der { text-align: right; }
+
+    footer p, footer a {
+      font-size: var(--t-micro);
+      color: var(--gris);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--negro); }
+
+    /* ══ HAMBURGER BUTTON ══ */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 110;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--negro);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-toggle.abierto span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-toggle.abierto span:nth-child(2) { opacity: 0; }
+    .nav-toggle.abierto span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* ══ MOBILE NAV OVERLAY ══ */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100vh;
+      background: var(--bg);
+      z-index: 105;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 80px;
+      gap: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .nav-mobile.abierto {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .nav-mobile a {
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--negro);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav-mobile a:hover { color: var(--gris); }
+
+    .nav-mobile-cerrar {
+      position: absolute;
+      top: 28px; right: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--gris);
+      padding: 4px;
+      transition: color 0.2s;
+    }
+    .nav-mobile-cerrar:hover { color: var(--negro); }
+
+    @media (max-width: 900px) {
+
+      /* ── Header ── */
+      aside {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%;
+        height: 120px;
+        padding: 0 20px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid var(--gris-claro);
+        background: var(--bg);
+        z-index: 100;
+      }
+      .logo-wrap {
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-left: 6px;
+      }
+      .logo-wrap svg { width: 88px; height: 92px; }
+      .logo-sub { display: none; }
+      nav { display: none; }
+      .sociales { display: none; }
+      .nav-toggle { display: flex; position: absolute; right: 20px; }
+      .nav-mobile { display: flex; }
+
+      /* ── Main ── */
+      main {
+        margin-left: 0;
+        margin-top: 120px;
+        padding: 0 0 60px;
+      }
+
+      section { padding: 20px 20px !important; min-height: unset !important; }
+      main > section:first-child { padding-top: 8px !important; }
+      .section-label { margin-bottom: 20px !important; font-size: 1.1rem !important; letter-spacing: 0 !important; }
+      h2[style] { font-size: 1rem !important; }
+
+
+
+      /* ── Section label ── */
+      .section-label {
+        width: 100%;
+        text-align: left;
+        padding-right: 0;
+        font-size: var(--t-micro);
+        letter-spacing: 0.18em;
+        margin-bottom: 32px;
+      }
+
+      /* ── Obras / Proyectos ── */
+      .proyecto {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 28px 0;
+      }
+      .proyecto-info {
+        text-align: left;
+        padding-right: 0;
+        padding-bottom: 16px;
+        order: 2;
+      }
+      .proyecto-img {
+        width: 100%;
+        order: 1;
+      }
+
+      /* ── Publicaciones ── */
+      .publicacion {
+        grid-template-columns: 1fr auto;
+        gap: 0 16px;
+        padding: 16px 0;
+        align-items: center;
+      }
+      .publicacion > div:first-child { display: none; }
+      .publicacion > div:nth-child(2) { display: none; }
+      .publicacion-mobile {
+        display: block;
+        font-size: var(--t-body);
+        color: var(--negro);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 0;
+      }
+      .publicacion-mobile-medio {
+        font-size: var(--t-micro);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gris);
+      }
+
+      /* ── Nosotros ── */
+      .nosotros-titulo {
+        width: 100%;
+        text-align: left;
+        padding-right: 0;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+      }
+      .nosotros-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 48px;
+      }
+      .nosotros-texto p {
+        text-align: left;
+        padding-right: 0;
+      }
+      .nosotros-foto img { width: 100%; }
+      .equipo-titulo {
+        width: 100%;
+        text-align: left;
+        padding-right: 0;
+      }
+      .equipo-grid { grid-template-columns: 1fr 1fr; }
+
+      /* ── Contacto ── */
+      .contacto-grid { grid-template-columns: 1fr; }
+      .contacto-celda { border-bottom: none; }
+      .contacto-celda:last-child { border-bottom: 1px solid #dedad0; }
+
+      /* ── Títulos h2 de sección ── */
+      h2[style] {
+        width: 100% !important;
+        text-align: left !important;
+        padding-right: 0 !important;
+        font-size: 1.2rem !important;
+      }
+
+      /* ── Formulario ── */
+      .formulario-wrap { margin-left: 0; }
+      .formulario,
+      .formulario.proyecto {
+        grid-template-columns: 1fr;
+      }
+      .formulario .formulario-campo[style],
+      .formulario div[style],
+      .formulario .ancho { grid-column: 1 !important; }
+
+      /* ── Footer ── */
+      footer {
+        margin-left: 0;
+        padding: 24px 20px;
+      }
+      .footer-contenido { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .footer-der { text-align: left; }
+
+      /* ── Panel ── */
+      .panel {
+        width: 100%;
+        padding: 48px 20px 80px;
+      }
+      .panel-nombre { font-size: 1.4rem; }
+      .panel-cuerpo {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      /* Reordenar panel móvil: galería → ficha → descripción */
+      .panel-galeria { order: 1; margin-bottom: 32px; }
+      .panel-ficha   { order: 2; margin-bottom: 32px; }
+      .panel-descripcion { order: 3; }
+      .panel-cuerpo {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    /* ══ LLAMADO A CONVERSAR ══
+       Regla: "Conversemos" es el único ítem del menú en negrita; todo otro llamado es un enlace subrayado. */
+    nav a.nav-cta {
+      margin-top: 22px;
+      padding: 4px 0;
+      color: var(--negro);
+      font-size: var(--t-body);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    nav a.nav-cta::after { width: 100%; }
+    nav a.nav-cta:hover { color: var(--negro); }
+
+    .link-cta {
+      display: inline-block;
+      color: var(--negro);
+      font-size: var(--t-body);
+      font-weight: 400;
+      text-decoration: none;
+      border-bottom: 1px solid var(--negro);
+      padding-bottom: 2px;
+      transition: opacity 0.2s;
+    }
+    .link-cta:hover { opacity: 0.6; }
+    .link-sec { color: var(--gris); font-size: var(--t-body); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .link-sec:hover { border-color: var(--gris); }
+
+    .hero { min-height: auto; padding-top: 80px; padding-bottom: 64px; }
+    .hero-grid { display: grid; grid-template-columns: 38.2% 61.8%; }
+    .hero-cuerpo { grid-column: 1 / -1; }
+    .hero-titulo { font-size: 3rem; font-weight: 300; line-height: 1.12; letter-spacing: -0.03em; color: var(--negro); margin-bottom: 24px; text-wrap: balance; }
+    .hero-bajada { font-size: 1.2rem; font-weight: 300; line-height: 1.55; color: var(--gris); max-width: 52ch; margin-bottom: 28px; }
+
+    .llamado { display: grid; grid-template-columns: 38.2% 61.8%; padding: 40px 0 0; }
+    .llamado-cuerpo { grid-column: 2; padding-right: 8%; }
+    .llamado-texto { font-size: 1.25rem; font-weight: 300; line-height: 1.4; letter-spacing: -0.01em; color: var(--negro); max-width: 36ch; margin-bottom: 16px; }
+    .llamado-vias { display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: baseline; }
+
+    .pasos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 32px; margin: 0 0 64px; }
+    .paso { padding: 18px 0; border-top: 1px solid #dedad0; }
+    .paso b { display: block; font-size: var(--t-micro); font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gris); margin-bottom: 8px; }
+    .paso h3 { font-size: var(--t-body); font-weight: 500; color: var(--negro); margin-bottom: 6px; }
+    .paso p { font-size: var(--t-small); line-height: 1.55; color: var(--gris); }
+
+    @media (max-width: 900px) {
+      .hero-grid, .llamado { grid-template-columns: 1fr; }
+      .hero-cuerpo, .llamado-cuerpo { grid-column: 1; padding-right: 0; }
+      .hero { padding-top: 16px !important; padding-bottom: 28px !important; }
+      .hero-titulo { font-size: 2rem; max-width: none; }
+      .hero-bajada { font-size: 1.05rem; }
+      .llamado { padding-top: 28px; }
+      .llamado-texto { font-size: 1.1rem; }
+      .pasos { grid-template-columns: 1fr 1fr; gap: 0 20px; margin-bottom: 40px; }
+      .nav-mobile a.nav-cta { font-size: 1.6rem; font-weight: 500; margin-top: 8px; }
+    }
+
+    [hidden] { display: none !important; }
+    .conv { min-height: auto; }
+    .conv-intro { margin-bottom: 52px; }
+    .conv-titulo { font-size: 3rem; font-weight: 300; line-height: 1.12; letter-spacing: -0.03em; margin-bottom: 20px; text-wrap: balance; }
+    .conv-texto { font-size: 1.2rem; font-weight: 300; line-height: 1.55; color: var(--gris); max-width: 52ch; }
+    .conv-pregunta { font-size: var(--t-micro); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gris); margin-bottom: 14px; }
+    .caminos { margin-bottom: 56px; }
+    .camino {
+      display: grid; grid-template-columns: 38.2% 1fr; align-items: baseline; width: 100%;
+      text-align: left; background: none; border: 0; border-top: 1px solid #dedad0;
+      padding: 24px 0; cursor: pointer; font: inherit; color: inherit;
+    }
+    .camino:last-child { border-bottom: 1px solid #dedad0; }
+    .camino .c-t { text-align: right; padding-right: 32px; font-size: 1.25rem; font-weight: 300; letter-spacing: -0.01em; color: var(--gris); transition: color 0.2s; }
+    .camino .c-t span { border-bottom: 1px solid transparent; padding-bottom: 2px; transition: border-color 0.2s; }
+    .camino .c-d { font-size: var(--t-body); color: var(--gris); line-height: 1.5; padding-right: 8%; }
+    .camino:hover .c-t { color: var(--negro); }
+    .camino[aria-pressed="true"] .c-t { color: var(--negro); }
+    .camino[aria-pressed="true"] .c-t span { border-bottom-color: var(--negro); }
+    .camino[aria-pressed="true"] .c-d { color: var(--negro); }
+    .camino:focus-visible { outline: 2px solid #111; outline-offset: 3px; }
+    .formulario.proyecto .formulario-campo select:has(option:checked[value=""]) { color: var(--gris-suave); }
+    .promesa { font-size: var(--t-small); color: var(--gris); margin-top: 22px; }
+    .formulario-gracias { padding-top: 8px; }
+    @media (max-width: 900px) {
+      .conv { padding-top: 16px !important; }
+      .conv-intro { margin-bottom: 28px; }
+      .conv-titulo { font-size: 2rem; max-width: none; }
+      .conv-texto { font-size: 1.05rem; }
+      .camino { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
+      .camino .c-t { text-align: left; padding-right: 0; font-size: 1.15rem; }
+      .camino .c-d { padding-right: 0; }
+      .caminos { margin-bottom: 36px; }
+    }
+
+
+    /* ── Tu casa en el sur ── */
+    .tc-form { display: block; }
+    .tc-paso, .tc-res { min-height: 0 !important; }
+    @media (max-width: 900px) { section.tc-paso, section.tc-res { padding-left: 0 !important; padding-right: 0 !important; } }
+    .tc-paso { border-top: 1px solid #dedad0; padding: 34px 0 30px; }
+    .tc-paso h2 { display: flex; gap: 14px; align-items: baseline; font-size: 1.5rem; font-weight: 300; letter-spacing: -0.01em; margin: 0 0 8px; }
+    .tc-paso h2 span { font-size: var(--t-micro); letter-spacing: 0.18em; color: var(--gris); font-weight: 500; }
+    .tc-intro { font-size: var(--t-body); color: var(--gris); line-height: 1.55; max-width: 60ch; margin: 0 0 20px; }
+    .tc-grupo { border: 0; padding: 0; margin: 0 0 24px; min-width: 0; }
+    .tc-grupo > legend, .tc-lab { font-size: var(--t-micro); letter-spacing: 0.14em; text-transform: uppercase; color: var(--gris); font-weight: 500; padding: 0; margin-bottom: 10px; display: block; }
+    .tc-hint { text-transform: none; letter-spacing: 0; font-weight: 400; font-size: var(--t-small); color: var(--gris-suave); margin-left: 6px; }
+    .tc-fila { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+    .tc-fila .formulario-campo { border-top: 0; padding: 0 0 24px; }
+    .tc-fila.tres { grid-template-columns: 1fr 1fr 1fr; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chips label { position: relative; display: inline-flex; align-items: center; border: 1px solid #a9a495; padding: 8px 16px; font-size: var(--t-small); line-height: 1.3; cursor: pointer; color: #111; user-select: none; transition: background .15s, color .15s; text-transform: none; letter-spacing: 0; }
+    .chips label:hover { border-color: #111; }
+    .chips input { position: absolute; opacity: 0; pointer-events: none; }
+    .chips label:has(input:checked) { background: #111; color: var(--bg); border-color: #111; }
+    .chips label:has(input:focus-visible) { outline: 2px solid #111; outline-offset: 2px; }
+    .tc-rango { width: 100%; accent-color: #111; margin: 6px 0 4px; }
+    .tc-rango-out { font-size: 1.4rem; font-weight: 300; letter-spacing: -0.01em; }
+    .tc-err { font-size: var(--t-small); color: #b3402f; }
+    .tc-form .formulario-campo select, .tc-form .formulario-campo input, .tc-form .formulario-campo textarea { border-bottom-color: #a9a495; }
+    .tc-form .formulario-campo select:has(option:checked[value=""]) { color: var(--gris-suave); }
+    .tc-form .formulario-campo label { font-size: var(--t-micro); color: var(--gris); font-weight: 500; letter-spacing: 0.14em; }
+    .tc-form .formulario-campo textarea { min-height: 84px; resize: vertical; }
+    .tc-enviar { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; padding-top: 8px; }
+    .tc-btn { background: none; border: 1px solid #111; padding: 12px 34px; font-family: var(--font); font-size: var(--t-micro); letter-spacing: 0.18em; text-transform: uppercase; color: #111; cursor: pointer; text-decoration: none; display: inline-block; transition: background .2s, color .2s; }
+    .tc-btn:hover { background: #111; color: var(--bg); }
+    .tc-btn[disabled] { opacity: .5; cursor: default; }
+    .tc-res { border-top: 1px solid #111; padding-top: 34px; }
+    .tc-res h2 { font-size: 2rem; font-weight: 300; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 24px; text-wrap: balance; }
+    .tc-metricas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 32px; margin-bottom: 26px; }
+    .tc-metricas div { border-top: 1px solid #dedad0; padding-top: 14px; }
+    .tc-metricas small { display: block; font-size: var(--t-micro); letter-spacing: 0.14em; text-transform: uppercase; color: var(--gris); margin-bottom: 6px; }
+    .tc-metricas strong { font-size: 1.35rem; font-weight: 300; letter-spacing: -0.01em; }
+    .tc-veredicto { border-left: 3px solid #111; padding: 4px 0 4px 18px; font-size: 1.1rem; line-height: 1.5; margin: 0 0 30px; max-width: 58ch; }
+    .tc-veredicto.ok { border-color: #2f6b45; } .tc-veredicto.ajustado { border-color: #a8761a; } .tc-veredicto.alto { border-color: #b3402f; }
+    .tc-res h3 { font-size: var(--t-micro); letter-spacing: 0.18em; text-transform: uppercase; color: var(--gris); font-weight: 500; margin: 0 0 12px; }
+    .tc-notas { margin: 0 0 30px; padding-left: 20px; display: grid; gap: 10px; max-width: 62ch; font-size: var(--t-body); line-height: 1.55; }
+    .tc-codigo { border: 1px dashed #111; padding: 18px 22px; margin: 6px 0 24px; max-width: 520px; }
+    .tc-codigo small { display: block; font-size: var(--t-micro); letter-spacing: 0.18em; text-transform: uppercase; color: var(--gris); }
+    .tc-codigo strong { display: block; font-size: 1.6rem; font-weight: 400; letter-spacing: 0.06em; margin: 6px 0; }
+    .tc-codigo span { font-size: var(--t-small); color: var(--gris); line-height: 1.5; display: block; }
+    .tc-estado { font-size: var(--t-body); margin: 0 0 18px; }
+    .tc-estado.ok { color: #2f6b45; } .tc-estado.mal { color: #b3402f; }
+    .tc-fine { font-size: var(--t-small); color: var(--gris); line-height: 1.55; max-width: 62ch; margin: 0 0 26px; }
+    .tc-sig { border-top: 1px solid #dedad0; padding-top: 24px; }
+    .tc-sig h3 { margin-bottom: 8px; }
+    .tc-sig p { max-width: 58ch; margin: 0 0 18px; line-height: 1.55; }
+    .tc-acciones { display: flex; gap: 14px; flex-wrap: wrap; }
+    @media (max-width: 900px) {
+      .tc-fila, .tc-fila.tres { grid-template-columns: 1fr; }
+      .tc-metricas { grid-template-columns: 1fr; gap: 14px; }
+      .tc-res h2 { font-size: 1.6rem; }
+      .tc-paso h2 { font-size: 1.3rem; }
+    }
+
+    
+    .tc-puertas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 32px; margin: 0 0 44px; }
+    .tc-puertas > div { border-top: 1px solid #111; padding-top: 14px; }
+    .tc-puertas h2 { font-size: var(--t-micro); letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: var(--gris); margin: 0 0 8px; }
+    .tc-puertas p { margin: 0; font-size: var(--t-body); line-height: 1.6; }
+    .tc-puertas a { color: #111; border-bottom: 1px solid #111; text-decoration: none; }
+    .tc-puertas a:hover { opacity: .6; }
+    .tc-puertas a.ct { border-bottom: 0; }
+    .tc-puertas a.ct-tel { border-left: 1px solid var(--gris-claro); }
+    .tc-prog { height: 2px; background: #dedad0; margin: 0 0 26px; }
+    .tc-prog i { display: block; height: 100%; background: #111; width: 0; transition: width .3s; }
+    .tc-paso { border-top: 0; padding-top: 0; }
+    .tc-paso h2 { margin-bottom: 18px; }
+    .tc-nav { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; padding-top: 10px; }
+    .tc-atras { background: none; border: 0; border-bottom: 1px solid #111; padding: 2px 0; font-family: var(--font); font-size: var(--t-small); color: #111; cursor: pointer; }
+    .tc-afina { border-top: 1px solid #dedad0; margin-top: 34px; padding-top: 28px; }
+    .tc-afina h3 { font-size: 1.3rem; font-weight: 300; letter-spacing: -0.01em; text-transform: none; color: #111; margin: 0 0 8px; }
+    .tc-afina .tc-grupo:last-of-type { margin-bottom: 14px; }
+    @media (max-width: 900px) { .tc-puertas { grid-template-columns: 1fr; gap: 18px; margin-bottom: 30px; } }
+
+    /* Logo centrado en el encabezado móvil */
+    @media (max-width: 900px) {
+      .logo-wrap { width: auto; margin-left: 0; gap: 0; justify-content: center; }
+      .logo-wrap > div { display: none; }
+    }
+
+    /* ── Contactos homogéneos: logo + dato visible, todo es enlace ── */
+    .contactos { display: flex; flex-direction: column; align-items: flex-start; gap: 9px; }
+    .ct-fila { display: inline-flex; align-items: center; gap: 10px; }
+    .ct { display: inline-flex; align-items: center; gap: 8px; color: var(--gris); text-decoration: none; font-size: var(--t-small); letter-spacing: 0.02em; line-height: 1.3; text-transform: none; border: 0; transition: color 0.2s; }
+    .ct svg { flex: none; width: 15px; height: 15px; }
+    .ct:hover { color: var(--negro); }
+    .ct-tel { padding-left: 10px; border-left: 1px solid var(--gris-claro); }
+    .contactos.ct-linea { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px 24px; }
+    .sociales { flex-direction: column; align-items: center; }
+    .sociales .contactos { align-items: center; }
+    .sociales .ct { font-size: var(--t-micro); letter-spacing: 0.03em; text-transform: none; }
+    footer .ct { font-size: var(--t-micro); }
+    .nav-mobile .contactos { margin-top: 18px; align-items: center; }
+    .nav-mobile .ct { font-size: 1rem; font-weight: 400; letter-spacing: 0.02em; color: var(--gris); }
+    .nav-mobile .ct svg { width: 17px; height: 17px; }
+    .contacto-persona-dato .ct { border: 0; color: var(--gris); }
+    .contacto-persona-dato .ct:hover { color: var(--negro); }
+
+    /* ── "Conversemos": llamado destacado (fondo suave) ── */
+    nav a.nav-cta { display: inline-block; margin-top: 26px; padding: 11px 22px; background: rgba(17,17,17,.08); color: var(--negro); font-weight: 600; text-decoration: none; transition: background .2s; }
+    nav a.nav-cta::after { display: none !important; }
+    nav a.nav-cta:hover, nav a.nav-cta.active { background: rgba(17,17,17,.16); color: var(--negro); }
+    .nav-mobile a.nav-cta { font-size: 1.25rem; font-weight: 600; margin-top: 12px; padding: 12px 28px; }
+    .link-cta { padding: 13px 26px; background: rgba(17,17,17,.08); border-bottom: 0; font-weight: 600; transition: background .2s; }
+    .link-cta::after { content: "  →"; white-space: pre; }
+    .link-cta:hover { opacity: 1; background: rgba(17,17,17,.16); }
+    .promesa .link-cta { padding: 0 0 2px; background: none; border-bottom: 1px solid var(--negro); font-weight: 400; }
+    .promesa .link-cta::after { content: none; }
+
+    .tc-clp { color: var(--gris-suave); font-size: .85em; margin-left: .35em; }
+    .tc-clp-m { display: block; font-size: var(--t-small); color: var(--gris); margin-top: 2px; }
+    .tc-esp { border-top: 1px solid #dedad0; padding: 16px 0 6px; margin: 6px 0 18px; }
+    .tc-esp summary { cursor: pointer; font-size: var(--t-body); list-style: none; padding: 6px 0; }
+    .tc-esp summary::-webkit-details-marker { display: none; }
+    .tc-esp summary span { font-weight: 600; }
+    .tc-esp summary span::after { content: "  +"; }
+    .tc-esp[open] summary span::after { content: "  –"; }
+    .tc-esp summary em { font-style: normal; color: var(--gris); font-size: var(--t-small); margin-left: 6px; }
+    .tc-esp > .tc-grupo { margin-top: 14px; }
+    .tc-vermas { background: none; border: 0; border-bottom: 1px solid #111; padding: 2px 0; margin: -14px 0 28px; font-family: var(--font); font-size: var(--t-small); color: #111; cursor: pointer; }
+    @media (pointer: coarse), (max-width: 900px) {
+      .tc-form .chips label { min-height: 44px; padding: 10px 16px; }
+      .tc-form .formulario-campo input, .tc-form .formulario-campo select { min-height: 44px; }
+      .tc-btn, .tc-atras, .tc-vermas { min-height: 44px; display: inline-flex; align-items: center; }
+      .tc-atras, .tc-vermas { padding-top: 0; padding-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ SIDEBAR ══ -->
+<aside>
+  <div class="logo-wrap">
+    <a href="../index.html" class="logo-link" aria-label="Ir al inicio del sitio" title="Inicio">
+    <svg viewBox="0 0 100 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="36" stroke="#111" stroke-width="1.6"/>
+      <line x1="50" y1="14" x2="50" y2="52" stroke="#111" stroke-width="1.1"/>
+      <line x1="50" y1="52" x2="50" y2="86" stroke="#111" stroke-width="1" stroke-dasharray="2.5 2.5"/>
+      <path d="M 16 52 A 34 10 0 0 1 84 52" stroke="#111" stroke-width="1" stroke-dasharray="2.5 2.5" fill="none"/>
+      <path d="M 16 52 A 34 10 0 0 0 79.44 57" stroke="#111" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <line x1="79.44" y1="57" x2="74.46" y2="54.68" stroke="#111" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="79.44" y1="57" x2="76.29" y2="61.51" stroke="#111" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="46.5" y1="48" x2="53.5" y2="55" stroke="#111" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="53.5" y1="48" x2="46.5" y2="55" stroke="#111" stroke-width="1.2" stroke-linecap="round"/>
+      <text x="50" y="100" text-anchor="middle"
+            font-family="'Segoe UI', sans-serif"
+            font-size="9" font-weight="400" letter-spacing="3" fill="#111">AZIMUT · 180°</text>
+    </svg>
+    </a>
+    <div>
+      <p class="logo-sub">Arquitectura y Construcción<br>Valdivia</p>
+    </div>
+  </div>
+
+  <nav>
+    <a href="../index.html#obras" >obras</a>
+    <a href="../index.html#proyectos">proyectos</a>
+    <a href="../index.html#publicaciones">publicaciones</a>
+    <a href="../index.html#nosotros">equipo</a>
+    <a href="../practicas.html">prácticas</a>
+    <a href="../conversemos/" class="nav-cta" data-cta="menu">Conversemos</a>
+  </nav>
+
+  <div class="sociales">
+    <div class="contactos"><span class="ct-fila"><a class="ct" href="https://wa.me/56999982581" target="_blank" rel="noopener noreferrer" data-cta="lateral-whatsapp" aria-label="WhatsApp +56 9 9998 2581"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><span>+56 9 9998 2581</span></a><a class="ct ct-tel" href="tel:+56999982581" data-cta="lateral-llamar" aria-label="Llamar al +56 9 9998 2581" title="Llamar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></span><a class="ct" href="mailto:administracion@az180.cl" data-cta="lateral-correo" aria-label="Correo administracion@az180.cl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span>administracion@az180.cl</span></a><a class="ct" href="https://www.instagram.com/az180.cl/" target="_blank" rel="noopener noreferrer" data-cta="lateral-instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"/></svg><span>@az180.cl</span></a></div>
+  </div>
+
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</aside>
+
+<!-- ══ NAV MÓVIL ══ -->
+<nav class="nav-mobile" id="nav-mobile">
+  <button class="nav-mobile-cerrar" id="nav-mobile-cerrar" aria-label="Cerrar menú">
+    <svg width="16" height="16" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+      <line x1="1" y1="1" x2="11" y2="11"/><line x1="11" y1="1" x2="1" y2="11"/>
+    </svg>
+  </button>
+  <svg viewBox="0 0 100 104" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:64px; height:67px; margin-bottom:16px; opacity:0.5;">
+    <circle cx="50" cy="50" r="36" stroke="#111" stroke-width="1.6"/>
+    <line x1="50" y1="14" x2="50" y2="52" stroke="#111" stroke-width="1.1"/>
+    <line x1="50" y1="52" x2="50" y2="86" stroke="#111" stroke-width="1" stroke-dasharray="2.5 2.5"/>
+    <path d="M 16 52 A 34 10 0 0 1 84 52" stroke="#111" stroke-width="1" stroke-dasharray="2.5 2.5" fill="none"/>
+    <path d="M 16 52 A 34 10 0 0 0 79.44 57" stroke="#111" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+    <line x1="79.44" y1="57" x2="74.46" y2="54.68" stroke="#111" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="79.44" y1="57" x2="76.29" y2="61.51" stroke="#111" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="46.5" y1="48" x2="53.5" y2="55" stroke="#111" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="53.5" y1="48" x2="46.5" y2="55" stroke="#111" stroke-width="1.2" stroke-linecap="round"/>
+    <text x="50" y="100" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="400" letter-spacing="3" fill="#111">AZIMUT · 180°</text>
+  </svg>
+  <a href="../index.html#obras">obras</a>
+  <a href="../index.html#proyectos">proyectos</a>
+  <a href="../index.html#publicaciones">publicaciones</a>
+  <a href="../index.html#nosotros">equipo</a>
+  <a href="../practicas.html">prácticas</a>
+  <a href="../conversemos/" class="nav-cta" data-cta="menu-movil">Conversemos</a>
+  <div class="contactos"><span class="ct-fila"><a class="ct" href="https://wa.me/56999982581" target="_blank" rel="noopener noreferrer" data-cta="menu-movil-whatsapp" aria-label="WhatsApp +56 9 9998 2581"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><span>+56 9 9998 2581</span></a><a class="ct ct-tel" href="tel:+56999982581" data-cta="menu-movil-llamar" aria-label="Llamar al +56 9 9998 2581" title="Llamar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></span><a class="ct" href="mailto:administracion@az180.cl" data-cta="menu-movil-correo" aria-label="Correo administracion@az180.cl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span>administracion@az180.cl</span></a><a class="ct" href="https://www.instagram.com/az180.cl/" target="_blank" rel="noopener noreferrer" data-cta="menu-movil-instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"/></svg><span>@az180.cl</span></a></div>
+</nav>
+
+<!-- ══ MAIN ══ -->
+<main>
+  <section class="conv">
+    <p class="section-label">Otros proyectos</p>
+    <div class="conv-intro fade-in">
+      <div>
+        <h1 class="conv-titulo">Cuéntanos tu proyecto.</h1>
+        <p class="conv-texto">Centros culturales, escuelas, plantas de proceso, locales comerciales, hospedaje y otros encargos. Cuéntanos lo esencial en tres pasos y una persona de la oficina te responde en 1 día hábil. Sin costo y sin compromiso.</p>
+      </div>
+    </div>
+
+    <div class="tc-puertas">
+      <div><h2>Hablemos ya</h2><div class="contactos"><span class="ct-fila"><a class="ct" href="https://wa.me/56999982581" target="_blank" rel="noopener noreferrer" data-cta="puerta-whatsapp" aria-label="WhatsApp +56 9 9998 2581"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><span>+56 9 9998 2581</span></a><a class="ct ct-tel" href="tel:+56999982581" data-cta="puerta-llamar" aria-label="Llamar al +56 9 9998 2581" title="Llamar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></span><a class="ct" href="mailto:administracion@az180.cl" data-cta="puerta-correo" aria-label="Correo administracion@az180.cl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span>administracion@az180.cl</span></a></div></div>
+      <div><h2>Déjanos tus datos</h2><p><a href="../conversemos/#duda" data-cta="cuentanos-puerta-datos">Te llamamos en 1 día hábil</a></p></div>
+      <div><h2>Prefiero ordenar mis ideas</h2><p>Responde aquí abajo, son 3 minutos.</p></div>
+    </div>
+
+    <form class="tc-form" id="tc-form" action="https://formspree.io/f/mojrboqj" method="POST" novalidate>
+      <div class="formulario-campo" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true"><label>No llenar<input type="text" id="tc-trampa" tabindex="-1" autocomplete="off"></label></div>
+      <div class="tc-prog" aria-hidden="true"><i id="tc-prog"></i></div>
+
+      <section class="tc-paso" data-paso="1">
+        <h2><span>Paso 1 de 3</span>Tu proyecto</h2>
+        <fieldset class="tc-grupo"><legend>¿Qué tipo de proyecto es?</legend><div class="chips">
+          <label><input type="radio" name="tipo" value="cultural">Centro cultural o espacio comunitario</label>
+          <label><input type="radio" name="tipo" value="educacion">Escuela, jardín o educación</label>
+          <label><input type="radio" name="tipo" value="planta">Planta o instalación productiva</label>
+          <label><input type="radio" name="tipo" value="comercial">Local comercial u oficina</label>
+          <label><input type="radio" name="tipo" value="turismo">Hospedaje o turismo</label>
+          <label><input type="radio" name="tipo" value="otro">Otro</label></div></fieldset>
+        <fieldset class="tc-grupo"><legend>¿Qué necesitas?</legend><div class="chips">
+          <label><input type="radio" name="nec" value="nuevo">Un proyecto nuevo</label>
+          <label><input type="radio" name="nec" value="ampliar">Ampliar o remodelar algo existente</label>
+          <label><input type="radio" name="nec" value="regularizar">Regularizar una construcción</label>
+          <label><input type="radio" name="nec" value="asesoria">Asesoría o revisión en obra</label>
+          <label><input type="radio" name="nec" value="nose">Aún no lo tengo claro</label></div></fieldset>
+        <div class="formulario-campo"><label for="desc">Cuéntanos en pocas palabras de qué se trata <span class="tc-hint">opcional</span></label><textarea id="desc" rows="3" placeholder="Qué quieres hacer, para quién y por qué."></textarea></div>
+        <div class="tc-nav"><button type="button" class="tc-btn" data-sig>Siguiente</button><span class="tc-err" data-err role="alert" hidden></span></div>
+      </section>
+
+      <section class="tc-paso" data-paso="2" hidden>
+        <h2><span>Paso 2 de 3</span>Lugar y alcance</h2>
+        <fieldset class="tc-grupo"><legend>¿Dónde estás con el lugar?</legend><div class="chips">
+          <label><input type="radio" name="lugar" value="terreno">Tengo un terreno</label>
+          <label><input type="radio" name="lugar" value="edificio">Hay un edificio o local existente</label>
+          <label><input type="radio" name="lugar" value="compra">Estoy por comprar o arrendar</label>
+          <label><input type="radio" name="lugar" value="buscando">Lo estoy buscando</label></div></fieldset>
+        <div class="tc-fila">
+          <div class="formulario-campo"><label for="comuna">Comuna o sector</label><input type="text" id="comuna" placeholder="Ej.: Los Lagos, Valdivia"></div>
+          <div class="formulario-campo"><label for="sup">Superficie aproximada (m²) <span class="tc-hint">si la sabes</span></label><input type="number" id="sup" min="0" inputmode="numeric" placeholder="Ej.: 400"></div>
+        </div>
+        <fieldset class="tc-grupo"><legend>¿Quién encarga y financia?</legend><div class="chips">
+          <label><input type="radio" name="fuente" value="persona">Una persona o familia</label>
+          <label><input type="radio" name="fuente" value="empresa">Una empresa o sociedad</label>
+          <label><input type="radio" name="fuente" value="publico">Un municipio u organismo público</label>
+          <label><input type="radio" name="fuente" value="social">Una organización social o cultural</label>
+          <label><input type="radio" name="fuente" value="nose">Aún no lo sé</label></div></fieldset>
+        <fieldset class="tc-grupo"><legend>¿Qué tienes hoy?<span class="tc-hint">Marca todo lo que corresponda</span></legend><div class="chips">
+          <label><input type="checkbox" name="tiene" value="titulo">Título o contrato del lugar</label>
+          <label><input type="checkbox" name="tiene" value="planos">Planos o levantamiento</label>
+          <label><input type="checkbox" name="tiene" value="suelo">Estudio de suelo</label>
+          <label><input type="checkbox" name="tiene" value="bases">Bases de licitación o de un fondo</label>
+          <label><input type="checkbox" name="tiene" value="nada">Aún nada de esto</label></div></fieldset>
+        <div class="tc-nav"><button type="button" class="tc-atras" data-atras>Atrás</button><button type="button" class="tc-btn" data-sig>Siguiente</button><span class="tc-err" data-err role="alert" hidden></span></div>
+      </section>
+
+      <section class="tc-paso" data-paso="3" hidden>
+        <h2><span>Paso 3 de 3</span>Presupuesto y plazos</h2>
+        <fieldset class="tc-grupo"><legend>Presupuesto aproximado<span class="tc-hint">Solo la obra, sin terreno ni proyecto. <span id="tc-uf-ref"></span></span></legend><div class="chips">
+          <label><input type="radio" name="ppto" value="0-2000">Menos de 2.000 UF<span class="tc-clp" data-uf="2000" data-pre="hasta "></span></label>
+          <label><input type="radio" name="ppto" value="2000-6000">2.000 a 6.000 UF<span class="tc-clp" data-uf="6000" data-lo="2000"></span></label>
+          <label><input type="radio" name="ppto" value="6000-15000">6.000 a 15.000 UF<span class="tc-clp" data-uf="15000" data-lo="6000"></span></label>
+          <label><input type="radio" name="ppto" value="15000-40000">Más de 15.000 UF<span class="tc-clp" data-uf="15000" data-pre="más de "></span></label>
+          <label><input type="radio" name="ppto" value="fondos">Depende de fondos o aprobación</label>
+          <label><input type="radio" name="ppto" value="nose">Aún no lo sé</label></div></fieldset>
+        <div class="tc-fila">
+          <div class="formulario-campo"><label for="plazo">¿Cuándo te gustaría partir?</label>
+            <select id="plazo"><option value="asap">Lo antes posible</option><option value="6">En menos de 6 meses</option><option value="12">Entre 6 y 12 meses</option><option value="fecha">Hay una fecha límite (fondo, licitación, apertura)</option><option value="explorando">Más adelante o estoy explorando</option></select></div>
+          <div class="formulario-campo"><label for="fecha">Si hay fecha límite, ¿cuál es? <span class="tc-hint">opcional</span></label><input type="text" id="fecha" placeholder="Ej.: cierre de postulación en marzo"></div>
+        </div>
+        <div class="tc-nav"><button type="button" class="tc-atras" data-atras>Atrás</button><button type="button" class="tc-btn" data-sig>Siguiente</button><span class="tc-err" data-err role="alert" hidden></span></div>
+      </section>
+
+      <section class="tc-paso" data-paso="4" hidden>
+        <h2><span>Tu resumen está listo</span>¿A dónde te lo enviamos?</h2>
+        <p class="tc-intro">Lo verás en esta misma pantalla y nuestro equipo te escribe en 1 día hábil.</p>
+        <div class="tc-fila">
+          <div class="formulario-campo"><label for="nombre">Nombre <i>*</i></label><input type="text" id="nombre" autocomplete="given-name" required placeholder="Pedro"></div>
+          <div class="formulario-campo"><label for="apellido">Apellido <i>*</i></label><input type="text" id="apellido" autocomplete="family-name" required placeholder="González"></div>
+        </div>
+        <div class="tc-fila">
+          <div class="formulario-campo"><label for="org">Organización <span class="tc-hint">si corresponde</span></label><input type="text" id="org" autocomplete="organization" placeholder="Municipalidad, empresa, agrupación…"></div>
+          <div class="formulario-campo"><label for="tel">Teléfono o WhatsApp <i>*</i></label><input type="tel" id="tel" autocomplete="tel" inputmode="tel" required placeholder="+56 9 1234 5678" pattern="[0-9+\(\)\s\-]{8,}"></div>
+        </div>
+        <div class="tc-fila">
+          <div class="formulario-campo"><label for="mail">Correo <i>*</i></label><input type="email" id="mail" autocomplete="email" required placeholder="nombre@correo.cl"></div>
+          <div class="formulario-campo"><label for="pref">¿Cómo prefieres que te contactemos?</label>
+            <select id="pref"><option value="">Me da lo mismo</option><option value="whatsapp">WhatsApp</option><option value="llamada">Llamada telefónica</option><option value="correo">Correo</option></select></div>
+        </div>
+        <div class="tc-fila">
+          <div class="formulario-campo"><label for="origen">¿Cómo nos conociste?</label>
+            <select id="origen"><option value="">Seleccionar</option><option>Instagram</option><option>Google</option><option>Recomendación</option><option>Vi una obra de ustedes</option><option>Otro</option></select></div>
+        </div>
+        <label class="autoriza" style="display:flex;gap:12px;align-items:flex-start;padding:4px 0 22px;font-size:var(--t-small);line-height:1.5;color:var(--gris)">
+          <input type="checkbox" id="autoriza" required style="margin-top:2px;accent-color:#111;flex:none;width:15px;height:15px">
+          <span>Autorizo a Azimut 180° a usar mis datos para responder mi consulta.</span>
+        </label>
+        <div class="tc-nav"><button type="button" class="tc-atras" data-atras>Atrás</button><button type="submit" class="tc-btn" id="tc-enviar">Enviar mi proyecto</button><span class="tc-err" id="formErr" role="alert" hidden></span></div>
+      </section>
+    </form>
+
+    <section class="tc-res" id="result" hidden aria-live="polite" tabindex="-1"></section>
+  </section>
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-contenido">
+    <div class="footer-izq">
+      <p>Av. Ramón Picarte 780, Oficina 303 · Valdivia, Región de Los Ríos</p>
+      <div class="contactos ct-linea"><span class="ct-fila"><a class="ct" href="https://wa.me/56999982581" target="_blank" rel="noopener noreferrer" data-cta="pie-whatsapp" aria-label="WhatsApp +56 9 9998 2581"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><span>+56 9 9998 2581</span></a><a class="ct ct-tel" href="tel:+56999982581" data-cta="pie-llamar" aria-label="Llamar al +56 9 9998 2581" title="Llamar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></span><a class="ct" href="mailto:administracion@az180.cl" data-cta="pie-correo" aria-label="Correo administracion@az180.cl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span>administracion@az180.cl</span></a><a class="ct" href="https://www.instagram.com/az180.cl/" target="_blank" rel="noopener noreferrer" data-cta="pie-instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"/></svg><span>@az180.cl</span></a></div>
+    </div>
+    <div class="footer-der">
+      <p>© 2026 Azimut 180° · Todos los derechos reservados</p>
+      <p>Arquitectura y Construcción · Valdivia, Chile</p>
+    </div>
+  </div>
+</footer>
+
+
+
+<script>(function(){
+  var CONFIG = {
+    ufClp: 40000,                               // valor referencial de la UF en pesos (se actualiza solo si hay conexión)
+    whatsapp: '+56 9 9998 2581',
+    endpoint: 'https://formspree.io/f/mojrboqj'
+  };
+  var $ = function(s){ return document.querySelector(s); };
+  var radio = function(n){ var e = document.querySelector('input[name="'+n+'"]:checked'); return e ? e.value : ''; };
+  var checks = function(n){ return [].map.call(document.querySelectorAll('input[name="'+n+'"]:checked'), function(i){ return i.value; }); };
+  var fmt = function(n){ return Math.round(n).toLocaleString('es-CL'); };
+  var label = function(n,v){ var i = document.querySelector('input[name="'+n+'"][value="'+v+'"]'); return i ? [].filter.call(i.parentElement.childNodes, function(x){ return x.nodeType === 3; }).map(function(x){ return x.textContent; }).join('').trim() : '—'; };
+  var has = function(a,v){ return a.indexOf(v) > -1; };
+  function ev(n,p){ if (typeof gtag === 'function') gtag('event', n, p||{}); }
+  function el(tag, cls, txt){ var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* UF en pesos */
+  var clpM = function(uf){ return Math.round(uf * CONFIG.ufClp / 1e6); };
+  function pintaClp(){
+    [].forEach.call(document.querySelectorAll('.tc-clp'), function(e){ var pre = e.getAttribute('data-pre'), lo = e.getAttribute('data-lo'), hi = clpM(+e.getAttribute('data-uf'));
+      e.textContent = ' · ' + (pre ? pre + '$' + hi : '≈ $' + (lo ? clpM(+lo) + '–' + hi : hi)) + ' millones'; });
+    $('#tc-uf-ref').textContent = 'Referencia: 1 UF ≈ $' + fmt(CONFIG.ufClp) + '.';
+  }
+  pintaClp();
+  try { fetch('https://mindicador.cl/api/uf').then(function(r){ return r.json(); }).then(function(j){
+    var v = j && j.serie && j.serie[0] && +j.serie[0].valor;
+    if (v > 20000 && v < 90000){ CONFIG.ufClp = Math.round(v); pintaClp(); }
+  }).catch(function(){}); } catch(e){}
+  /* "Aún nada" excluye al resto */
+  [].forEach.call(document.querySelectorAll('input[name="tiene"]'), function(i){ i.addEventListener('change', function(){
+    if (!i.checked) return;
+    [].forEach.call(document.querySelectorAll('input[name="tiene"]'), function(o){ if (o !== i && (i.value === 'nada' || o.value === 'nada')) o.checked = false; }); }); });
+
+  /* Qué se suele definir primero, según el tipo */
+  var BASE = {
+    cultural: ['Quién administrará el espacio y cómo se financiará su funcionamiento, además de la obra. Eso define el programa desde el principio.',
+               'Un espacio de uso público exige pensar desde el inicio en accesibilidad universal, evacuación y seguridad contra incendio.',
+               'Si hay fondos concursables o aportes públicos, sus plazos y exigencias marcan el calendario del proyecto.'],
+    educacion: ['El mandante (por ejemplo un municipio o un sostenedor) y la normativa para recintos educacionales definen el programa y los plazos.',
+                'Si es una licitación pública, las bases fijan el formato, los documentos y las fechas. Conviene revisarlas antes de empezar.',
+                'En el sur, la climatización y la aislación pesan mucho en el costo de uso del edificio. Se piensan junto con el diseño.'],
+    planta:    ['Primero se ordena el proceso: qué entra, qué se produce y qué sale. Ese flujo define la distribución de la planta.',
+                'Las autorizaciones sanitarias y ambientales de la actividad, según el rubro, suelen marcar el plazo real del proyecto.',
+                'La potencia eléctrica, el agua y el tratamiento de residuos líquidos son claves para elegir y evaluar el terreno.'],
+    comercial: ['Se revisa que el uso de suelo y la normativa permitan la actividad, antes de comprometer el lugar o el arriendo.',
+                'Si es un local existente, conviene partir con el levantamiento y la situación de recepción del edificio. Si es patrimonial, hay requisitos adicionales.',
+                'La fecha de apertura ordena todo: se fijan los hitos hacia atrás, desde ese día.'],
+    turismo:   ['Se revisa la normativa y el uso de suelo para alojamiento turístico, y los servicios disponibles (agua, electricidad y alcantarillado).',
+                'Definir el tipo de huésped y la temporada ayuda a diseñar y presupuestar de forma consistente.',
+                'Una buena opción suele ser construir por etapas y dejar prevista la ampliación desde el inicio.'],
+    otro:      ['Lo primero es entender bien qué necesitas, para quién y con qué plazo. Eso lo conversamos contigo.',
+                'Revisamos el lugar, la normativa que aplica y los servicios disponibles antes de proponer un camino.',
+                'Con esa información definimos el primer paso, que a veces es un estudio corto antes de un proyecto completo.']
+  };
+
+  function diagnose(d){
+    var notes = (BASE[d.tipo] || BASE.otro).slice(), s = d.tiene;
+    if (d.fuente === 'publico' || has(s,'bases')) notes.unshift('Si hay licitación o fondo, cuéntanos las bases y la fecha de cierre: ordenamos el trabajo a partir de esos plazos.');
+    if (d.lugar === 'compra' || d.lugar === 'buscando') notes.push('Antes de cerrar la compra o el arriendo, podemos revisar la normativa y los servicios del lugar para que no haya sorpresas.');
+    if (has(s,'nada')) notes.push('Un buen primer paso es reunir el título o contrato del lugar y un plano o croquis, aunque sea simple. Con eso partimos.');
+    if (d.nec === 'regularizar') notes.push('Regularizar parte con un levantamiento de lo construido y la revisión de qué permite la normativa vigente.');
+    var sem;
+    if (d.plazo === 'explorando' && (d.ppto === 'nose' || !d.ppto)) sem = 'FRÍO';
+    else if ((d.lugar === 'terreno' || d.lugar === 'edificio' || d.lugar === 'compra') && d.ppto && d.ppto !== 'nose' && (d.plazo === 'asap' || d.plazo === '6' || d.plazo === 'fecha')) sem = 'CALIENTE';
+    else sem = 'TIBIO';
+    return { notes: notes, sem: sem };
+  }
+
+  function collect(){
+    return { tipo: radio('tipo'), nec: radio('nec'), desc: $('#desc').value.trim(), lugar: radio('lugar'), comuna: $('#comuna').value.trim(), sup: $('#sup').value, fuente: radio('fuente'), tiene: checks('tiene'),
+      ppto: radio('ppto'), plazo: $('#plazo').value, plazoTxt: $('#plazo').selectedOptions[0].text, fecha: $('#fecha').value.trim(),
+      nombre: $('#nombre').value.trim(), apellido: $('#apellido').value.trim(), org: $('#org').value.trim(), tel: $('#tel').value.trim(), mail: $('#mail').value.trim(),
+      pref: $('#pref').value, prefTxt: $('#pref').selectedOptions[0].text, origen: $('#origen').value };
+  }
+  function makeCode(apellido){
+    var n = new Date(), yymm = String(n.getFullYear()).slice(2) + String(n.getMonth()+1).padStart(2,'0');
+    var ap = (apellido||'PROY').normalize('NFD').replace(/[̀-ͯ]/g,'').toUpperCase().replace(/[^A-Z]/g,'').slice(0,8) || 'PROY';
+    return 'AZ-' + yymm + '-' + ap + '-' + Math.floor(10 + Math.random()*90);
+  }
+  function summaryText(d, r, code){
+    var many = function(n, arr){ return arr.map(function(v){ return label(n,v); }).join(', ') || '—'; };
+    return [
+      'SEMÁFORO: ' + r.sem,
+      'CONSULTA "OTRO PROYECTO" — ' + d.nombre + ' ' + d.apellido + (d.org ? ' (' + d.org + ')' : ''),
+      'Código: ' + code,
+      'Contacto: ' + d.tel + ' · ' + d.mail + ' · Prefiere: ' + d.prefTxt + ' · Nos conoció por: ' + (d.origen || '—'), '',
+      'PROYECTO: ' + (d.tipo ? label('tipo',d.tipo) : '—') + ' · Necesita: ' + (d.nec ? label('nec',d.nec) : '—'),
+      'Descripción: ' + (d.desc || '—'), '',
+      'LUGAR: ' + (d.lugar ? label('lugar',d.lugar) : '—') + ' · ' + (d.comuna || '—') + ' · ' + (d.sup ? d.sup + ' m²' : 'superficie —'),
+      'Encarga y financia: ' + (d.fuente ? label('fuente',d.fuente) : '—'),
+      'Tiene hoy: ' + many('tiene', d.tiene), '',
+      'PRESUPUESTO: ' + (d.ppto ? label('ppto',d.ppto) : '—') + ' · Inicio: ' + d.plazoTxt + (d.fecha ? ' · Fecha límite: ' + d.fecha : '')
+    ].join('\n');
+  }
+  function enviar(payload, estado, reintento, okTxt, evNombre){
+    estado.className = 'tc-estado'; estado.textContent = 'Enviando…'; if (reintento) reintento.hidden = true;
+    var fd = new FormData(); Object.keys(payload).forEach(function(k){ fd.append(k, payload[k]); });
+    return fetch(CONFIG.endpoint, { method:'POST', body: fd, headers:{ 'Accept':'application/json' } })
+      .then(function(r){ if (!r.ok) throw new Error(r.status); estado.className = 'tc-estado ok'; estado.textContent = okTxt; ev(evNombre || 'consulta_enviada', { camino: payload.camino, semaforo: payload.semaforo || '' }); return true; })
+      .catch(function(){ estado.className = 'tc-estado mal'; estado.textContent = 'No pudimos enviarlo automáticamente. Puedes reintentar o escribirnos por WhatsApp.'; if (reintento) reintento.hidden = false; return false; });
+  }
+
+  /* ── Pasos ── */
+  var f = $('#tc-form'), pasos = [].slice.call(f.querySelectorAll('.tc-paso')), cur = 0, prog = $('#tc-prog'), res = $('#result');
+  function ir(n, scroll){
+    cur = n; pasos.forEach(function(p, i){ p.hidden = i !== n; });
+    prog.style.width = ((n + 1) / pasos.length * 100) + '%';
+    ev('cuentanos_paso', { paso: n + 1 });
+    if (scroll !== false) f.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  }
+  function validar(n){
+    var msg = '';
+    if (n === 0 && !radio('tipo')) msg = 'Cuéntanos qué tipo de proyecto es. Si no calza con ninguno, elige "Otro".';
+    if (n === 1 && !radio('lugar')) msg = 'Cuéntanos dónde estás con el lugar.';
+    var e = pasos[n].querySelector('[data-err]'); if (e){ e.textContent = msg; e.hidden = !msg; }
+    return !msg;
+  }
+  f.addEventListener('click', function(e){
+    var t = e.target.closest ? e.target.closest('[data-sig],[data-atras]') : null; if (!t) return;
+    if (t.hasAttribute('data-sig')){ if (validar(cur)) ir(cur + 1); } else if (cur > 0) ir(cur - 1);
+  });
+  f.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' && cur < pasos.length - 1 && e.target.tagName !== 'BUTTON' && e.target.tagName !== 'TEXTAREA'){ e.preventDefault(); if (validar(cur)) ir(cur + 1); }
+  });
+  f.addEventListener('input', function(){ [].forEach.call(f.querySelectorAll('[data-err],#formErr'), function(x){ x.hidden = true; }); });
+  ir(0, false); ev('cuentanos_inicio');
+
+  /* ── Envío y resultado ── */
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (cur < pasos.length - 1){ if (validar(cur)) ir(cur + 1); return; }
+    if ($('#tc-trampa').value) return;
+    var d = collect(), faltan = [], err = $('#formErr');
+    if (!d.nombre || !d.apellido) faltan.push('tu nombre y apellido');
+    if (!/^\S+@\S+\.\S+$/.test(d.mail)) faltan.push('un correo válido');
+    if (!/^[0-9+()\s-]{8,}$/.test(d.tel)) faltan.push('un teléfono');
+    if (!$('#autoriza').checked) faltan.push('la autorización de datos');
+    if (faltan.length){ err.textContent = 'Para continuar, necesitamos ' + faltan.join(', ') + '.'; err.hidden = false; return; }
+    err.hidden = true; $('#tc-enviar').disabled = true;
+
+    var r = diagnose(d), code = makeCode(d.apellido), txt = summaryText(d, r, code), first = d.nombre.split(' ')[0];
+    res.textContent = '';
+    res.appendChild(el('h2', null, first + ', recibimos tu proyecto'));
+    res.appendChild(el('p', 'tc-veredicto ok', 'Gracias por contarnos. Esto es lo que suele definirse primero en un proyecto como el tuyo, y lo que conversaremos contigo.'));
+    var w = el('div'); w.appendChild(el('h3', null, 'Qué conviene definir primero'));
+    var ul = el('ul', 'tc-notas'); r.notes.forEach(function(n, k){ var li = el('li', null, n); if (k >= 3){ li.hidden = true; li.className = 'tc-mas'; } ul.appendChild(li); }); w.appendChild(ul);
+    if (r.notes.length > 3){ var vm = el('button', 'tc-vermas', 'Ver ' + (r.notes.length - 3) + (r.notes.length - 3 === 1 ? ' punto más' : ' puntos más')); vm.type = 'button'; vm.addEventListener('click', function(){ [].forEach.call(ul.querySelectorAll('.tc-mas'), function(li){ li.hidden = false; }); vm.hidden = true; }); w.appendChild(vm); }
+    res.appendChild(w);
+    var cb = el('div','tc-codigo'); cb.appendChild(el('small',null,'Tu código de proyecto')); cb.appendChild(el('strong',null,code));
+    cb.appendChild(el('span',null,'Guárdalo: identifica tu proyecto con nosotros. Si trabajamos juntos, lo usaremos en las siguientes etapas.')); res.appendChild(cb);
+    var estado = el('p','tc-estado'); estado.setAttribute('role','status'); res.appendChild(estado);
+
+    var V = d.pref === 'llamada' ? 'Te llamamos' : 'Te escribimos';
+    var sig = el('div','tc-sig'), ac = el('div','tc-acciones'), rb = el('button','tc-btn','Reintentar envío'); rb.type = 'button'; rb.hidden = true;
+    var cp = el('button','tc-btn','Copiar código'); cp.type = 'button';
+    cp.addEventListener('click', function(){ (navigator.clipboard ? navigator.clipboard.writeText(code) : Promise.reject()).then(function(){ cp.textContent = 'Código copiado'; }).catch(function(){ cp.textContent = code; }); });
+    var okTxt;
+    if (r.sem === 'FRÍO'){
+      sig.appendChild(el('h3',null,'Cómo seguir'));
+      sig.appendChild(el('p',null,'Gracias por contarnos tu idea. Guarda tu código: cuando tengas más claro el lugar, el presupuesto o los plazos, escríbenos y lo retomamos. Y si quieres conversarlo antes, estamos a un mensaje de distancia.'));
+      var du = el('a','tc-btn','Escribirnos una consulta'); du.href = '../conversemos/#duda'; du.setAttribute('data-cta','cuentanos-resultado-duda'); ac.appendChild(du);
+      okTxt = 'Recibimos tu solicitud y guardamos tu código. Gracias por escribirnos.';
+    } else {
+      sig.appendChild(el('h3',null,'El siguiente paso'));
+      sig.appendChild(el('p',null, r.sem === 'CALIENTE'
+        ? V + ' en 1 día hábil para coordinar una reunión de 30 minutos, sin costo, y revisar tu proyecto con lo que ya tienes.'
+        : V + ' en 1 día hábil para conversar unos 20 minutos, entender mejor tu proyecto y decidir juntos cuál es el primer paso.'));
+      var wa = el('a','tc-btn','Escribir por WhatsApp'); wa.target = '_blank'; wa.rel = 'noopener'; wa.setAttribute('data-cta','cuentanos-resultado-whatsapp');
+      wa.href = 'https://wa.me/' + CONFIG.whatsapp.replace(/\D/g,'') + '?text=' + encodeURIComponent('Hola, les escribí desde az180.cl. Mi código de proyecto es ' + code + '.');
+      var ll = el('a','tc-btn','Llamar ahora'); ll.href = 'tel:' + CONFIG.whatsapp.replace(/[^\d+]/g,''); ll.setAttribute('data-cta','cuentanos-resultado-llamar');
+      if (d.pref === 'llamada'){ ac.appendChild(ll); ac.appendChild(wa); } else { ac.appendChild(wa); ac.appendChild(ll); }
+      okTxt = 'Recibimos tu solicitud. ' + V + ' en 1 día hábil, al ' + (d.pref === 'llamada' ? 'teléfono' : 'correo o teléfono') + ' que nos dejaste.';
+    }
+    ac.appendChild(cp); ac.appendChild(rb); sig.appendChild(ac); res.appendChild(sig);
+
+    var payload = { _subject: '[' + r.sem + '] Consulta "Otro proyecto" · ' + code + ' · ' + d.nombre + ' ' + d.apellido, camino: 'cuentanos', semaforo: r.sem, codigo: code,
+      nombre: d.nombre, apellido: d.apellido, organizacion: d.org, email: d.mail, telefono: d.tel, comuna: d.comuna, tipo_proyecto: d.tipo ? label('tipo', d.tipo) : '',
+      presupuesto: d.ppto ? label('ppto', d.ppto) : '', autoriza_datos: 'Sí', preferencia_contacto: d.prefTxt, resumen: txt };
+    rb.addEventListener('click', function(){ enviar(payload, estado, rb, okTxt, 'consulta_enviada'); });
+    f.hidden = true; res.hidden = false; $('#tc-enviar').disabled = false;
+    ev('cuentanos_resultado', { semaforo: r.sem, tipo: d.tipo });
+    res.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); res.focus({ preventScroll: true });
+    enviar(payload, estado, rb, okTxt, 'consulta_enviada');
+  });
+})();
+
+/* Medición de clics en llamados y navegación */
+document.addEventListener('click', function(e){
+  var a = e.target.closest && e.target.closest('[data-cta]'); if (!a || typeof gtag !== 'function') return;
+  gtag('event', 'cta_click', { ubicacion: a.getAttribute('data-cta') });
+});
+
+/* Menú móvil + aparición suave */
+(function(){
+  var t = document.getElementById('nav-toggle'), m = document.getElementById('nav-mobile'), c = document.getElementById('nav-mobile-cerrar');
+  function abrir(v){ m.classList.toggle('abierto', v); t.classList.toggle('abierto', v); document.body.style.overflow = v ? 'hidden' : ''; }
+  t.addEventListener('click', function(){ abrir(!m.classList.contains('abierto')); });
+  c.addEventListener('click', function(){ abrir(false); });
+  [].forEach.call(m.querySelectorAll('a'), function(a){ a.addEventListener('click', function(){ abrir(false); }); });
+  var o = new IntersectionObserver(function(es){ es.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('visible'); o.unobserve(en.target); } }); }, { threshold: 0.1 });
+  [].forEach.call(document.querySelectorAll('.fade-in'), function(el){ o.observe(el); });
+})();
+</script>
+</body>
+</html>

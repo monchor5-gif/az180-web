@@ -938,6 +938,12 @@
           <a href="../tu-casa/" class="link-cta" data-cta="conversemos-tucasa">Hacer el prediagnóstico en 3 minutos</a>
         </div>
 
+        <div class="tc-puente ancho" id="aviso-proyecto" hidden>
+          <p class="tc-puente-t">¿Prefieres ordenar tus ideas paso a paso?</p>
+          <p class="tc-puente-d">Responde 3 pasos cortos sobre tu proyecto, el lugar y los plazos, y te mostramos qué conviene definir primero. Sin costo y sin compromiso.</p>
+          <a href="../cuentanos/" class="link-cta" data-cta="conversemos-cuentanos">Contar mi proyecto en 3 minutos</a>
+        </div>
+
         <label class="autoriza ancho">
           <input type="checkbox" name="autoriza_datos" value="Sí" required>
           <span>Autorizo a Azimut 180° a usar mis datos para responder mi consulta.</span>
@@ -1004,7 +1010,7 @@
     document.getElementById('f-msg-label').innerHTML = TXT[c].label + ' <i>*</i>';
     document.getElementById('f-msg').placeholder = TXT[c].ph;
     gracias.classList.remove('ver'); f.style.display = ''; msg('');
-    wrap.hidden = false; document.getElementById('aviso-casa').hidden = (c !== 'casa');
+    wrap.hidden = false; document.getElementById('aviso-casa').hidden = (c !== 'casa'); document.getElementById('aviso-proyecto').hidden = (c !== 'proyecto');
     try { history.replaceState(null, '', '#' + c); } catch(e){}
     if (nuevo) ev('conversemos_camino', { camino: c });
     if (scroll) wrap.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
