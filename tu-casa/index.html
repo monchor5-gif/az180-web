@@ -979,7 +979,8 @@
     cortes: { ajustado: 1.3, media: 2.5 },      // brecha = (m² × UF/m² mínimo) ÷ presupuesto
     ufClp: 40000,                               // valor referencial de la UF en pesos (actualizar de vez en cuando)
     whatsapp: '+56 9 9998 2581',
-    endpoint: 'https://formspree.io/f/mojrboqj'
+    endpoint: 'https://formspree.io/f/mojrboqj',
+    api: 'https://api.az180.cl/consulta'
   };
   var $ = function(s){ return document.querySelector(s); };
   var radio = function(n){ var e = document.querySelector('input[name="'+n+'"]:checked'); return e ? e.value : ''; };
@@ -1142,6 +1143,9 @@
       .catch(function(){ estado.className = 'tc-estado mal'; estado.textContent = 'No pudimos enviarlo automáticamente. Puedes reintentar o escribirnos por WhatsApp.'; if (reintento) reintento.hidden = false; return false; });
   }
 
+  /* Registro ordenado de la consulta (hoja "Consultas"). Si falla, el correo de Formspree igual llega. */
+  function registrar(o){ try { o.trampa = $('#tc-trampa').value; fetch(CONFIG.api, { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(o), keepalive: true }).catch(function(){}); } catch(e){} }
+
   /* ── Pasos ── */
   var f = $('#tc-form'), pasos = [].slice.call(f.querySelectorAll('.tc-paso')), cur = 0, prog = $('#tc-prog'), res = $('#result');
   function ir(n, scroll){
@@ -1231,6 +1235,8 @@
     ev('tucasa_prediagnostico', { tramo: r.tier, semaforo: r.sem });
     res.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); res.focus({ preventScroll: true });
     enviar(payload, estado, rb, okTxt, 'consulta_enviada');
+    registrar({ codigo: code, semaforo: r.sem, camino: 'tu-casa', nombre: d.nombre, apellido: d.apellido, email: d.mail, telefono: d.tel, preferencia: d.prefTxt, comuna: d.comuna,
+      programa: d.m2 + ' m² · ' + (d.dorm || '—') + ' dorm. · ' + (d.banos || '—') + ' baños · terreno: ' + (d.terreno ? label('terreno', d.terreno) : '—'), presupuesto: d.ppto ? label('ppto', d.ppto) : '', plazo: d.plazoTxt, resumen: txt });
   });
 
   /* ── Afinar (opcional, después de dejar el contacto) ── */

@@ -999,7 +999,8 @@
   var CONFIG = {
     ufClp: 40000,                               // valor referencial de la UF en pesos (se actualiza solo si hay conexión)
     whatsapp: '+56 9 9998 2581',
-    endpoint: 'https://formspree.io/f/mojrboqj'
+    endpoint: 'https://formspree.io/f/mojrboqj',
+    api: 'https://api.az180.cl/consulta'
   };
   var $ = function(s){ return document.querySelector(s); };
   var radio = function(n){ var e = document.querySelector('input[name="'+n+'"]:checked'); return e ? e.value : ''; };
@@ -1097,6 +1098,9 @@
       .catch(function(){ estado.className = 'tc-estado mal'; estado.textContent = 'No pudimos enviarlo automáticamente. Puedes reintentar o escribirnos por WhatsApp.'; if (reintento) reintento.hidden = false; return false; });
   }
 
+  /* Registro ordenado de la consulta (hoja "Consultas"). Si falla, el correo de Formspree igual llega. */
+  function registrar(o){ try { o.trampa = $('#tc-trampa').value; fetch(CONFIG.api, { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(o), keepalive: true }).catch(function(){}); } catch(e){} }
+
   /* ── Pasos ── */
   var f = $('#tc-form'), pasos = [].slice.call(f.querySelectorAll('.tc-paso')), cur = 0, prog = $('#tc-prog'), res = $('#result');
   function ir(n, scroll){
@@ -1178,6 +1182,8 @@
     ev('cuentanos_resultado', { semaforo: r.sem, tipo: d.tipo });
     res.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); res.focus({ preventScroll: true });
     enviar(payload, estado, rb, okTxt, 'consulta_enviada');
+    registrar({ codigo: code, semaforo: r.sem, camino: 'cuentanos', nombre: d.nombre, apellido: d.apellido, organizacion: d.org, email: d.mail, telefono: d.tel, preferencia: d.prefTxt, comuna: d.comuna,
+      programa: (d.tipo ? label('tipo', d.tipo) : '—') + ' · ' + (d.nec ? label('nec', d.nec) : '—'), presupuesto: d.ppto ? label('ppto', d.ppto) : '', plazo: d.plazoTxt, resumen: txt });
   });
 })();
 

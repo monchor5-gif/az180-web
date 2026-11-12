@@ -1029,8 +1029,16 @@
       msg(mal.type === 'checkbox' ? 'Para enviar, marca la autorización.' : 'Revisa los campos marcados.', 'mal'); return;
     }
     btn.disabled = true; msg('Enviando…');
-    fetch(f.action, { method:'POST', body:new FormData(f), headers:{ 'Accept':'application/json' } })
-      .then(function(r){ if(!r.ok) throw new Error(r.status); ev('consulta_enviada', { camino: actual }); f.reset(); elegirReset(); msg(''); f.style.display = 'none'; gracias.classList.add('ver'); gracias.scrollIntoView({behavior:'smooth', block:'center'}); gracias.focus({preventScroll:true}); })
+    var fd = new FormData(f), g = function(k){ return String(fd.get(k) || '').trim(); };
+    var n = new Date(), ap = g('apellido').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/[^A-Z]/g,'').slice(0,8) || 'CONSULTA';
+    var code = 'AZ-' + String(n.getFullYear()).slice(2) + String(n.getMonth()+1).padStart(2,'0') + '-' + ap + '-' + Math.floor(10 + Math.random()*90);
+    fd.append('codigo', code);
+    var reg = { codigo: code, semaforo: '', camino: 'conversemos-' + actual, nombre: g('nombre'), apellido: g('apellido'), email: g('email'), telefono: g('telefono'), comuna: g('region'),
+      programa: [g('tipo_proyecto'), g('superficie_m2') && g('superficie_m2') + ' m²', g('terreno') && 'terreno: ' + g('terreno'), g('quien_encarga'), g('etapa')].filter(Boolean).join(' · '),
+      presupuesto: g('presupuesto'), plazo: g('plazo'), resumen: 'CONSULTA (' + actual + ') — ' + g('nombre') + ' ' + g('apellido') + '\nContacto: ' + g('telefono') + ' · ' + g('email') + '\nNos conoció por: ' + (g('como_nos_encontro') || '—') + '\n\n' + g('mensaje'), trampa: g('_gotcha') };
+    fetch(f.action, { method:'POST', body:fd, headers:{ 'Accept':'application/json' } })
+      .then(function(r){ if(!r.ok) throw new Error(r.status); ev('consulta_enviada', { camino: actual });
+        try { fetch('https://api.az180.cl/consulta', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(reg), keepalive: true }).catch(function(){}); } catch(e){} f.reset(); elegirReset(); msg(''); f.style.display = 'none'; gracias.classList.add('ver'); gracias.scrollIntoView({behavior:'smooth', block:'center'}); gracias.focus({preventScroll:true}); })
       .catch(function(){ msg('No pudimos enviarla. Intenta de nuevo o escríbenos por correo.', 'mal'); })
       .then(function(){ btn.disabled = false; });
   });
