@@ -772,6 +772,24 @@
     .link-cta:hover { opacity: 1; background: rgba(17,17,17,.16); }
     .promesa .link-cta { padding: 0 0 2px; background: none; border-bottom: 1px solid var(--negro); font-weight: 400; }
     .promesa .link-cta::after { content: none; }
+
+    .tc-clp { color: var(--gris-suave); font-size: .85em; margin-left: .35em; }
+    .tc-clp-m { display: block; font-size: var(--t-small); color: var(--gris); margin-top: 2px; }
+    .tc-esp { border-top: 1px solid #dedad0; padding: 16px 0 6px; margin: 6px 0 18px; }
+    .tc-esp summary { cursor: pointer; font-size: var(--t-body); list-style: none; padding: 6px 0; }
+    .tc-esp summary::-webkit-details-marker { display: none; }
+    .tc-esp summary span { font-weight: 600; }
+    .tc-esp summary span::after { content: "  +"; }
+    .tc-esp[open] summary span::after { content: "  –"; }
+    .tc-esp summary em { font-style: normal; color: var(--gris); font-size: var(--t-small); margin-left: 6px; }
+    .tc-esp > .tc-grupo { margin-top: 14px; }
+    .tc-vermas { background: none; border: 0; border-bottom: 1px solid #111; padding: 2px 0; margin: -14px 0 28px; font-family: var(--font); font-size: var(--t-small); color: #111; cursor: pointer; }
+    @media (pointer: coarse), (max-width: 900px) {
+      .tc-form .chips label { min-height: 44px; padding: 10px 16px; }
+      .tc-form .formulario-campo input, .tc-form .formulario-campo select { min-height: 44px; }
+      .tc-btn, .tc-atras, .tc-vermas { min-height: 44px; display: inline-flex; align-items: center; }
+      .tc-atras, .tc-vermas { padding-top: 0; padding-bottom: 0; }
+    }
   </style>
 </head>
 <body>
@@ -874,7 +892,7 @@
           <div class="formulario-campo"><label for="comuna">Comuna o sector</label><input type="text" id="comuna" placeholder="Ej.: Niebla, Valdivia"></div>
           <div class="formulario-campo"><label for="sup">Superficie aproximada (m²)</label><input type="number" id="sup" min="0" inputmode="numeric" placeholder="Ej.: 5000"></div>
         </div>
-        <fieldset class="tc-grupo"><legend>¿Cómo es el terreno?</legend><div class="chips"><label><input type="radio" name="tipo" value="urbano">Urbano, dentro de la ciudad</label><label><input type="radio" name="tipo" value="rural">Parcela rural</label><label><input type="radio" name="tipo" value="borde">Borde de río, lago, humedal o mar</label></div></fieldset><fieldset class="tc-grupo"><legend>Pendiente</legend><div class="chips"><label><input type="radio" name="pend" value="plano">Plano</label><label><input type="radio" name="pend" value="moderada">Moderada</label><label><input type="radio" name="pend" value="fuerte">Fuerte</label><label><input type="radio" name="pend" value="nose">No sé</label></div></fieldset><fieldset class="tc-grupo"><legend>¿Qué servicios tiene hoy?<span class="tc-hint">Marca todos los que correspondan</span></legend><div class="chips"><label><input type="checkbox" name="serv" value="agua">Agua potable (red o APR)</label><label><input type="checkbox" name="serv" value="pozo">Pozo</label><label><input type="checkbox" name="serv" value="luz">Electricidad</label><label><input type="checkbox" name="serv" value="alc">Alcantarillado</label><label><input type="checkbox" name="serv" value="camino">Camino de acceso todo el año</label></div></fieldset><div class="tc-nav"><button type="button" class="tc-btn" data-sig>Siguiente</button><span class="tc-err" data-err role="alert" hidden></span></div>
+        <fieldset class="tc-grupo"><legend>¿Cómo es el terreno?</legend><div class="chips"><label><input type="radio" name="tipo" value="urbano">Urbano, dentro de la ciudad</label><label><input type="radio" name="tipo" value="rural">Parcela rural</label><label><input type="radio" name="tipo" value="borde">Borde de río, lago, humedal o mar</label></div></fieldset><fieldset class="tc-grupo"><legend>Pendiente</legend><div class="chips"><label><input type="radio" name="pend" value="plano">Plano</label><label><input type="radio" name="pend" value="moderada">Moderada</label><label><input type="radio" name="pend" value="fuerte">Fuerte</label><label><input type="radio" name="pend" value="nose">No sé</label></div></fieldset><fieldset class="tc-grupo"><legend>¿Qué servicios tiene hoy?<span class="tc-hint">Marca todos los que correspondan</span></legend><div class="chips"><label><input type="checkbox" name="serv" value="agua">Agua potable (red o APR)</label><label><input type="checkbox" name="serv" value="pozo">Pozo</label><label><input type="checkbox" name="serv" value="luz">Electricidad</label><label><input type="checkbox" name="serv" value="alc">Alcantarillado</label><label><input type="checkbox" name="serv" value="camino">Camino de acceso todo el año</label><label><input type="checkbox" name="serv" value="nose">No lo sé aún</label><label><input type="checkbox" name="serv" value="ninguno">Ninguno por ahora</label></div></fieldset><div class="tc-nav"><button type="button" class="tc-btn" data-sig>Siguiente</button><span class="tc-err" data-err role="alert" hidden></span></div>
       </section>
 
       <section class="tc-paso" data-paso="2" hidden>
@@ -887,12 +905,12 @@
         <div class="tc-grupo"><label class="tc-lab" for="m2">Tamaño aproximado<span class="tc-hint">si no sabes, déjalo como está</span></label>
           <input class="tc-rango" type="range" id="m2" min="40" max="300" step="5" value="120">
           <div class="tc-rango-out"><span id="m2o">120</span> m² construidos</div></div>
-        <fieldset class="tc-grupo"><legend>¿Cuántos dormitorios?</legend><div class="chips"><label><input type="radio" name="dorm" value="1">1</label><label><input type="radio" name="dorm" value="2">2</label><label><input type="radio" name="dorm" value="3">3</label><label><input type="radio" name="dorm" value="4">4</label><label><input type="radio" name="dorm" value="5 o más">5 o más</label></div></fieldset><fieldset class="tc-grupo"><legend>¿Cuántos baños?</legend><div class="chips"><label><input type="radio" name="banos" value="1">1</label><label><input type="radio" name="banos" value="2">2</label><label><input type="radio" name="banos" value="3 o más">3 o más</label></div></fieldset><fieldset class="tc-grupo"><legend>¿Qué espacios quieres que tenga?<span class="tc-hint">Marca todos los que correspondan</span></legend><div class="chips"><label><input type="checkbox" name="esp" value="Living-comedor-cocina integrados">Living-comedor-cocina integrados</label><label><input type="checkbox" name="esp" value="Cocina separada">Cocina separada</label><label><input type="checkbox" name="esp" value="Escritorio o espacio de trabajo">Escritorio o espacio de trabajo</label><label><input type="checkbox" name="esp" value="Logia (lavado y secado)">Logia (lavado y secado)</label><label><input type="checkbox" name="esp" value="Chiflonera (entrada con doble puerta)">Chiflonera (entrada con doble puerta)</label><label><input type="checkbox" name="esp" value="Despensa o bodega">Despensa o bodega</label><label><input type="checkbox" name="esp" value="Leñera">Leñera</label><label><input type="checkbox" name="esp" value="Terraza cubierta o quincho">Terraza cubierta o quincho</label><label><input type="checkbox" name="esp" value="Taller">Taller</label><label><input type="checkbox" name="esp" value="Pieza de visitas">Pieza de visitas</label><label><input type="checkbox" name="esp" value="Dormitorio principal en el primer piso">Dormitorio principal en el primer piso</label><label><input type="checkbox" name="esp" value="Estacionamiento techado">Estacionamiento techado</label></div></fieldset><div class="formulario-campo" style="border-top:0;padding-top:0"><label for="otros">¿Otro espacio o necesidad?</label><input type="text" id="otros" placeholder="Sala de música, estudio de arte, espacio para mascotas…"></div><div class="tc-nav"><button type="button" class="tc-atras" data-atras>Atrás</button><button type="button" class="tc-btn" data-sig>Siguiente</button><span class="tc-err" data-err role="alert" hidden></span></div>
+        <fieldset class="tc-grupo"><legend>¿Cuántos dormitorios?</legend><div class="chips"><label><input type="radio" name="dorm" value="1">1</label><label><input type="radio" name="dorm" value="2">2</label><label><input type="radio" name="dorm" value="3">3</label><label><input type="radio" name="dorm" value="4">4</label><label><input type="radio" name="dorm" value="5 o más">5 o más</label></div></fieldset><fieldset class="tc-grupo"><legend>¿Cuántos baños?</legend><div class="chips"><label><input type="radio" name="banos" value="1">1</label><label><input type="radio" name="banos" value="2">2</label><label><input type="radio" name="banos" value="3 o más">3 o más</label></div></fieldset><details class="tc-esp" id="tc-esp"><summary><span>¿Algún espacio especial?</span> <em id="tc-esp-n">Logia, chiflonera, leñera, quincho… (opcional)</em></summary><fieldset class="tc-grupo"><legend>¿Qué espacios quieres que tenga?<span class="tc-hint">Marca todos los que correspondan</span></legend><div class="chips"><label><input type="checkbox" name="esp" value="Living-comedor-cocina integrados">Living-comedor-cocina integrados</label><label><input type="checkbox" name="esp" value="Cocina separada">Cocina separada</label><label><input type="checkbox" name="esp" value="Escritorio o espacio de trabajo">Escritorio o espacio de trabajo</label><label><input type="checkbox" name="esp" value="Logia (lavado y secado)">Logia (lavado y secado)</label><label><input type="checkbox" name="esp" value="Chiflonera (entrada con doble puerta)">Chiflonera (entrada con doble puerta)</label><label><input type="checkbox" name="esp" value="Despensa o bodega">Despensa o bodega</label><label><input type="checkbox" name="esp" value="Leñera">Leñera</label><label><input type="checkbox" name="esp" value="Terraza cubierta o quincho">Terraza cubierta o quincho</label><label><input type="checkbox" name="esp" value="Taller">Taller</label><label><input type="checkbox" name="esp" value="Pieza de visitas">Pieza de visitas</label><label><input type="checkbox" name="esp" value="Dormitorio principal en el primer piso">Dormitorio principal en el primer piso</label><label><input type="checkbox" name="esp" value="Estacionamiento techado">Estacionamiento techado</label></div></fieldset><div class="formulario-campo" style="border-top:0;padding-top:0"><label for="otros">¿Otro espacio o necesidad?</label><input type="text" id="otros" placeholder="Sala de música, estudio de arte, espacio para mascotas…"></div></details><div class="tc-nav"><button type="button" class="tc-atras" data-atras>Atrás</button><button type="button" class="tc-btn" data-sig>Siguiente</button><span class="tc-err" data-err role="alert" hidden></span></div>
       </section>
 
       <section class="tc-paso" data-paso="3" hidden>
         <h2><span>Paso 3 de 3</span>Presupuesto y plazos</h2>
-        <fieldset class="tc-grupo"><legend>Presupuesto para construir<span class="tc-hint">Solo la obra, sin terreno ni proyecto</span></legend><div class="chips"><label><input type="radio" name="ppto" value="0-600">Menos de 600 UF</label><label><input type="radio" name="ppto" value="600-1000">600 a 1.000 UF</label><label><input type="radio" name="ppto" value="1000-1500">1.000 a 1.500 UF</label><label><input type="radio" name="ppto" value="1500-2500">1.500 a 2.500 UF</label><label><input type="radio" name="ppto" value="2500-4000">2.500 a 4.000 UF</label><label><input type="radio" name="ppto" value="4000-6000">4.000 a 6.000 UF</label><label><input type="radio" name="ppto" value="6000-9000">6.000 a 9.000 UF</label><label><input type="radio" name="ppto" value="9000-15000">Más de 9.000 UF</label><label><input type="radio" name="ppto" value="nose">Aún no lo sé</label></div></fieldset>
+        <fieldset class="tc-grupo"><legend>Presupuesto para construir<span class="tc-hint">Solo la obra, sin terreno ni proyecto. <span id="tc-uf-ref"></span></span></legend><div class="chips"><label><input type="radio" name="ppto" value="0-600">Menos de 600 UF<span class="tc-clp" data-uf="600" data-pre=""></span></label><label><input type="radio" name="ppto" value="600-1000">600 a 1.000 UF<span class="tc-clp" data-uf="1000" data-pre=""></span></label><label><input type="radio" name="ppto" value="1000-1500">1.000 a 1.500 UF<span class="tc-clp" data-uf="1500" data-pre=""></span></label><label><input type="radio" name="ppto" value="1500-2500">1.500 a 2.500 UF<span class="tc-clp" data-uf="2500" data-pre=""></span></label><label><input type="radio" name="ppto" value="2500-4000">2.500 a 4.000 UF<span class="tc-clp" data-uf="4000" data-pre=""></span></label><label><input type="radio" name="ppto" value="4000-6000">4.000 a 6.000 UF<span class="tc-clp" data-uf="6000" data-pre=""></span></label><label><input type="radio" name="ppto" value="6000-9000">6.000 a 9.000 UF<span class="tc-clp" data-uf="9000" data-pre=""></span></label><label><input type="radio" name="ppto" value="9000-15000">Más de 9.000 UF<span class="tc-clp" data-uf="9000" data-pre="más de "></span></label><label><input type="radio" name="ppto" value="nose">Aún no lo sé</label></div></fieldset>
         <div class="tc-fila">
           <div class="formulario-campo"><label for="fin">¿Con qué lo financiarías?</label>
             <select id="fin"><option value="ahorro">Ahorro propio</option><option value="credito">Crédito hipotecario</option><option value="subsidio">Subsidio</option><option value="mixto">Mixto</option><option value="nose">Aún no lo sé</option></select></div>
@@ -914,6 +932,8 @@
           <div class="formulario-campo"><label for="tel">Teléfono o WhatsApp <i>*</i></label><input type="tel" id="tel" autocomplete="tel" inputmode="tel" required placeholder="+56 9 1234 5678" pattern="[0-9+\(\)\s\-]{8,}"></div>
         </div>
         <div class="tc-fila">
+          <div class="formulario-campo"><label for="pref">¿Cómo prefieres que te contactemos?</label>
+            <select id="pref"><option value="">Me da lo mismo</option><option value="whatsapp">WhatsApp</option><option value="llamada">Llamada telefónica</option><option value="correo">Correo</option></select></div>
           <div class="formulario-campo"><label for="origen">¿Cómo nos conociste?</label>
             <select id="origen"><option value="">Seleccionar</option><option>Instagram</option><option>Google</option><option>Recomendación</option><option>Vi una obra</option><option>Otro</option></select></div>
         </div>
@@ -957,6 +977,7 @@
     ufM2: { min: 28, max: 42 },                 // costo referencial de obra, UF/m²
     minUF: 1000,                                // bajo este presupuesto no se ofrece casa nueva con proyecto
     cortes: { ajustado: 1.3, media: 2.5 },      // brecha = (m² × UF/m² mínimo) ÷ presupuesto
+    ufClp: 40000,                               // valor referencial de la UF en pesos (actualizar de vez en cuando)
     whatsapp: '+56 9 9998 2581',
     endpoint: 'https://formspree.io/f/mojrboqj'
   };
@@ -971,6 +992,19 @@
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   $('#m2').addEventListener('input', function(e){ $('#m2o').textContent = e.target.value; });
+  var clpM = function(uf){ return Math.round(uf * CONFIG.ufClp / 1e6); };
+  function pptoTxt(p){ var x = p.split('-').map(Number);
+    if (p === '9000-15000') return 'con más de 9.000 UF (≈ $' + clpM(9000) + ' millones)';
+    if (x[0] === 0) return 'con menos de ' + fmt(x[1]) + ' UF (≈ $' + clpM(x[1]) + ' millones)';
+    return 'con tu tramo de ' + fmt(x[0]) + '–' + fmt(x[1]) + ' UF (≈ $' + clpM(x[0]) + '–' + clpM(x[1]) + ' millones)'; }
+  [].forEach.call(document.querySelectorAll('.tc-clp'), function(e){ e.textContent = ' · ' + (e.getAttribute('data-pre') ? 'más de ' : '≈ ') + '$' + clpM(+e.getAttribute('data-uf')) + ' millones'; });
+  $('#tc-uf-ref').textContent = 'Referencia: 1 UF ≈ $' + fmt(CONFIG.ufClp) + '.';
+  /* servicios: "No lo sé" y "Ninguno" excluyen al resto */
+  [].forEach.call(document.querySelectorAll('input[name="serv"]'), function(i){ i.addEventListener('change', function(){
+    if (!i.checked) return; var excl = (i.value === 'nose' || i.value === 'ninguno');
+    [].forEach.call(document.querySelectorAll('input[name="serv"]'), function(o){ if (o !== i && (excl || o.value === 'nose' || o.value === 'ninguno')) o.checked = false; }); }); });
+  /* espacios plegados: contador */
+  (function(){ var n = $('#tc-esp-n'), base = n.textContent; document.getElementById('tc-esp').addEventListener('change', function(){ var k = document.querySelectorAll('input[name="esp"]:checked').length; n.textContent = k ? k + (k === 1 ? ' espacio elegido' : ' espacios elegidos') : base; }); })();
 
   function presupuestoUF(p){
     if (!p || p === 'nose') return null;
@@ -982,7 +1016,7 @@
     var tier, cls, verdict, metrics = null;
     if (B){
       var m2lo = B / U.max, m2hi = B / U.min, ratio = (m2 * U.min) / B;
-      metrics = [['Superficie que buscas', fmt(m2) + ' m²'], ['Costo estimado de obra', fmt(m2*U.min) + '–' + fmt(m2*U.max) + ' UF'], ['Tu presupuesto alcanza para', m2hi < 30 ? 'Menos de 30 m²' : fmt(m2lo) + '–' + fmt(m2hi) + ' m²']];
+      metrics = [['Superficie que buscas', fmt(m2) + ' m²'], ['Costo estimado de obra', fmt(m2*U.min) + '–' + fmt(m2*U.max) + ' UF', '≈ $' + clpM(m2*U.min) + '–' + clpM(m2*U.max) + ' millones'], ['Tu presupuesto alcanza para', m2hi < 30 ? 'Menos de 30 m²' : fmt(m2lo) + '–' + fmt(m2hi) + ' m²', pptoTxt(d.ppto)]];
       if (B < CONFIG.minUF || ratio > CONFIG.cortes.media){
         tier = 'grande'; cls = 'alto';
         verdict = B < CONFIG.minUF
@@ -991,7 +1025,7 @@
         alts = [
           (m2hi < 30 ? 'Un módulo o refugio pequeño como primera etapa, con la ampliación prevista desde el inicio.' : 'Una casa más pequeña o por etapas: con tu presupuesto, una primera etapa compacta de ' + fmt(m2lo) + ' a ' + fmt(m2hi) + ' m², con la ampliación prevista desde el inicio.'),
           'Ampliar o mejorar una construcción que ya tengas, que suele costar menos que una casa nueva.',
-          'Revisar subsidios y financiamiento: el SERVIU y los créditos hipotecarios pueden cambiar la cuenta.',
+          'Revisar subsidios y financiamiento: los subsidios del SERVIU (el organismo de vivienda del Estado) y los créditos hipotecarios pueden cambiar la cuenta.',
           'Tomarse un tiempo para reunir más presupuesto y volver a hacer este prediagnóstico cuando quieras: toma solo 3 minutos.'
         ];
       } else if (ratio > 1 || m2 * U.max > B){
@@ -1007,20 +1041,22 @@
 
     if (tier !== 'grande'){
       if (d.terreno === 'buscando') notes.push('Antes de comprar, conviene revisar la normativa, el acceso y los servicios del terreno. Podemos evaluar las opciones que estés mirando.');
-      if (d.terreno === 'compra') notes.push('Si aún no firmas, revisemos el certificado de informaciones previas y la factibilidad de servicios antes de cerrar la compra.');
-      if (d.tipo === 'rural') notes.push('En terreno rural, el agua, la solución sanitaria (fosa o planta) y la tramitación del permiso definen buena parte del costo y del plazo.');
+      if (d.terreno === 'compra') notes.push('Si aún no firmas, revisemos el certificado de informaciones previas (el documento municipal que indica qué se puede construir) y si llegan agua, luz y alcantarillado al terreno, antes de cerrar la compra.');
+      if (d.tipo === 'rural') notes.push('En terreno rural, el agua, la solución sanitaria (fosa séptica o planta de tratamiento) y la tramitación del permiso definen buena parte del costo y del plazo.');
       if (d.tipo === 'borde') notes.push('Cerca de ríos, lagos, humedales o el mar puede haber zonas de riesgo, franjas de protección o exigencias ambientales. Hay que verificarlo antes de diseñar.');
-      if (d.tipo === 'urbano') notes.push('En zona urbana, el Plan Regulador fija cuánto y cómo se puede construir. Lo revisamos con el certificado de informaciones previas.');
-      if (d.pend === 'fuerte') notes.push('Con pendiente fuerte, las fundaciones y los accesos pueden subir el costo de forma importante. Conviene un levantamiento topográfico temprano.');
-      if (d.pend === 'nose') notes.push('Un levantamiento topográfico es el primer documento útil: define fundaciones, accesos y orientación.');
-      var s = d.serv;
+      if (d.tipo === 'urbano') notes.push('En zona urbana, el Plan Regulador, que es la norma urbana de la comuna, fija cuánto y cómo se puede construir. Lo revisamos con el certificado de informaciones previas.');
+      if (d.pend === 'fuerte') notes.push('Con pendiente fuerte, las fundaciones y los accesos pueden subir el costo de forma importante. Conviene medir el terreno y sus pendientes (levantamiento topográfico) desde temprano.');
+      if (d.pend === 'nose') notes.push('El primer documento útil es una medición del terreno, el levantamiento topográfico: define fundaciones, accesos y orientación.');
+      var s = d.serv, conocidos = has(s,'agua') || has(s,'pozo') || has(s,'luz') || has(s,'alc');
       if (d.terreno !== 'buscando'){
-        if (!has(s,'agua') && !has(s,'pozo')) notes.push('Sin agua potable resuelta, hay que estudiar pozo, APR o derechos de agua antes de proyectar.');
-        if (!has(s,'luz')) notes.push('Sin electricidad, el empalme o una solución autónoma puede tomar meses. Conviene pedir factibilidad pronto.');
-        if (!has(s,'alc')) notes.push('Sin alcantarillado, se necesita una solución particular aprobada por la autoridad sanitaria.');
+        if (conocidos || has(s,'ninguno')){
+          if (!has(s,'agua') && !has(s,'pozo')) notes.push('Sin agua potable resuelta, hay que estudiar pozo, agua potable rural (APR) o derechos de agua antes de proyectar.');
+          if (!has(s,'luz')) notes.push('Sin electricidad, la conexión a la red o una solución autónoma puede tomar meses. Conviene consultarlo pronto.');
+          if (!has(s,'alc')) notes.push('Sin alcantarillado, se necesita una solución particular aprobada por la autoridad sanitaria.');
+        } else notes.push('Conviene confirmar qué servicios llegan al terreno (agua, electricidad y alcantarillado), porque cambian el costo y el plazo. Te ayudamos a revisarlo.');
       }
       if (d.plazo === '6') notes.push('Para partir en menos de 6 meses hay que considerar que el proyecto y el permiso de edificación suelen tomar entre 3 y 6 meses.');
-      if (d.fin === 'credito' || d.fin === 'subsidio' || d.fin === 'mixto') notes.push('Con crédito o subsidio, el banco o el SERVIU tienen sus propios requisitos y plazos. Es mejor considerarlos desde el diseño.');
+      if (d.fin === 'credito' || d.fin === 'subsidio' || d.fin === 'mixto') notes.push('Con crédito o subsidio, el banco o el SERVIU (el organismo de vivienda del Estado) tienen sus propios requisitos y plazos. Es mejor considerarlos desde el diseño.');
       var nd = parseInt(d.dorm,10) || 0, nb = parseInt(d.banos,10) || 0;
       if (nd){ var need = 30 + 18*nd + 4*nb; if (m2 < need) notes.push('Un programa de ' + d.dorm + ' dormitorio' + (nd>1?'s':'') + (nb ? ' y ' + d.banos + ' baño' + (nb>1?'s':'') : '') + ' suele necesitar cerca de ' + need + ' m². Con ' + m2 + ' m² conviene priorizar qué recintos son indispensables y cuáles pueden ser más compactos.'); }
       if (has(d.esp,'Chiflonera (entrada con doble puerta)')) notes.push('La chiflonera corta el viento y el frío en la entrada y cuida el calor de la casa. Funciona mejor si se diseña junto con el acceso y el lugar para dejar abrigos y botas.');
@@ -1049,7 +1085,7 @@
       personas: $('#personas').value, uso: $('#uso').selectedOptions[0].text,
       m2: $('#m2').value, dorm: radio('dorm'), banos: radio('banos'), esp: checks('esp'), otros: $('#otros').value.trim(),
       ppto: radio('ppto'), fin: $('#fin').value, finTxt: $('#fin').selectedOptions[0].text, plazo: $('#plazo').value, plazoTxt: $('#plazo').selectedOptions[0].text,
-      nombre: $('#nombre').value.trim(), apellido: $('#apellido').value.trim(), tel: $('#tel').value.trim(), mail: $('#mail').value.trim(), origen: $('#origen').value,
+      nombre: $('#nombre').value.trim(), apellido: $('#apellido').value.trim(), tel: $('#tel').value.trim(), mail: $('#mail').value.trim(), origen: $('#origen').value, pref: $('#pref').value, prefTxt: $('#pref').selectedOptions[0].text,
       horiz: '', cambios: [], unpiso: '', etapas: '', renta: [], venta: '' };
   }
   function collectAfina(){ return { horiz: radio('horiz'), cambios: checks('cambios'), unpiso: radio('unpiso'), etapas: radio('etapas'), renta: checks('renta'), venta: radio('venta') }; }
@@ -1066,7 +1102,7 @@
       'SEMÁFORO: ' + r.sem + ' (' + r.tier + ')',
       'SOLICITUD DE PREDIAGNÓSTICO — ' + d.nombre + ' ' + d.apellido,
       'Código de proyecto: ' + code,
-      'Contacto: ' + d.tel + ' · ' + d.mail + ' · Nos conoció por: ' + (d.origen || '—'), '',
+      'Contacto: ' + d.tel + ' · ' + d.mail + ' · Prefiere: ' + d.prefTxt + ' · Nos conoció por: ' + (d.origen || '—'), '',
       'TERRENO: ' + (d.terreno ? label('terreno',d.terreno) : '—') + ' · ' + (d.comuna || '—') + ' · ' + (d.sup ? d.sup + ' m²' : 'superficie —'),
       'Tipo: ' + (d.tipo ? label('tipo',d.tipo) : '—') + ' · Pendiente: ' + (d.pend ? label('pend',d.pend) : '—'),
       'Servicios: ' + many('serv', d.serv), '',
@@ -1140,11 +1176,13 @@
     ultimo = { d: d, code: code };
     res.textContent = '';
     res.appendChild(el('h2', null, first + ', este es un primer panorama de tu casa'));
-    if (r.metrics){ var m = el('div','tc-metricas'); r.metrics.forEach(function(x){ var dv = el('div'); dv.appendChild(el('small',null,x[0])); dv.appendChild(el('strong',null,x[1])); m.appendChild(dv); }); res.appendChild(m); }
+    if (r.metrics){ var m = el('div','tc-metricas'); r.metrics.forEach(function(x){ var dv = el('div'); dv.appendChild(el('small',null,x[0])); dv.appendChild(el('strong',null,x[1])); if (x[2]) dv.appendChild(el('span','tc-clp-m',x[2])); m.appendChild(dv); }); res.appendChild(m); }
     res.appendChild(el('p','tc-veredicto ' + r.cls, r.verdict));
-    var lista = function(titulo, arr, id){ var w = el('div'); if (id) w.id = id; if (!arr.length) w.hidden = true; w.appendChild(el('h3',null,titulo)); var ul = el('ul','tc-notas'); arr.forEach(function(n){ ul.appendChild(el('li',null,n)); }); w.appendChild(ul); res.appendChild(w); return w; };
+    var lista = function(titulo, arr, id, max){ var w = el('div'); if (id) w.id = id; if (!arr.length) w.hidden = true; w.appendChild(el('h3',null,titulo)); var ul = el('ul','tc-notas'); arr.forEach(function(n, k){ var li = el('li',null,n); if (max && k >= max){ li.hidden = true; li.className = 'tc-mas'; } ul.appendChild(li); }); w.appendChild(ul);
+      if (max && arr.length > max){ var vm = el('button','tc-vermas','Ver ' + (arr.length - max) + (arr.length - max === 1 ? ' punto más' : ' puntos más')); vm.type = 'button'; vm.addEventListener('click', function(){ [].forEach.call(ul.querySelectorAll('.tc-mas'), function(li){ li.hidden = false; }); vm.hidden = true; }); w.appendChild(vm); }
+      res.appendChild(w); return w; };
     if (r.alts.length) lista('Caminos para avanzar', r.alts);
-    if (r.notes.length) lista('Puntos a revisar', r.notes);
+    if (r.notes.length) lista('Puntos a revisar', r.notes, null, 3);
     lista('Pensando en los próximos años', r.time, 'tc-time');
     var cb = el('div','tc-codigo'); cb.appendChild(el('small',null,'Tu código de proyecto')); cb.appendChild(el('strong',null,code));
     cb.appendChild(el('span',null,'Guárdalo: identifica tu proyecto con nosotros. Si trabajamos juntos, lo usarás en la siguiente etapa y lo compartirás con quienes vivirán la casa.')); res.appendChild(cb);
@@ -1154,7 +1192,7 @@
     var sig = el('div','tc-sig'), ac = el('div','tc-acciones'), rb = el('button','tc-btn','Reintentar envío'); rb.type = 'button'; rb.hidden = true;
     var cp = el('button','tc-btn','Copiar código'); cp.type = 'button';
     cp.addEventListener('click', function(){ (navigator.clipboard ? navigator.clipboard.writeText(code) : Promise.reject()).then(function(){ cp.textContent = 'Código copiado'; }).catch(function(){ cp.textContent = code; }); });
-    var okTxt;
+    var okTxt, V = d.pref === 'llamada' ? 'Te llamamos' : 'Te escribimos';
     if (r.tier === 'grande'){
       sig.appendChild(el('h3',null,'Cómo seguir'));
       sig.appendChild(el('p',null,'Gracias por contarnos tu proyecto. Guarda tu código: cuando tu idea o tu presupuesto cambien, puedes rehacer el prediagnóstico en 3 minutos. Y si quieres conversarlo o resolver cualquier duda, escríbenos cuando quieras: estamos a un mensaje de distancia.'));
@@ -1162,21 +1200,22 @@
       okTxt = 'Recibimos tu solicitud y guardamos tu código de proyecto. Gracias por escribirnos.';
     } else {
       var textos = {
-        ok: 'Te escribimos para coordinar una reunión de 30 minutos, sin costo, y revisar contigo tu terreno y lo que quieres construir. Si tu caso calza con alguna de nuestras casas, también te la mostramos.',
-        ajustado: 'Te escribimos para coordinar una reunión de 30 minutos, sin costo, y ver cómo ajustar el diseño a tu presupuesto. Si tu caso calza con alguna de nuestras casas, también te la mostramos.',
-        media: 'Te escribimos para coordinar una llamada corta de 15 minutos. Ahí vemos cómo acercar lo que imaginas a tu presupuesto, por ejemplo con una primera etapa.',
-        sin: 'Te escribimos para ayudarte a aclarar tu presupuesto en una llamada corta de 15 minutos.' };
+        ok: V + ' para coordinar una reunión de 30 minutos, sin costo, y revisar contigo tu terreno y lo que quieres construir. Si tu caso calza con alguna de nuestras casas, también te la mostramos.',
+        ajustado: V + ' para coordinar una reunión de 30 minutos, sin costo, y ver cómo ajustar el diseño a tu presupuesto. Si tu caso calza con alguna de nuestras casas, también te la mostramos.',
+        media: V + ' para ver, en una llamada corta de 15 minutos, cómo acercar lo que imaginas a tu presupuesto, por ejemplo con una primera etapa.',
+        sin: V + ' para ayudarte a aclarar tu presupuesto, en una llamada corta de 15 minutos.' };
       sig.appendChild(el('h3',null,'El siguiente paso')); sig.appendChild(el('p',null,textos[r.tier]));
       var wa = el('a','tc-btn','Escribir por WhatsApp'); wa.target = '_blank'; wa.rel = 'noopener'; wa.setAttribute('data-cta','tucasa-resultado-whatsapp');
       wa.href = 'https://wa.me/' + CONFIG.whatsapp.replace(/\D/g,'') + '?text=' + encodeURIComponent('Hola, hice el prediagnóstico en az180.cl. Mi código de proyecto es ' + code + '.');
-      ac.appendChild(wa);
-      okTxt = 'Recibimos tu solicitud. Te escribimos en 1 día hábil, al correo o teléfono que nos dejaste.';
+      var ll = el('a','tc-btn','Llamar ahora'); ll.href = 'tel:' + CONFIG.whatsapp.replace(/[^\d+]/g,''); ll.setAttribute('data-cta','tucasa-resultado-llamar');
+      if (d.pref === 'llamada'){ ac.appendChild(ll); ac.appendChild(wa); } else { ac.appendChild(wa); ac.appendChild(ll); }
+      okTxt = 'Recibimos tu solicitud. ' + V + ' en 1 día hábil, al ' + (d.pref === 'llamada' ? 'teléfono' : 'correo o teléfono') + ' que nos dejaste.';
     }
     ac.appendChild(cp); ac.appendChild(rb); sig.appendChild(ac); res.appendChild(sig);
 
     var payload = { _subject: '[' + r.sem + '] Prediagnóstico "Tu casa en el sur" · ' + code + ' · ' + d.nombre + ' ' + d.apellido, camino: 'tu-casa', semaforo: r.sem, tramo: r.tier, codigo: code,
       nombre: d.nombre, apellido: d.apellido, email: d.mail, telefono: d.tel, comuna: d.comuna, m2_deseados: d.m2, presupuesto: d.ppto ? label('ppto', d.ppto) : '',
-      autoriza_datos: 'Sí', resumen: txt };
+      autoriza_datos: 'Sí', preferencia_contacto: d.prefTxt, resumen: txt };
     rb.addEventListener('click', function(){ enviar(payload, estado, rb, okTxt, 'consulta_enviada'); });
     f.hidden = true; res.hidden = false; $('#tc-enviar').disabled = false;
     if (r.tier !== 'grande') $('#tc-afina').hidden = false;
