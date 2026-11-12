@@ -997,8 +997,16 @@
     if (p === '9000-15000') return 'con más de 9.000 UF (≈ $' + clpM(9000) + ' millones)';
     if (x[0] === 0) return 'con menos de ' + fmt(x[1]) + ' UF (≈ $' + clpM(x[1]) + ' millones)';
     return 'con tu tramo de ' + fmt(x[0]) + '–' + fmt(x[1]) + ' UF (≈ $' + clpM(x[0]) + '–' + clpM(x[1]) + ' millones)'; }
-  [].forEach.call(document.querySelectorAll('.tc-clp'), function(e){ e.textContent = ' · ' + (e.getAttribute('data-pre') ? 'más de ' : '≈ ') + '$' + clpM(+e.getAttribute('data-uf')) + ' millones'; });
-  $('#tc-uf-ref').textContent = 'Referencia: 1 UF ≈ $' + fmt(CONFIG.ufClp) + '.';
+  function pintaClp(){
+    [].forEach.call(document.querySelectorAll('.tc-clp'), function(e){ e.textContent = ' · ' + (e.getAttribute('data-pre') ? 'más de ' : '≈ ') + '$' + clpM(+e.getAttribute('data-uf')) + ' millones'; });
+    $('#tc-uf-ref').textContent = 'Referencia: 1 UF ≈ $' + fmt(CONFIG.ufClp) + '.';
+  }
+  pintaClp();
+  /* UF del día (indicador público); si falla, queda el valor de referencia de CONFIG.ufClp */
+  try { fetch('https://mindicador.cl/api/uf').then(function(r){ return r.json(); }).then(function(j){
+    var v = j && j.serie && j.serie[0] && +j.serie[0].valor;
+    if (v > 20000 && v < 90000){ CONFIG.ufClp = Math.round(v); pintaClp(); }
+  }).catch(function(){}); } catch(e){}
   /* servicios: "No lo sé" y "Ninguno" excluyen al resto */
   [].forEach.call(document.querySelectorAll('input[name="serv"]'), function(i){ i.addEventListener('change', function(){
     if (!i.checked) return; var excl = (i.value === 'nose' || i.value === 'ninguno');
