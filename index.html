@@ -1083,6 +1083,24 @@
       .logo-wrap { width: auto; margin-left: 0; gap: 0; justify-content: center; }
       .logo-wrap > div { display: none; }
     }
+
+    /* ── Contactos homogéneos: logo + dato visible, todo es enlace ── */
+    .contactos { display: flex; flex-direction: column; align-items: flex-start; gap: 9px; }
+    .ct-fila { display: inline-flex; align-items: center; gap: 10px; }
+    .ct { display: inline-flex; align-items: center; gap: 8px; color: var(--gris); text-decoration: none; font-size: var(--t-small); letter-spacing: 0.02em; line-height: 1.3; text-transform: none; border: 0; transition: color 0.2s; }
+    .ct svg { flex: none; width: 15px; height: 15px; }
+    .ct:hover { color: var(--negro); }
+    .ct-tel { padding-left: 10px; border-left: 1px solid var(--gris-claro); }
+    .contactos.ct-linea { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px 24px; }
+    .sociales { flex-direction: column; align-items: center; }
+    .sociales .contactos { align-items: center; }
+    .sociales .ct { font-size: var(--t-micro); letter-spacing: 0.03em; text-transform: none; }
+    footer .ct { font-size: var(--t-micro); }
+    .nav-mobile .contactos { margin-top: 18px; align-items: center; }
+    .nav-mobile .ct { font-size: 1rem; font-weight: 400; letter-spacing: 0.02em; color: var(--gris); }
+    .nav-mobile .ct svg { width: 17px; height: 17px; }
+    .contacto-persona-dato .ct { border: 0; color: var(--gris); }
+    .contacto-persona-dato .ct:hover { color: var(--negro); }
   </style>
 </head>
 <body>
@@ -1121,15 +1139,7 @@
   </nav>
 
   <div class="sociales">
-    <a href="https://www.instagram.com/az180.cl/" target="_blank" rel="noopener noreferrer">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-        <circle cx="12" cy="12" r="4.5"/>
-        <circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"/>
-      </svg>
-      @az180.cl
-    </a>
+    <div class="contactos"><span class="ct-fila"><a class="ct" href="https://wa.me/56999982581" target="_blank" rel="noopener noreferrer" data-cta="lateral-whatsapp" aria-label="WhatsApp +56 9 9998 2581"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><span>+56 9 9998 2581</span></a><a class="ct ct-tel" href="tel:+56999982581" data-cta="lateral-llamar" aria-label="Llamar al +56 9 9998 2581" title="Llamar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></span><a class="ct" href="mailto:administracion@az180.cl" data-cta="lateral-correo" aria-label="Correo administracion@az180.cl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span>administracion@az180.cl</span></a><a class="ct" href="https://www.instagram.com/az180.cl/" target="_blank" rel="noopener noreferrer" data-cta="lateral-instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"/></svg><span>@az180.cl</span></a></div>
   </div>
 
   <button class="nav-toggle" id="nav-toggle" aria-label="Menú">
@@ -1162,7 +1172,7 @@
   <a href="#nosotros">equipo</a>
   <a href="practicas.html">prácticas</a>
   <a href="conversemos/" class="nav-cta" data-cta="menu-movil">Conversemos</a>
-  <a href="https://www.instagram.com/az180.cl/" target="_blank" rel="noopener noreferrer" style="font-size:1rem; letter-spacing:0.08em; color:var(--gris); margin-top:8px;">@az180.cl</a>
+  <div class="contactos"><span class="ct-fila"><a class="ct" href="https://wa.me/56999982581" target="_blank" rel="noopener noreferrer" data-cta="menu-movil-whatsapp" aria-label="WhatsApp +56 9 9998 2581"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><span>+56 9 9998 2581</span></a><a class="ct ct-tel" href="tel:+56999982581" data-cta="menu-movil-llamar" aria-label="Llamar al +56 9 9998 2581" title="Llamar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></span><a class="ct" href="mailto:administracion@az180.cl" data-cta="menu-movil-correo" aria-label="Correo administracion@az180.cl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span>administracion@az180.cl</span></a><a class="ct" href="https://www.instagram.com/az180.cl/" target="_blank" rel="noopener noreferrer" data-cta="menu-movil-instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"/></svg><span>@az180.cl</span></a></div>
 </nav>
 
 <!-- ══ MAIN ══ -->
@@ -1241,7 +1251,7 @@
         <p class="llamado-texto">Cuéntanos qué quieres construir. Te respondemos en 1 día hábil.</p>
         <div class="llamado-vias">
           <a href="conversemos/" class="link-cta" data-cta="contacto">Conversemos tu proyecto</a>
-          <a href="https://wa.me/56999982581" target="_blank" rel="noopener noreferrer" class="link-sec" data-cta="whatsapp">o escríbenos por WhatsApp</a>
+          <span class="link-sec" style="display:inline-flex;align-items:center;gap:10px;">o escríbenos: <a class="ct" style="font-size:var(--t-body)" href="https://wa.me/56999982581" target="_blank" rel="noopener noreferrer" data-cta="cierre-whatsapp" aria-label="WhatsApp +56 9 9998 2581"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><span>+56 9 9998 2581</span></a><a class="ct ct-tel" href="tel:+56999982581" data-cta="cierre-llamar" aria-label="Llamar al +56 9 9998 2581" title="Llamar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></span>
         </div>
       </div>
     </div>
@@ -1416,7 +1426,7 @@
       ? `<br>${m.formacion.split(' · ').join('<br>')}`
       : '';
     const email = m.email
-      ? `<a href="mailto:${m.email}" class="miembro-email">${m.email}</a>`
+      ? `<a href="mailto:${m.email}" class="miembro-email ct" data-cta="equipo-correo" aria-label="Correo ${m.email}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span>${m.email}</span></a>`
       : '';
     div.innerHTML = `
       <p class="miembro-nombre">${m.nombre}</p>
@@ -1434,8 +1444,8 @@
       <div class="contacto-celda">
         <p class="dato-label">${p.rol}</p>
         <p class="dato-valor">${p.nombre}</p>
-        <p class="contacto-persona-dato"><a href="tel:${p.telefono.replace(/\s/g,'')}">${p.telefono}</a></p>
-        <p class="contacto-persona-dato"><a href="mailto:${p.email}">${p.email}</a></p>
+        <p class="contacto-persona-dato"><span class="ct-fila"><a class="ct" href="https://wa.me/${p.telefono.replace(/\D/g,'')}" target="_blank" rel="noopener noreferrer" data-cta="persona-whatsapp" aria-label="WhatsApp ${p.telefono}"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><span>${p.telefono}</span></a><a class="ct ct-tel" href="tel:+${p.telefono.replace(/\D/g,'')}" data-cta="persona-llamar" aria-label="Llamar al ${p.telefono}" title="Llamar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></span></p>
+        <p class="contacto-persona-dato"><a class="ct" href="mailto:${p.email}" data-cta="persona-correo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span>${p.email}</span></a></p>
       </div>
     `).join('');
   }
@@ -1500,7 +1510,7 @@
   <div class="footer-contenido">
     <div class="footer-izq">
       <p>Av. Ramón Picarte 780, Oficina 303 · Valdivia, Región de Los Ríos</p>
-      <a href="https://www.instagram.com/az180.cl/" target="_blank" rel="noopener noreferrer">@az180.cl</a>
+      <div class="contactos ct-linea"><span class="ct-fila"><a class="ct" href="https://wa.me/56999982581" target="_blank" rel="noopener noreferrer" data-cta="pie-whatsapp" aria-label="WhatsApp +56 9 9998 2581"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><span>+56 9 9998 2581</span></a><a class="ct ct-tel" href="tel:+56999982581" data-cta="pie-llamar" aria-label="Llamar al +56 9 9998 2581" title="Llamar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></span><a class="ct" href="mailto:administracion@az180.cl" data-cta="pie-correo" aria-label="Correo administracion@az180.cl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span>administracion@az180.cl</span></a><a class="ct" href="https://www.instagram.com/az180.cl/" target="_blank" rel="noopener noreferrer" data-cta="pie-instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"/></svg><span>@az180.cl</span></a></div>
     </div>
     <div class="footer-der">
       <p>© 2026 Azimut 180° · Todos los derechos reservados</p>
