@@ -1101,6 +1101,17 @@
     .nav-mobile .ct svg { width: 17px; height: 17px; }
     .contacto-persona-dato .ct { border: 0; color: var(--gris); }
     .contacto-persona-dato .ct:hover { color: var(--negro); }
+
+    /* ── "Conversemos": llamado destacado (fondo suave) ── */
+    nav a.nav-cta { display: inline-block; margin-top: 26px; padding: 11px 22px; background: rgba(17,17,17,.08); color: var(--negro); font-weight: 600; text-decoration: none; transition: background .2s; }
+    nav a.nav-cta::after { display: none !important; }
+    nav a.nav-cta:hover, nav a.nav-cta.active { background: rgba(17,17,17,.16); color: var(--negro); }
+    .nav-mobile a.nav-cta { font-size: 1.25rem; font-weight: 600; margin-top: 12px; padding: 12px 28px; }
+    .link-cta { padding: 13px 26px; background: rgba(17,17,17,.08); border-bottom: 0; font-weight: 600; transition: background .2s; }
+    .link-cta::after { content: "  →"; white-space: pre; }
+    .link-cta:hover { opacity: 1; background: rgba(17,17,17,.16); }
+    .promesa .link-cta { padding: 0 0 2px; background: none; border-bottom: 1px solid var(--negro); font-weight: 400; }
+    .promesa .link-cta::after { content: none; }
   </style>
 </head>
 <body>
