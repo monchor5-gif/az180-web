@@ -846,9 +846,7 @@
         <div class="tc-grupo"><label class="tc-lab" for="m2">Tamaño aproximado<span class="tc-hint">si no sabes, déjalo como está</span></label>
           <input class="tc-rango" type="range" id="m2" min="40" max="300" step="5" value="120">
           <div class="tc-rango-out"><span id="m2o">120</span> m² construidos</div></div>
-        <fieldset class="tc-grupo" id="prio"><legend>¿Qué es lo más importante para ustedes?<span class="tc-hint">Elige hasta 3</span></legend>
-          <div class="chips"><label><input type="checkbox" name="prio" value="Abrigo y bajo gasto en calefacción">Abrigo y bajo gasto en calefacción</label><label><input type="checkbox" name="prio" value="Luz natural">Luz natural</label><label><input type="checkbox" name="prio" value="Relación con el paisaje">Relación con el paisaje</label><label><input type="checkbox" name="prio" value="Bajo mantenimiento">Bajo mantenimiento</label><label><input type="checkbox" name="prio" value="Construir rápido">Construir rápido</label><label><input type="checkbox" name="prio" value="Poder ampliar después">Poder ampliar después</label><label><input type="checkbox" name="prio" value="Madera a la vista">Madera a la vista</label></div>
-          <span class="tc-err" id="prioErr" hidden>Puedes elegir hasta 3.</span></fieldset>
+        <fieldset class="tc-grupo"><legend>¿Cuántos dormitorios?</legend><div class="chips"><label><input type="radio" name="dorm" value="1">1</label><label><input type="radio" name="dorm" value="2">2</label><label><input type="radio" name="dorm" value="3">3</label><label><input type="radio" name="dorm" value="4">4</label><label><input type="radio" name="dorm" value="5 o más">5 o más</label></div></fieldset><fieldset class="tc-grupo"><legend>¿Cuántos baños?</legend><div class="chips"><label><input type="radio" name="banos" value="1">1</label><label><input type="radio" name="banos" value="2">2</label><label><input type="radio" name="banos" value="3 o más">3 o más</label></div></fieldset><fieldset class="tc-grupo"><legend>¿Qué espacios quieres que tenga?<span class="tc-hint">Marca todos los que correspondan</span></legend><div class="chips"><label><input type="checkbox" name="esp" value="Living-comedor-cocina integrados">Living-comedor-cocina integrados</label><label><input type="checkbox" name="esp" value="Cocina separada">Cocina separada</label><label><input type="checkbox" name="esp" value="Escritorio o espacio de trabajo">Escritorio o espacio de trabajo</label><label><input type="checkbox" name="esp" value="Logia (lavado y secado)">Logia (lavado y secado)</label><label><input type="checkbox" name="esp" value="Chiflonera (entrada con doble puerta)">Chiflonera (entrada con doble puerta)</label><label><input type="checkbox" name="esp" value="Despensa o bodega">Despensa o bodega</label><label><input type="checkbox" name="esp" value="Leñera">Leñera</label><label><input type="checkbox" name="esp" value="Terraza cubierta o quincho">Terraza cubierta o quincho</label><label><input type="checkbox" name="esp" value="Taller">Taller</label><label><input type="checkbox" name="esp" value="Pieza de visitas">Pieza de visitas</label><label><input type="checkbox" name="esp" value="Dormitorio principal en el primer piso">Dormitorio principal en el primer piso</label><label><input type="checkbox" name="esp" value="Estacionamiento techado">Estacionamiento techado</label></div></fieldset><div class="formulario-campo" style="border-top:0;padding-top:0"><label for="otros">¿Otro espacio o necesidad?</label><input type="text" id="otros" placeholder="Sala de música, estudio de arte, espacio para mascotas…"></div>
         <div class="formulario-campo" style="border-top:0;padding-top:0"><label for="ref">¿Tienes referencias?</label><input type="text" id="ref" placeholder="Links de Instagram o Pinterest"></div>
       </section>
 
@@ -928,9 +926,6 @@
   function ev(n,p){ if (typeof gtag === 'function') gtag('event', n, p||{}); }
 
   $('#m2').addEventListener('input', function(e){ $('#m2o').textContent = e.target.value; });
-  $('#prio').addEventListener('change', function(e){
-    if (checks('prio').length > 3){ e.target.checked = false; $('#prioErr').hidden = false; } else $('#prioErr').hidden = true;
-  });
 
   function diagnose(d){
     var notes = [], time = [], m2 = +d.m2, verdict, cls = 'ajustado', metrics = null, U = CONFIG.ufM2;
@@ -960,7 +955,12 @@
     }
     if (d.plazo === '6') notes.push('Para partir en menos de 6 meses hay que considerar que el proyecto y el permiso de edificación suelen tomar entre 3 y 6 meses.');
     if (d.fin === 'credito' || d.fin === 'subsidio' || d.fin === 'mixto') notes.push('Con crédito o subsidio, el banco o el SERVIU tienen sus propios requisitos y plazos. Es mejor considerarlos desde el diseño.');
-    if (d.prio.indexOf('Abrigo y bajo gasto en calefacción') > -1) notes.push('En el sur, la aislación y la hermeticidad bien resueltas pagan su costo en pocos inviernos. Lo trabajamos desde el primer esquema.');
+    var esp = d.esp, nd = parseInt(d.dorm,10) || 0, nb = parseInt(d.banos,10) || 0;
+    if (nd){ var need = 30 + 18*nd + 4*nb; if (m2 < need) notes.push('Un programa de ' + d.dorm + ' dormitorio' + (nd>1?'s':'') + (nb ? ' y ' + d.banos + ' baño' + (nb>1?'s':'') : '') + ' suele necesitar cerca de ' + need + ' m². Con ' + m2 + ' m² conviene priorizar qué recintos son indispensables y cuáles pueden ser más compactos.'); }
+    if (esp.indexOf('Chiflonera (entrada con doble puerta)') > -1) notes.push('La chiflonera corta el viento y el frío en la entrada y cuida el calor de la casa. Funciona mejor si se diseña junto con el acceso y el lugar para dejar abrigos y botas.');
+    if (esp.indexOf('Logia (lavado y secado)') > -1) notes.push('En el sur la logia necesita resolver el secado de ropa en invierno: ventilación, calor o un tendedero techado. Conviene ubicarla cerca de la cocina o del acceso.');
+    if (esp.indexOf('Leñera') > -1) notes.push('Una leñera bien ubicada, techada y cerca de la estufa evita acarrear leña bajo la lluvia. Tiene que quedar a una distancia segura de la casa.');
+    if (esp.indexOf('Dormitorio principal en el primer piso') > -1 || esp.indexOf('Pieza de visitas') > -1) time.push('Dejar un dormitorio en el primer piso hace que la casa sirva a cualquier edad y para visitas.');
     var has = function(a,v){ return a.indexOf(v) > -1; };
     if (d.horiz === 'siempre' || d.unpiso === 'si' || d.unpiso === 'bueno' || has(d.cambios,'padres')) time.push('Para envejecer en la casa o recibir a padres, conviene un dormitorio con baño en el primer piso, pasos amplios y sin desniveles. Resolverlo desde el inicio cuesta poco; adaptarlo después, mucho.');
     if (d.etapas === 'etapas' || has(d.renta,'unidad')) time.push('Una ampliación o unidad futura sale mucho más barata si desde la primera etapa se dejan previstas la estructura, las instalaciones, el acceso y, idealmente, el permiso.');
@@ -975,7 +975,7 @@
   function collect(){
     return { terreno: radio('terreno'), comuna: $('#comuna').value.trim(), sup: $('#sup').value, tipo: radio('tipo'), pend: radio('pend'), serv: checks('serv'),
       personas: $('#personas').value, uso: $('#uso').selectedOptions[0].text, vida: $('#vida').value.trim(),
-      m2: $('#m2').value, prio: checks('prio'), ref: $('#ref').value.trim(),
+      m2: $('#m2').value, dorm: radio('dorm'), banos: radio('banos'), esp: checks('esp'), otros: $('#otros').value.trim(), ref: $('#ref').value.trim(),
       horiz: radio('horiz'), cambios: checks('cambios'), unpiso: radio('unpiso'), etapas: radio('etapas'), renta: checks('renta'), venta: radio('venta'),
       ppto: radio('ppto'), fin: $('#fin').value, finTxt: $('#fin').selectedOptions[0].text, plazo: $('#plazo').value, plazoTxt: $('#plazo').selectedOptions[0].text,
       nombre: $('#nombre').value.trim(), apellido: $('#apellido').value.trim(), tel: $('#tel').value.trim(), mail: $('#mail').value.trim(), origen: $('#origen').value };
@@ -998,7 +998,9 @@
       'Servicios: ' + many('serv', d.serv), '',
       'HABITANTES: ' + d.personas + ' personas · ' + d.uso,
       'Día a día: ' + (d.vida || '—'), '',
-      'CASA: ' + d.m2 + ' m² aprox. · Prioridades: ' + (d.prio.join(', ') || '—'),
+      'CASA: ' + d.m2 + ' m² aprox. · Dormitorios: ' + (d.dorm || '—') + ' · Baños: ' + (d.banos || '—'),
+      'Espacios: ' + (d.esp.join(', ') || '—'),
+      'Otros espacios o necesidades: ' + (d.otros || '—'),
       'Referencias: ' + (d.ref || '—'), '',
       'PRESUPUESTO: ' + (d.ppto ? label('ppto',d.ppto) : '—') + ' · ' + d.finTxt + ' · Inicio: ' + d.plazoTxt, '',
       'PROYECCIÓN: Horizonte: ' + (d.horiz ? label('horiz',d.horiz) : '—') + ' · Construcción: ' + (d.etapas ? label('etapas',d.etapas) : '—') + ' · Un piso: ' + (d.unpiso ? label('unpiso',d.unpiso) : '—'),
